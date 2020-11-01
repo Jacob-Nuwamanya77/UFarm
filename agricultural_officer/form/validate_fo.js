@@ -47,9 +47,14 @@ const validate = () => {
 
 	//Check name input field.
 	const nameInput = form.name;
-	const nameRegex = /^[a-zA-Z]+$/;
+	const nameRegex = /^[a-zA-Z]{5,50}$/;
 	if (!nameRegex.test(nameInput.value)) {
-		insertAfter(errorMessage("Only alphabets accepted."), nameInput);
+		insertAfter(
+			errorMessage(
+				"Only alphabets accepted.Length at least 5 characters"
+			),
+			nameInput
+		);
 		alertError(nameInput);
 		nameInput.focus();
 		return false;
@@ -62,6 +67,18 @@ const validate = () => {
 		alertError(dobInput);
 		dobInput.focus();
 		return false;
+	} else {
+		let dobYear = new Date(dobInput.value).getFullYear(),
+			currentYear = new Date().getFullYear();
+		if (currentYear - dobYear < 10) {
+			insertAfter(
+				errorMessage("Applicants must be 10 years and above."),
+				dobInput
+			);
+			alertError(dobInput);
+			dobInput.focus();
+			return false;
+		}
 	}
 
 	//Check the gender input.
@@ -90,10 +107,10 @@ const validate = () => {
 
 	//Check the NIN input
 	const ninInput = form.nin;
-	const ninRegex = /^\w{14}$/;
+	const ninRegex = /^\w{13}$/;
 	if (!ninRegex.test(ninInput.value)) {
 		insertAfter(
-			errorMessage("NIN should be 14 characters long."),
+			errorMessage("NIN should be 13 characters long."),
 			ninInput
 		);
 		alertError(ninInput);
