@@ -302,3 +302,7 @@ input[type="submit"]:focus {
 .display-block {
 	display: block;
 }
+
+.phone2 {
+	margin-top: 10px;
+}

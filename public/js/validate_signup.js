@@ -133,58 +133,25 @@ const validate_signup = () => {
 //Function adds new phone field into the DOM.
 const addPhoneSlot = (event) => {
 	event.stopPropagation();
-	let newField = createPhoneSlot();
-	let target = document.getElementsByClassName("phoneContacts")[0]
-		.lastElementChild;
-	insertAfter(newField, target);
+	let phone2 = document.getElementsByClassName("phone2")[0];
+	phone2.classList.remove("display-none");
 	//Remove the add button. Limit functionality to one extra phone number.
-	event.target.style.display = "none";
+	event.target.classList.add("display-none");
 };
 
 //Set handler on the add button.
-let addBtn = document.getElementById("addPhone");
+let addBtn = document.getElementsByClassName("addPhone")[0];
 addBtn.addEventListener("click", addPhoneSlot);
 
 //Function removes phone field from the DOM.
 const removePhoneSlot = (event) => {
 	event.stopPropagation();
-	let src = event.target,
-		targetElement = src.parentNode.parentNode,
-		contactsContainer = document.getElementsByClassName("phoneContacts")[0];
-	contactsContainer.removeChild(targetElement);
+	let phone2 = document.getElementsByClassName("phone2")[0];
+	phone2.classList.add("display-none");
 	//Return the add option when someone removes the second phone field.
-	let addBtn = document.getElementById("addPhone");
-	addBtn.style.display = "inline-block";
+	addBtn.classList.remove("display-none");
 };
 
-//Function creates a new input to receive contact details.
-const createPhoneSlot = () => {
-	//Create div containers to hold the information.
-	let divContainer = document.createElement("div"),
-		divText = document.createElement("div"),
-		divButton = document.createElement("div");
-
-	//Create input tags.
-	let inputText = document.createElement("input"),
-		inputButton = document.createElement("input");
-
-	//Set attributes on divs created.
-	divContainer.className = "flex-row";
-	divContainer.style.marginTop = "10px";
-	divText.className = "row-left";
-	divButton.className = "row-right";
-	//Set attributes on inputs created.
-	inputText.type = "text";
-	inputText.placeholder = "Phone number. (e.g. 0771234567)";
-	inputText.name = "phoneNumber";
-	inputButton.type = "button";
-	inputButton.value = "Remove";
-	inputButton.className = "remove-btn";
-	inputButton.addEventListener("click", removePhoneSlot);
-	//Append the element nodes and return container.
-	divText.appendChild(inputText);
-	divButton.appendChild(inputButton);
-	divContainer.appendChild(divText);
-	divContainer.appendChild(divButton);
-	return divContainer;
-};
+// Set handler on the remove button
+let removeBtn = document.getElementsByClassName("removePhone")[0];
+removeBtn.addEventListener("click", removePhoneSlot);

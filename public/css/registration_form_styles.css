@@ -248,3 +248,7 @@ input[type="submit"]:focus {
 		margin-left: 5%;
 	}
 }
+
+.display-none {
+	display: none;
+}
