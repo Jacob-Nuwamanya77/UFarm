@@ -230,6 +230,8 @@ const addPhoneSlot = (event) => {
 	let target = document.getElementsByClassName("phoneContacts")[0]
 		.lastElementChild;
 	insertAfter(newField, target);
+	//Remove the add button. Limit functionality to one extra phone number.
+	event.target.style.display = "none";
 };
 
 //Set handler on the add button.
@@ -243,6 +245,9 @@ const removePhoneSlot = (event) => {
 		targetElement = src.parentNode.parentNode,
 		contactsContainer = document.getElementsByClassName("phoneContacts")[0];
 	contactsContainer.removeChild(targetElement);
+	//Return the add option when someone removes the second phone field.
+	let addBtn = document.getElementById("addPhone");
+	addBtn.style.display = "inline-block";
 };
 
 //Function creates a new input to receive contact details.
