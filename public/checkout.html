@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CheckOut</title>
+        <link rel="stylesheet" type="text/css" href="css/checkout.css" />
+    </head>
+    <body>
+        <div class="checkout-container">
+            <div class="checkout-image">
+                <img src="images/stall.jpg" />
+            </div>
+            <div class="checkout-form-container">
+                <div class="title-container margin10p">
+                    <div class="logo-container">
+                        <span class="logo-img">
+                            <img src="images/stall.jpg" />
+                        </span>
+                        <span class="title">UFarm</span>
+                    </div>
+                    <div class="description">
+                        <div class="margin10p">FRESH PRODUCE ORDER FORM</div>
+                    </div>
+                </div>
+                <form class="margin30p">
+                    <div class="input-container">
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            name="customerName"
+                        />
+                    </div>
+                    <div class="input-container">
+                        <input
+                            type="text"
+                            placeholder="Product Code"
+                            name="productCode"
+                        />
+                    </div>
+                    <div class="input-container">
+                        <input
+                            type="text"
+                            placeholder="Quantity"
+                            name="quantity"
+                        />
+                    </div>
+                    <div class="input-container">
+                        <input
+                            type="text"
+                            placeholder="Delivery Date"
+                            name="deliveryDate"
+                            onfocus="(this.type='date')"
+                        />
+                    </div>
+                    <div class="submit-container">
+                        <input type="submit" value="Book Now" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
