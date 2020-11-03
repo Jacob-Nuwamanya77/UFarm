@@ -134,9 +134,7 @@ input[type="submit"]:focus {
 .input-inline input {
   border-bottom: 1px solid rgb(200, 200, 200);
 }
-input[name="productCode"] {
-  margin-left: 4%;
-}
+
 .delivery-advise {
   font-size: 85%;
   color: #ffc107;
@@ -144,4 +142,24 @@ input[name="productCode"] {
 }
 .display-none {
   display: none;
+}
+.error {
+  color: red;
+  font-size: 70%;
+}
+.success {
+  color: green;
+  font-size: 70%;
+}
+.insert-here {
+  font-size: 16px;
+  width: 100%;
+  height: 35px;
+  border: none;
+  padding-left: 30px;
+  padding-top: 7px;
+  background-color: rgb(250, 250, 250);
+}
+span.insert-here {
+  margin-left: 4%;
 }
