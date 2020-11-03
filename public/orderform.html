@@ -34,15 +34,20 @@
                     <div class="input-container">
                         <input
                             type="text"
-                            placeholder="Product Code"
-                            name="productCode"
+                            placeholder="Phone Number"
+                            name="phoneNumber"
                         />
                     </div>
-                    <div class="input-container">
+                    <div class="input-inline">
                         <input
                             type="text"
                             placeholder="Quantity"
                             name="quantity"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Product Code"
+                            name="productCode"
                         />
                     </div>
                     <div class="input-container">
@@ -52,6 +57,10 @@
                             name="deliveryDate"
                             onfocus="(this.type='date')"
                         />
+                    </div>
+                    <div class="display-none delivery-advise">
+                        This vendor doesn't deliver. Produce will be prepared
+                        for pickup on selected date.
                     </div>
                     <div class="submit-container">
                         <input type="submit" value="Book Now" />

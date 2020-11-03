@@ -78,14 +78,14 @@
 .margin30p {
   margin-top: 30px;
 }
-
+.margin-4p {
+  margin-left: 4%;
+}
 /*End of default classes*/
 .input-container {
   border-bottom: 1px solid rgb(200, 200, 200);
   width: 70%;
   margin: 20px auto;
-  margin-left: auto;
-  margin-right: auto;
 }
 input[type="text"],
 input[type="date"] {
@@ -122,6 +122,26 @@ input[type="submit"]:focus {
   outline: none;
 }
 .submit-container {
-  margin-top: 60px;
+  margin-top: 40px;
   text-align: center;
+}
+.input-inline {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin: 20px auto;
+}
+.input-inline input {
+  border-bottom: 1px solid rgb(200, 200, 200);
+}
+input[name="productCode"] {
+  margin-left: 4%;
+}
+.delivery-advise {
+  font-size: 85%;
+  color: #ffc107;
+  text-align: center;
+}
+.display-none {
+  display: none;
 }
