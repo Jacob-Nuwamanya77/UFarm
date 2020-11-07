@@ -10,8 +10,8 @@ app.set("views", path.join(__dirname, "/views"));
 
 //Middlewares.
 app.use(express.static("public"));
-app.use("/orders", orderRoutes);
 app.use("/", homeRoutes);
+app.use("/orders", orderRoutes);
 
 // Routes.
 app.listen(3000);
