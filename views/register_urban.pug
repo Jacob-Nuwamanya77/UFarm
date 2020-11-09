@@ -1,0 +1,72 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width,initial-scale=1.0')
+        title UFarm Register UF
+        link(rel='stylesheet' type='text/css' href='css/registration_form_styles.css')
+    body
+        .form-container
+            .text-muted.align-center.form-title
+                | Urban Farmer Registration Form
+            form(name='register_UF' onsubmit='return validate()')
+                section.form-section
+                    .section-title
+                        span.label-number 1
+                        span.text120.text-muted
+                        | Personal Information
+                    .input-group
+                        input(type='text' name='name' placeholder='Name')
+                    .input-group.input-inline
+                        input(type='text' name='dob' placeholder='Date of birth' onfocus="(this.type='date')")
+                    .input-group.input-inline.margin-4pts
+                        select(name='gender')
+                            option(value='default' selected='' disabled='')
+                                | Gender
+                            option(value='male') Male
+                            option(value='female') Female
+                    .input-group.phoneContacts
+                        .flex-row
+                            .input-group.row-left
+                                input(type='text' placeholder='Phone number. (e.g. 0771234567)' name='phoneNumber')
+                            .input-group.row-right
+                                input.generate-btn.addPhone(type='button' value='Add')
+                        .flex-row.phone2.display-none
+                            .input-group.row-left
+                                input(type='text' placeholder='Phone number. (e.g. 0771234567)' name='phoneNumber')
+                            .input-group.row-right
+                                input.remove-btn.removePhone(type='button' value='Remove')
+                    .input-group
+                        input(type='text' name='nin' placeholder='NIN number')
+                section.form-section
+                    .section-title
+                        span.label-number 2
+                        span.text120.text-muted
+                        | Project Information
+                    .input-group
+                        input(type='text' name='ward' placeholder='Ward name')
+                    .input-group
+                        fieldset.text-muted(name='categories')
+                            legend
+                                | Select categories farmer is involved in.
+                            #categories.space-between
+                                span
+                                    input(type='checkbox' name='horticulture')
+                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Horticulture
+                                span
+                                    input(type='checkbox' name='poultry')
+                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Poultry
+                                span
+                                    input(type='checkbox' name='diary')
+                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Diary
+                    .input-group
+                        .flex-row
+                            .input-group.row-left
+                                input(type='text' placeholder='Create Unique ID' name='ID')
+                            .input-group.row-right
+                                input#createID.generate-btn(type='button' value='Create')
+                    .input-group.reg-date
+                        input#regDate(type='date' placeholder='Registration Date' name='registrationDate')
+                    .input-group.submit-container
+                        input#submit(type='submit' value='Register Farmers')
+        script(type='text/javascript' src='js/validate_urban.js')
