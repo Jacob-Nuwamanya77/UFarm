@@ -1,0 +1,88 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title UFarm Register FO
+  link(rel='stylesheet' type='text/css' href='css/registration_form_styles.css')
+.form-container
+  .text-muted.align-center.form-title
+    | Farmer One Registration Form
+  form(name='register_FO' onsubmit='return validate()')
+    section.form-section
+      .section-title
+        span.label-number 1
+        span.text120.text-muted
+          | Personal Information
+      .input-group
+        input(type='text' name='name' placeholder='Name')
+      .input-group.input-inline
+        input(type='text' name='dob' placeholder='Date of birth' onfocus="(this.type='date')")
+      .input-group.input-inline.margin-4pts
+        select(name='gender')
+          option(value='default' selected='' disabled='')
+            | Gender
+          option(value='male') Male
+          option(value='female') Female
+      .input-group
+        input(type='text' name='phoneNumber' placeholder='Phone number. (e.g. 0771234567)')
+      .input-group
+        input(type='text' name='nin' placeholder='NIN number')
+    section.form-section
+      .section-title
+        span.label-number 2
+        span.text120.text-muted
+          | Project Information
+      .input-group
+        fieldset.text-muted(name='divisions')
+          legend Choose ward to represent
+          .space-between
+            span
+              input(type='radio' name='ward' value='1')
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;W-1
+            span
+              input(type='radio' name='ward' value='2')
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;W-2
+            span
+              input(type='radio' name='ward' value='3')
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;W-3
+            span
+              input(type='radio' name='ward' value='4')
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;W-4
+      .input-group
+        fieldset.text-muted(name='categories')
+          legend
+            | Select categories farmer is involved in.
+          #categories.space-between
+            span
+              input(type='checkbox' name='horticulture')
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Horticulture
+            span
+              input(type='checkbox' name='poultry')
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Poultry
+            span
+              input(type='checkbox' name='diary')
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Diary
+      .flex-row
+        .input-group.row-left
+          input(type='text' placeholder='Create Unique ID' name='ID')
+        .input-group.row-right
+          input#createID.generate-btn.margin-4pts(type='button' value='Create')
+      .input-group.reg-date
+        input#regDate(type='date' placeholder='Registration Date' name='registrationDate')
+    section.form-section
+      .section-title
+        span.label-number 3
+        span.text120.text-muted Physical Address
+      .input-group.input-inline
+        select(name='residence')
+          option(value='default' selected='' disabled='')
+            | Residency Type
+          option(value='landlord') Property Owner
+          option(value='tenant') Tenant
+      .input-group.input-inline.margin-4pts
+        input(type='text' name='since' placeholder='Resident Since (choose date)' onfocus="(this.type='date')")
+      .input-group
+        textarea(placeholder='Type here directions to home.' name='directions')
+      .input-group.submit-container
+        input#submit(type='submit' value='Register FO')
+script(type='text/javascript' src='js/validate_fo.js')

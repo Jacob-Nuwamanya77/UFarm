@@ -62,7 +62,6 @@ const validate_signup = () => {
 	}
 	// Check email address input.
 	const emailInput = form.email;
-	console.log(emailInput);
 	const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 	if (!emailRegex.test(emailInput.value)) {
 		insertAfter(
@@ -93,7 +92,7 @@ const validate_signup = () => {
 		}
 	} else {
 		for (let i = 0; i < phoneInput.length; i++) {
-			if (!phoneRegex.test(phoneInput[i].value)) {
+			if (!phoneRegex.test(phoneInput[i].value) && phoneInput[i].value!="") {
 				insertAfter(
 					errorMessage(
 						"Acceptable Ugandan codes; 07, 03, 04. Length MUST be 10."

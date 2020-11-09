@@ -53,7 +53,7 @@ html
 						div(class="description")
 							div(class="margin10p") FRESH PRODUCE ANYTIME
 					div(class="text-muted center-align promo") Sign up for a FREE account today.
-					form(name="signup" onsubmit="return validate_signup()")
+					form(action="/" method="POST" name="signup"	onsubmit="return validate_signup()")
 						section
 							div(class="signup-input input-inline")
 								input(type="text" name="firstName" placeholder="First Name")
@@ -90,9 +90,7 @@ html
 									placeholder="Password")
 						section
 							div(class="submit-container")
-								input(type="submit"
-									id="submit"
-									value="Register")
+								input(type="submit"	id="submit"	value="Register")
 							div(class="prompt-signup text-muted") Already have an account?
 								span
 									a(href="#" id="showSignin") SIGN IN

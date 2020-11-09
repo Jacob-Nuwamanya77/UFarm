@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-//Middlewares.
+// Routes.
 router.get("/", (req, res) => {
-	res.render("orderform");
+  res.render("agric_dash");
 });
 
 module.exports = router;

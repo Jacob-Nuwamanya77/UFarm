@@ -1,0 +1,57 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width,initial-scale=1.0')
+        title UFarm- AO Dashboard
+        link(rel='stylesheet' type='text/css' href='css/dashboard.css')
+        link(rel='stylesheet' type='text/css' href='css/zmdi/css/material-design-iconic-font.min.css')
+    body
+        .container
+            .title AO OVERVIEW
+            .top-container
+                .left-container
+                .right-container
+                    .summary-stats
+                        #stats-newusers.stats
+                            #newuser-icon.stat-icon
+                                span.zmdi.zmdi-accounts-add
+                            .stat-num
+                                div New Farmers
+                                span#total-newusers 1000
+                            .stat-performance
+                                .arrow.up-arrow
+                                .arrow.down-arrow.display-none
+                        #stats-uploads.stats
+                            #upload-icon.stat-icon
+                                span.zmdi.zmdi-cloud-upload
+                            .stat-num
+                                div Monthly uploads
+                                span#total-uploads 1000
+                            .stat-performance
+                                .arrow.up-arrow.display-none
+                                .arrow.down-arrow
+                        #stats-orders.stats
+                            #orders-icon.stat-icon
+                                span.zmdi.zmdi-collection-add
+                            .stat-num
+                                div Monthly Orders
+                                span#total-orders 1000
+                            .stat-performance
+                                .arrow.up-arrow
+                                .arrow.down-arrow.display-none
+            .bottom-container
+                .nav-container
+                    nav.nav
+                        a.link(href='#')
+                            .nav-icon
+                                span.zmdi.zmdi-home.margin30L
+                                .icon-text Home
+                        a(href='#')
+                            .nav-icon
+                                span.zmdi.zmdi-plus.margin10L
+                                .icon-text Register
+                        a(href='#')
+                            .nav-icon
+                                span.zmdi.zmdi-storage.margin30L
+                                .icon-text Records

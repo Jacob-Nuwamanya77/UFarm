@@ -47,7 +47,7 @@ const validate = () => {
 
 	//Check name input field.
 	const nameInput = form.name;
-	const nameRegex = /^[a-zA-Z]{5,50}$/;
+	const nameRegex = /^[a-zA-Z ]{5,50}$/;
 	if (!nameRegex.test(nameInput.value)) {
 		insertAfter(
 			errorMessage(
