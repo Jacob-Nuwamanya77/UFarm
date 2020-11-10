@@ -32,10 +32,13 @@ html
 							span(class="title") UFarm
 						div(class="description")
 							div(class="margin10p") FRESH PRODUCE ANYTIME
-					form(action="/" method="POST")
+					form(action="/"
+						method="POST" 
+						name="signin"
+						onsubmit="return validate_signin()")
 						div(class="input-group margin35p signin-input")
 							i(class="zmdi zmdi-account icons")
-							input(type="text" name="username" placeholder="User Name")
+							input(type="text" name="userName" placeholder="UserName")
 						div(class="input-group margin35p signin-input")
 							i(class="zmdi zmdi-key icons")
 							input(type="password" name="password" placeholder="Password")
@@ -96,3 +99,4 @@ html
 									a(href="#" id="showSignin") SIGN IN
 		script(type="text/javascript" src="js/toggle_log.js")
 		script(type="text/javascript" src="js/validate_signup.js")
+		script(type="text/javascript" src="js/validate_signin.js")
