@@ -131,6 +131,14 @@ const validate = () => {
 
   //Check ward input
   const wardInput = form.ward;
+  // A space is acceptable. To eliminate possible empty string, include in next set.
+  const wardRegex = /^[0-9a-zA-Z]+[0-9a-zA-Z ]+$/;
+  if (!wardRegex.test(wardInput.value)) {
+    insertAfter(errorMessage("Please provide ward value."), wardInput);
+    alertError(wardInput);
+    wardInput.focus();
+    return false;
+  }
 
   //Check categories input.
   const categoryContainer = document.getElementById("categories");

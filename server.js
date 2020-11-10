@@ -6,7 +6,9 @@ require("dotenv").config();
 const app = express();
 
 const homeRoutes = require("./routes/homeRoutes");
-const urbanRoutes = require("./routes/foRoutes");
+const aoRoutes = require("./routes/aoRoutes");
+const foRoutes = require("./routes/foRoutes");
+
 // Express configs.
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "/views"));
@@ -30,6 +32,8 @@ db.on("error", (err) => console.log(err));
 
 // ROUTES.
 app.use("/", homeRoutes);
-app.use("/urban", urbanRoutes);
+app.use("/ao", aoRoutes);
+app.use("/fo", foRoutes);
+
 // Listening on port 3000.
 app.listen(3000);

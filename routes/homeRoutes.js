@@ -19,14 +19,9 @@ router.post("/", async (req, res) => {
       userName: req.body.userName,
       password: req.body.password,
     });
-    user.save().then(
-      () => {
-        res.redirect("/");
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    await user.save(() => {
+      res.redirect("/");
+    });
   } catch (err) {
     console.log({ message: err });
   }

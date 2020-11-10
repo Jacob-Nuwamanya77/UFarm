@@ -4,17 +4,20 @@ html
         meta(charset='utf-8')
         meta(name='viewport' content='width=device-width,initial-scale=1.0')
         title UFarm Register UF
-        link(rel='stylesheet' type='text/css' href='css/registration_form_styles.css')
+        link(rel='stylesheet' type='text/css' href='/css/registration_form_styles.css')
     body
         .form-container
             .text-muted.align-center.form-title
                 | Urban Farmer Registration Form
-            form(name='register_UF' onsubmit='return validate()')
+            form(name='register_UF'
+                onsubmit='return validate()'
+                method="POST"
+                action="/fo/register")
                 section.form-section
                     .section-title
                         span.label-number 1
                         span.text120.text-muted
-                        | Personal Information
+                        |&nbsp; Personal Information
                     .input-group
                         input(type='text' name='name' placeholder='Name')
                     .input-group.input-inline
@@ -42,7 +45,7 @@ html
                     .section-title
                         span.label-number 2
                         span.text120.text-muted
-                        | Project Information
+                        |&nbsp; Project Information
                     .input-group
                         input(type='text' name='ward' placeholder='Ward name')
                     .input-group
@@ -69,4 +72,4 @@ html
                         input#regDate(type='date' placeholder='Registration Date' name='registrationDate')
                     .input-group.submit-container
                         input#submit(type='submit' value='Register Farmers')
-        script(type='text/javascript' src='js/validate_urban.js')
+        script(type='text/javascript' src='/js/validate_urban.js')
