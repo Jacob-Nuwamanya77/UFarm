@@ -38,7 +38,7 @@ html
 						onsubmit="return validate_signin()")
 						div(class="input-group margin35p signin-input")
 							i(class="zmdi zmdi-account icons")
-							input(type="text" name="userName" placeholder="UserName")
+							input(type="text" name="username" placeholder="UserName")
 						div(class="input-group margin35p signin-input")
 							i(class="zmdi zmdi-key icons")
 							input(type="password" name="password" placeholder="Password")
@@ -56,12 +56,12 @@ html
 						div(class="description")
 							div(class="margin10p") FRESH PRODUCE ANYTIME
 					div(class="text-muted center-align promo") Sign up for a FREE account today.
-					form(action="/" method="POST" name="signup"	onsubmit="return validate_signup()")
+					form(action="/signup" method="POST" name="signup"	onsubmit="return validate_signup()")
 						section
 							div(class="signup-input input-inline")
-								input(type="text" name="firstName" placeholder="First Name")
+								input(type="text" name="firstname" placeholder="First Name")
 							div(class="signup-input input-inline margin-4pts")
-								input(type="text" name="lastName" placeholder="Last Name")
+								input(type="text" name="lastname" placeholder="Last Name")
 							div(class="signup-input")
 								input(type="text" name="email" placeholder="Email Address")
 							div(class="signup-input phoneContacts")
@@ -69,7 +69,7 @@ html
 									div(class="row-left")
 										input(type="text" 
 											placeholder="Phone number. (e.g. 0771234567)"
-											name="phoneNumber")
+											name="phonenumber")
 									div(class="row-right")
 										input(type="button"
 											value="Add"
@@ -78,14 +78,14 @@ html
 									div(class="row-left")
 										input(type="text"
 											placeholder="Phone number. (e.g. 0771234567)"
-											name="phoneNumber")
+											name="phonenumber")
 									div(class="row-right")
 										input(type="button"
 											value="Remove"
 											class="remove-btn removePhone")
 							div(class="signup-input")
 								input(type="text"
-									name="userName"
+									name="username"
 									placeholder="User Name")
 							div(class="signup-input")
 								input(type="password"

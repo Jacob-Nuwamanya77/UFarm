@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const passportLocalMongoose = require("passport-local-mongoose");
 
 // Create a schema for farmer one.
 const urbanFarmerSchema = mongoose.Schema({
@@ -14,7 +15,7 @@ const urbanFarmerSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  phoneNumber: {
+  phonenumber: {
     type: Array,
     required: true,
   },
@@ -38,15 +39,19 @@ const urbanFarmerSchema = mongoose.Schema({
     type: String,
     default: "off",
   },
-  ID: {
+  username: {
     type: String,
     required: true,
+    unique: true,
   },
-  registrationDate: {
+  registrationdate: {
     type: String,
     required: true,
   },
 });
 
+// Plugin passport.
+urbanFarmerSchema.plugin(passportLocalMongoose);
+
 // Export a model to create documents.
-module.exports = mongoose.model("urbanfarmer", urbanFarmerSchema);
+module.exports = mongoose.model("UrbanFarmer", urbanFarmerSchema);

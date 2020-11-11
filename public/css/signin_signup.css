@@ -1,132 +1,132 @@
 * {
-	box-sizing: border-box;
-	font-family: "Roboto";
+  box-sizing: border-box;
+  font-family: "Roboto";
 }
 @font-face {
-	src: url("Roboto-Regular.ttf");
-	font-family: "Roboto";
+  src: url("Roboto-Regular.ttf");
+  font-family: "Roboto";
 }
 .home-container {
-	width: 960px;
-	margin-right: auto;
-	margin-left: auto;
-	display: flex;
-	flex-direction: row;
+  width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
 }
 @media (max-width: 960px) {
-	.home-container {
-		width: 100%;
-	}
+  .home-container {
+    width: 100%;
+  }
 }
 
 .left-container {
-	width: 50%;
-	position: relative;
+  width: 50%;
+  position: relative;
 }
 .right-container {
-	width: 50%;
+  width: 50%;
 }
 .sub-container {
-	width: 100%;
-	height: 600px;
-	margin-right: auto;
-	margin-left: auto;
-	padding: 10px 20px 20px 20px;
-	border: 1px solid rgb(200, 200, 200);
+  width: 100%;
+  height: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px 20px 20px 20px;
+  border: 1px solid rgb(200, 200, 200);
 }
 .logo-img {
-	display: inline-block;
-	width: 50px;
-	height: 50px;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
 }
 .logo-img img {
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-	object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 .logo-container {
-	width: 30%;
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 }
 
 .title {
-	color: #1abc9c;
-	font-size: 130%;
-	font-weight: bold;
-	position: absolute;
-	top: 15px;
-	margin-left: 10px;
+  color: #1abc9c;
+  font-size: 130%;
+  font-weight: bold;
+  position: absolute;
+  top: 15px;
+  margin-left: 10px;
 }
 
 .description {
-	word-spacing: 5px;
-	text-align: center;
-	font-size: 130%;
-	font-weight: bold;
-	color: rgb(200, 200, 200);
+  word-spacing: 5px;
+  text-align: center;
+  font-size: 130%;
+  font-weight: bold;
+  color: rgb(200, 200, 200);
 }
 .input-group {
-	border-bottom: 1px solid rgb(200, 200, 200);
-	padding-left: 3%;
+  border-bottom: 1px solid rgb(200, 200, 200);
+  padding-left: 3%;
 }
 .prompt-signup {
-	text-align: center;
-	font-size: 90%;
-	margin-bottom: 10px;
+  text-align: center;
+  font-size: 90%;
+  margin-bottom: 10px;
 }
 .prompt-signup a {
-	text-decoration: none;
-	color: #1abc9c;
-	font-size: 100%;
-	margin-left: 5px;
+  text-decoration: none;
+  color: #1abc9c;
+  font-size: 100%;
+  margin-left: 5px;
 }
 .prompt-signup a:hover {
-	color: blue;
+  color: blue;
 }
 
 /*
 	Default classes to set styles.
 */
 .margin35p {
-	margin-top: 35px;
-	margin-bottom: 35px;
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
 .margin20p {
-	margin-top: 20px;
-	margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .margin10p {
-	margin-bottom: 10px;
-	margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .margin-4pts {
-	margin-left: 4%;
+  margin-left: 4%;
 }
 
 .text-muted {
-	color: rgb(100, 100, 100);
+  color: rgb(100, 100, 100);
 }
 .icons {
-	color: rgb(200, 200, 200);
-	transform: scale(1.4);
+  color: rgb(200, 200, 200);
+  transform: scale(1.4);
 }
 .error {
-	color: red;
-	font-size: 70%;
+  color: red;
+  font-size: 70%;
 }
 .success {
-	color: green;
-	font-size: 70%;
+  color: green;
+  font-size: 70%;
 }
 .center-align {
-	text-align: center;
+  text-align: center;
 }
 .promo {
-	font-size: 85%;
-	margin-bottom: 20px;
+  font-size: 85%;
+  margin-bottom: 20px;
 }
 
 /*End of Default classes.*/
@@ -134,175 +134,175 @@
 /*Form and Form elements styles.*/
 input[type="text"],
 input[type="password"] {
-	font-size: 16px;
-	height: 35px;
-	border: none;
+  font-size: 16px;
+  height: 35px;
+  border: none;
 }
 
 .signin-input input[type="text"],
 .signin-input input[type="password"] {
-	margin-left: 2%;
-	padding-left: 20px;
+  margin-left: 2%;
+  padding-left: 20px;
 }
 .signup-input input[type="text"],
 .signup-input input[type="password"] {
-	width: 100%;
-	padding-left: 10px;
-	background-color: rgb(245, 245, 245);
+  width: 100%;
+  padding-left: 10px;
+  background-color: rgb(245, 245, 245);
 }
 
 .signin-input input[type="text"] {
-	width: 93%;
+  width: 93%;
 }
 .signin-input input[type="password"] {
-	width: 92%;
+  width: 92%;
 }
 input[type="text"]:focus,
 input[type="password"]:focus,
 select:focus,
 textarea:focus {
-	background-color: rgb(254, 254, 254);
-	z-index: 1;
-	box-shadow: 4px 4px 5px rgb(80, 80, 80);
-	outline: 0.5px solid rgb(35, 199, 188);
+  background-color: rgb(254, 254, 254);
+  z-index: 1;
+  box-shadow: 4px 4px 5px rgb(80, 80, 80);
+  outline: 0.5px solid rgb(35, 199, 188);
 }
 
 input[type="submit"] {
-	height: 35px;
-	width: 100%;
-	font-size: 18px;
-	color: white;
-	border: none;
-	background-color: #1abc9c;
+  height: 35px;
+  width: 100%;
+  font-size: 18px;
+  color: white;
+  border: none;
+  background-color: #1abc9c;
 }
 
 input[type="submit"]:hover {
-	transform: scale(0.9);
-	box-shadow: 2px 2px 4px rgb(100, 100, 100);
-	cursor: pointer;
+  transform: scale(0.9);
+  box-shadow: 2px 2px 4px rgb(100, 100, 100);
+  cursor: pointer;
 }
 input[type="submit"]:focus {
-	outline: none;
+  outline: 1px solid rgb(100, 100, 100);
 }
 .submit-container {
-	margin-top: 30px;
-	margin-bottom: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 /*Specific to the sign up page*/
 .signup-input {
-	margin-top: 10px;
-	margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .input-inline {
-	width: 48%;
-	float: left;
+  width: 48%;
+  float: left;
 }
 /*
 	For small devices make input-inline and gender block level
 */
 @media (max-width: 500px) {
-	.input-inline {
-		display: inline-block;
-		width: 100%;
-	}
-	.margin-4pts {
-		margin-left: auto;
-	}
+  .input-inline {
+    display: inline-block;
+    width: 100%;
+  }
+  .margin-4pts {
+    margin-left: auto;
+  }
 }
 .signup-input:not(.input-inline) {
-	width: 100%;
-	display: inline-block;
+  width: 100%;
+  display: inline-block;
 }
 
 .generate-btn {
-	font-size: 15px;
-	height: 35px;
-	width: 80px;
-	border: none;
-	background-color: rgb(35, 199, 188);
-	color: white;
+  font-size: 15px;
+  height: 35px;
+  width: 80px;
+  border: none;
+  background-color: rgb(35, 199, 188);
+  color: white;
 }
 .generate-btn:hover {
-	box-shadow: 2px 2px 4px rgb(100, 100, 100);
+  box-shadow: 2px 2px 4px rgb(100, 100, 100);
 }
 .generate-btn:focus {
-	outline: none;
+  outline: 1px solid rgb(100, 100, 100);
 }
 
 .remove-btn {
-	font-size: 15px;
-	height: 35px;
-	width: 80px;
-	border: none;
-	color: rgb(100, 100, 100);
-	background-color: rgb(254, 254, 254);
+  font-size: 15px;
+  height: 35px;
+  width: 80px;
+  border: none;
+  color: rgb(100, 100, 100);
+  background-color: rgb(254, 254, 254);
 }
 .remove-btn:hover {
-	box-shadow: 2px 2px 4px rgb(100, 100, 100);
+  box-shadow: 2px 2px 4px rgb(100, 100, 100);
 }
 .remove-btn:focus {
-	outline: 1px solid rgb(100, 100, 100);
+  outline: 1px solid rgb(100, 100, 100);
 }
 
 .flex-row {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 .row-left {
-	min-width: 60%;
+  min-width: 60%;
 }
 .row-right {
-	width: 10%;
-	margin-left: 4%;
+  width: 10%;
+  margin-left: 4%;
 }
 @media (max-width: 600px) {
-	.row-left {
-		min-width: 70%;
-	}
-	.row-right {
-		margin-left: 5%;
-	}
+  .row-left {
+    min-width: 70%;
+  }
+  .row-right {
+    margin-left: 5%;
+  }
 }
 
 /*For the image on the left*/
 
 .app-title {
-	color: #1abc9c;
-	font-size: 130%;
-	font-weight: bold;
+  color: #1abc9c;
+  font-size: 130%;
+  font-weight: bold;
 }
 .theme-container {
-	width: 480px;
-	height: 600px;
+  width: 480px;
+  height: 600px;
 }
 
 .theme-container img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .theme-text {
-	width: 450px;
-	height: 170px;
-	position: absolute;
-	bottom: 100px;
-	padding-left: 10px;
+  width: 450px;
+  height: 170px;
+  position: absolute;
+  bottom: 100px;
+  padding-left: 10px;
 }
 
 .theme-para {
-	color: rgb(50, 50, 50);
-	font-size: 120%;
-	word-spacing: 4px;
+  color: rgb(50, 50, 50);
+  font-size: 120%;
+  word-spacing: 4px;
 }
 
 .display-none {
-	display: none;
+  display: none;
 }
 .display-block {
-	display: block;
+  display: block;
 }
 
 .phone2 {
-	margin-top: 10px;
+  margin-top: 10px;
 }

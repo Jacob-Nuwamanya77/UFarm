@@ -11,28 +11,21 @@ router.get("/register", (req, res) => {
   res.render("register_urban");
 });
 
+// Create new user account.
 router.post("/register", async (req, res) => {
   try {
-    // Construct document object.
-    const urbanFarmer = new UrbanFarmer({
-      name: req.body.name,
-      dob: req.body.dob,
-      gender: req.body.gender,
-      phoneNumber: req.body.phoneNumber,
-      nin: req.body.nin,
-      ward: req.body.ward,
-      horticulture: req.body.horticulture,
-      poultry: req.body.poultry,
-      diary: req.body.diary,
-      ID: req.body.ID,
-      registrationDate: req.body.registrationDate,
-    });
-
-    await urbanFarmer.save(() => {
-      res.redirect("/fo");
+    let user = UrbanFarmer(req.body);
+    await UrbanFarmer.register(user, req.body.password, (err) => {
+      if (err) {
+        console.log({ message: err });
+        res.status(400).send("Something went wrong with registration.");
+      } else {
+        res.redirect("/fo");
+      }
     });
   } catch (err) {
     console.log({ message: err });
+    res.status(400).send("Something went wrong with registration.");
   }
 });
 

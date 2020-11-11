@@ -89,33 +89,26 @@ const validate = () => {
   }
 
   //Check phone number input.
-  const phoneInput = form.phoneNumber;
+  const phoneInput = form.phonenumber;
   const phoneRegex = /^0[3,4,7][0-9]{8}$/;
-  if (!phoneInput.length) {
-    if (!phoneRegex.test(phoneInput.value)) {
-      insertAfter(
-        errorMessage(
-          "Acceptable Ugandan codes; 07, 03, 04. Length MUST be 10."
-        ),
-        phoneInput
-      );
-      alertError(phoneInput);
-      phoneInput.focus();
-      return false;
-    }
+  // First phone field is a MUST. The second is optional.
+  if (!phoneRegex.test(phoneInput[0].value)) {
+    insertAfter(
+      errorMessage("Acceptable Ugandan codes; 07,03,04. Length MUST be 10."),
+      phoneInput[0]
+    );
+    alertError(phoneInput[0]);
+    phoneInput[0].focus();
+    return false;
   } else {
-    for (let i = 0; i < phoneInput.length; i++) {
-      if (!phoneRegex.test(phoneInput[i].value) && phoneInput[i].value != "") {
-        insertAfter(
-          errorMessage(
-            "Acceptable Ugandan codes; 07, 03, 04. Length MUST be 10."
-          ),
-          phoneInput[i]
-        );
-        alertError(phoneInput[i]);
-        phoneInput[i].focus();
-        return false;
-      }
+    if (!phoneRegex.test(phoneInput[1].value) && phoneInput[1].value != "") {
+      insertAfter(
+        errorMessage("Acceptable Ugandan codes; 07,03,04. Length MUST be 10."),
+        phoneInput[0]
+      );
+      alertError(phoneInput[0]);
+      phoneInput[1].focus();
+      return false;
     }
   }
 
@@ -160,14 +153,22 @@ const validate = () => {
   }
 
   //Check unique id input.
-  const uniqueIdInput = form.ID;
-  const uniqueRegex = /^UF-[0-9]{10}$/;
-  if (!uniqueRegex.test(uniqueIdInput.value)) {
+  const usernameInput = form.username;
+  const usernameRegex = /^UF-[0-9]{10}$/;
+  if (!usernameRegex.test(usernameInput.value)) {
     insertAfter(
       errorMessage("Click create button to create a unique ID"),
-      uniqueIdInput
+      usernameInput
     );
-    alertError(uniqueIdInput);
+    alertError(usernameInput);
+    return false;
+  }
+
+  // Check password to input.
+  const passwordInput = form.password;
+  if (passwordInput.value == "") {
+    insertAfter(errorMessage("Please choose password."), passwordInput);
+    alertError(passwordInput);
     return false;
   }
 };
@@ -175,50 +176,26 @@ const validate = () => {
 //Function creates a unique farmer ID.
 const createID = () => {
   const form = document.register_UF;
-  const inputId = form.ID;
+  const inputId = form.username;
   //Check phone number input.
-  let phoneInput = form.phoneNumber;
+  let phoneInput = form.phonenumber;
   let phoneRegex = /^0[3,4,7][0-9]{8}$/;
-  if (!phoneInput.length) {
-    if (!phoneRegex.test(phoneInput.value)) {
-      insertAfter(
-        errorMessage("Phone required for unique ID. Scroll up to fill."),
-        inputId
-      );
-      alertError(inputId);
-      inputId.focus();
-      insertAfter(
-        errorMessage(
-          "Acceptable Ugandan codes; 07, 03, 04. Length MUST be 10."
-        ),
-        phoneInput
-      );
-      alertError(phoneInput);
-      return false;
-    } else {
-      let newId = `UF-${phoneInput.value}`;
-      inputId.value = newId;
-    }
+  if (!phoneRegex.test(phoneInput[0].value)) {
+    insertAfter(
+      errorMessage("Phone required for unique ID. Scroll up to fill."),
+      inputId
+    );
+    alertError(inputId);
+    inputId.focus();
+    insertAfter(
+      errorMessage("Acceptable Ugandan codes; 07, 03, 04. Length MUST be 10."),
+      phoneInput[0]
+    );
+    alertError(phoneInput[0]);
+    return false;
   } else {
-    if (!phoneRegex.test(phoneInput[0].value)) {
-      insertAfter(
-        errorMessage("Phone required for unique ID. Scroll up to fill."),
-        inputId
-      );
-      alertError(inputId);
-      inputId.focus();
-      insertAfter(
-        errorMessage(
-          "Acceptable Ugandan codes; 07, 03, 04. Length MUST be 10."
-        ),
-        phoneInput[0]
-      );
-      alertError(phoneInput[0]);
-      return false;
-    } else {
-      let newId = `UF-${phoneInput[0].value}`;
-      inputId.value = newId;
-    }
+    let newId = `UF-${phoneInput[0].value}`;
+    inputId.value = newId;
   }
 };
 //Set handler on the create button to generate unique ID.

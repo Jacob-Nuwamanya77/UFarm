@@ -7,7 +7,7 @@ const validate_signin = () => {
   const form = document.signin;
 
   //Check user name input.
-  const userNameInput = form.userName;
+  const userNameInput = form.username;
   const userNameRegex = /^\w+$/;
   if (!userNameRegex.test(userNameInput.value)) {
     insertAfter(

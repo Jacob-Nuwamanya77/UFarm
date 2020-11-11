@@ -31,12 +31,12 @@ html
                     .input-group.phoneContacts
                         .flex-row
                             .input-group.row-left
-                                input(type='text' placeholder='Phone number. (e.g. 0771234567)' name='phoneNumber')
+                                input(type='text' placeholder='Phone number. (e.g. 0771234567)' name='phonenumber')
                             .input-group.row-right
                                 input.generate-btn.addPhone(type='button' value='Add')
                         .flex-row.phone2.display-none
                             .input-group.row-left
-                                input(type='text' placeholder='Phone number. (e.g. 0771234567)' name='phoneNumber')
+                                input(type='text' placeholder='Phone number. (e.g. 0771234567)' name='phonenumber')
                             .input-group.row-right
                                 input.remove-btn.removePhone(type='button' value='Remove')
                     .input-group
@@ -47,7 +47,7 @@ html
                         span.text120.text-muted
                         |&nbsp; Project Information
                     .input-group
-                        input(type='text' name='ward' placeholder='Ward name')
+                        input(type='text' name='ward' placeholder='Ward Name')
                     .input-group
                         fieldset.text-muted(name='categories')
                             legend
@@ -65,11 +65,13 @@ html
                     .input-group
                         .flex-row
                             .input-group.row-left
-                                input(type='text' placeholder='Create Unique ID' name='ID')
+                                input(type='text' placeholder='Create Unique ID' name='username')
                             .input-group.row-right
                                 input#createID.generate-btn(type='button' value='Create')
+                    .input-group
+                        input(type='password' name='password' placeholder='Password')
                     .input-group.reg-date
-                        input#regDate(type='date' placeholder='Registration Date' name='registrationDate')
+                        input#regDate(type='date' placeholder='Registration Date' name='registrationdate')
                     .input-group.submit-container
                         input#submit(type='submit' value='Register Farmers')
         script(type='text/javascript' src='/js/validate_urban.js')

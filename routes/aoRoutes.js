@@ -1,5 +1,4 @@
 const express = require("express");
-const farmerOne = require("../models/farmerOne");
 const router = express.Router();
 const FarmerOne = require("../models/farmerOne");
 
@@ -14,29 +13,18 @@ router.get("/register", (req, res) => {
 
 router.post("/register", async (req, res) => {
   try {
-    // Construct document object.
-    const farmerOne = new FarmerOne({
-      name: req.body.name,
-      dob: req.body.dob,
-      gender: req.body.gender,
-      phoneNumber: req.body.phoneNumber,
-      nin: req.body.nin,
-      ward: req.body.ward,
-      horticulture: req.body.horticulture,
-      poultry: req.body.poultry,
-      diary: req.body.diary,
-      ID: req.body.ID,
-      registrationDate: req.body.registrationDate,
-      residence: req.body.residence,
-      since: req.body.since,
-      directions: req.body.directions,
-    });
-
-    await farmerOne.save(() => {
-      res.redirect("/ao");
+    let user = FarmerOne(req.body);
+    await FarmerOne.register(user, req.body.password, (err) => {
+      if (err) {
+        console.log({ message: err });
+        res.status(400).send("Something went wrong with registration.");
+      } else {
+        res.redirect("/ao");
+      }
     });
   } catch (err) {
     console.log({ message: err });
+    res.status(400).send("Something went wrong with registration.");
   }
 });
 
