@@ -44,6 +44,12 @@ const show = (event) => {
   // Prevent default anchor behaviour.
   event.preventDefault();
 
+  // Access the display element and remove elements if any for clean start.
+  let display = document.getElementsByClassName("display")[0];
+  if (display.children.length > 0) {
+    display.removeChild(display.children[0]);
+  }
+
   // Access the children of each table row.
   let tablerow = event.target.parentNode.parentNode.children;
 
@@ -212,8 +218,7 @@ const show = (event) => {
   let closeIcon = divParent.getElementsByClassName("close-icon")[0];
   closeIcon.addEventListener("click", close);
 
-  // Access DOM element to attach new information onto.
-  let display = document.getElementsByClassName("display")[0];
+  // Append information on the display element.
   display.appendChild(divParent);
 
   // Remove the display none class to show new information.

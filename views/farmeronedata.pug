@@ -7,7 +7,7 @@ html
         link(rel="stylesheet", href="/css/fodatatable.css")
     body
         .container
-            .title REGISTERED FARMERONES.
+            .title REGISTERED FARMER ONES.
             div.display.display-none            
             if farmers.length
                 table.table.table-striped
@@ -29,8 +29,7 @@ html
                             th
                     tbody
                         each farmer in farmers
-                            tr
-
+                            tr(data-id=`${farmer._id}`)
                                 td #{farmer.name}
                                 td #{farmer.username}
                                 td.center-align #{farmer.ward}
