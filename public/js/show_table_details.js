@@ -225,10 +225,14 @@ const show = (event) => {
   display.classList.remove("display-none");
 };
 
-// Access all elements of the phone icon.
-let detailsLink = document.getElementsByClassName("details");
-
-// Temporarily bind context.
-[].forEach.call(detailsLink, (link) => {
-  link.addEventListener("click", show);
+// Set click handler on the tbody tag to handle all detail clicks.
+let tbody = document.getElementsByTagName("tbody")[0];
+tbody.addEventListener("click", function (event) {
+  event.stopPropagation();
+  let eventSrc = event.target,
+    // Test classes on src for class details. Handle only clicks from details.
+    regex = /details/;
+  if (regex.test(eventSrc.classList.value)) {
+    show(event);
+  }
 });

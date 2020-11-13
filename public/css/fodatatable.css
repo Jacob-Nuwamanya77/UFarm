@@ -33,7 +33,7 @@
 .display {
   z-index: 1;
   position: absolute;
-  left: 200px;
+  left: 240px;
   top: 40px;
   background-color: white;
   height: 500px;
@@ -48,7 +48,8 @@
   width: 100%;
 }
 .title {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   font-size: 130%;
   color: rgb(150, 150, 150);
 }

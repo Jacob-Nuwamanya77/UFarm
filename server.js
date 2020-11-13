@@ -59,7 +59,7 @@ db.on("open", () => console.log("Connected to Mongo"));
 db.on("error", (err) => console.log(err));
 
 // ROUTES.
-app.use("/login", loginRoutes);
+app.use("/", loginRoutes);
 app.use("/ao", aoRoutes);
 app.use("/fo", foRoutes);
 
