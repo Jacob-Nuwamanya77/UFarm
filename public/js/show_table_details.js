@@ -24,17 +24,22 @@ const createNode = (obj) => {
   return node;
 };
 
-// Function appends a collection of child elements to parent
-const appendChildren = (parent, children) => {
-  // Children is an object of nodes to append to parent.
-  for (let prop in children) {
-    parent.appendChild(children[prop]);
+// Construct table row.
+const rowData = (obj) => {
+  if (!obj.children) {
+    return createNode(obj);
+  } else {
+    let parent = createNode(obj);
+    obj.children.forEach((child) => {
+      let childElement = createNode(child);
+      parent.appendChild(childElement);
+    });
+    return parent;
   }
-  // Return parent with child elements.
-  return parent;
 };
+
 // Function closes the vendor display area.
-const closeVendor = (event) => {
+const close = (event) => {
   event.stopPropagation();
   let display = document.getElementsByClassName("phone-details")[0];
   // Remove element from the DOM.
@@ -42,63 +47,134 @@ const closeVendor = (event) => {
 };
 
 // Function handles click on the phone icon.
-const showVendor = (event) => {
+const show = (event) => {
   // Not to trigger clicks on any element in ancenstry.
   event.stopPropagation();
+  // Prevent default anchor behaviour.
+  event.preventDefault();
 
-  // Access the parent node to extract data
-  let parent = document.getElementsByClassName("phone")[0],
-    phone = parent.getAttribute("data-phone"),
-    vendor = parent.getAttribute("data-vendor");
+  // Access the children of each table row.
+  let tablerow = event.target.parentNode.parentNode.children;
+
   // Store the objects representing the elements to create in an array and iterate.
   const elements = [
-    { type: "div", class: "phone-details" },
-    { type: "div", class: "title", content: "Contact Information" },
-    { type: "span", class: "close-icon", content: "X" },
-    { type: "div", class: "vendor-details border-top" },
-    { type: "span", class: "zmdi zmdi-account vendor-icons" },
-    { type: "span", class: "vendor-name", content: `${vendor}` },
-    { type: "div", class: "vendor-details" },
-    { type: "span", class: "zmdi zmdi-local-phone vendor-icons" },
-    { type: "span", class: "vendor-phone", content: `${phone}` },
+    {
+      type: "div",
+      class: "heading",
+      children: [
+        {
+          type: "div",
+          class: "title",
+          content: `${tablerow[0].textContent} Details`,
+        },
+        { type: "span", class: "close-icon", content: "X" },
+      ],
+    },
+    {
+      type: "div",
+      children: [
+        { type: "span", content: "User ID" },
+        { type: "span", content: `${tablerow[1].textContent}` },
+      ],
+    },
+    {
+      type: "div",
+      children: [
+        { type: "span", content: "Ward" },
+        { type: "span", content: `${tablerow[2].textContent}` },
+      ],
+    },
+    {
+      type: "div",
+      children: [
+        { type: "span", content: "Phone" },
+        { type: "span", content: `${tablerow[3].textContent}` },
+      ],
+    },
+    {
+      type: "div",
+      children: [
+        { type: "span", content: "Registration" },
+        { type: "span", content: `${tablerow[4].textContent}` },
+      ],
+    },
+    {
+      type: "div",
+      children: [
+        { type: "span", content: "Activities" },
+        { type: "span", content: `${tablerow[5].textContent}` },
+      ],
+    },
+    {
+      type: "div",
+      children: [
+        { type: "span", content: "Date of birth" },
+        { type: "span", content: `${tablerow[6].textContent}` },
+      ],
+    },
+    {
+      type: "div",
+      children: [
+        { type: "span", content: "Gender" },
+        { type: "span", content: `${tablerow[7].textContent}` },
+      ],
+    },
+    {
+      type: "div",
+      children: [
+        { type: "span", content: "NIN" },
+        { type: "span", content: `${tablerow[8].textContent}` },
+      ],
+    },
+    {
+      type: "div",
+      children: [
+        { type: "span", content: "Residence Type" },
+        { type: "span", content: `${tablerow[9].textContent}` },
+      ],
+    },
+    {
+      type: "div",
+      children: [
+        { type: "span", content: "Resident since" },
+        { type: "span", content: `${tablerow[10].textContent}` },
+      ],
+    },
+    {
+      type: "div",
+      children: [
+        { type: "span", content: "Directions" },
+        { type: "span", content: `${tablerow[11].textContent}` },
+      ],
+    },
   ];
   // Created DOM nodes stored in an array.
   let collection = elements.map((obj) => {
-    return createNode(obj);
+    return rowData(obj);
   });
 
-  // Add click handler on the close button.
-  collection[2].addEventListener("click", closeVendor);
-
-  // Elements in position 4 & 5 are children of 3.
-  let div1 = appendChildren(collection[3], {
-    val1: collection[4],
-    val2: collection[5],
+  // Create parent for all rows.
+  let divParent = document.createElement("div");
+  // Append all into the single element.
+  collection.map((element) => {
+    divParent.appendChild(element);
   });
 
-  // Elements in position 7 & 8 are children of 6.
-  let div2 = appendChildren(collection[6], {
-    val1: collection[7],
-    val2: collection[8],
-  });
+  // Add styling to the divParent.
+  divParent.classList.add("farmer-details");
 
-  // The 2 divs & elements at 1 & 2 are children of element at position 0.
-  let divParent = appendChildren(collection[0], {
-    val1: collection[1],
-    val2: collection[2],
-    div1,
-    div2,
-  });
+  // Access DOM element to attach new information onto.
+  let display = document.getElementsByClassName("display")[0];
+  display.appendChild(divParent);
 
-  // Append this divParent into the DOM.
-  let container = document.getElementsByClassName("order-container")[0];
-  container.appendChild(divParent);
+  // Remove the display none class.
+  display.classList.remove("display-none");
 };
 
 // Access all elements of the phone icon.
-let vendorPhones = document.getElementsByClassName("phone");
+let detailsLink = document.getElementsByClassName("details");
 
 // Temporarily bind context.
-[].forEach.call(vendorPhones, (phone) => {
-  phone.addEventListener("click", showVendor);
+[].forEach.call(detailsLink, (link) => {
+  link.addEventListener("click", show);
 });

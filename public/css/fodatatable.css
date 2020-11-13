@@ -45,11 +45,10 @@
   box-shadow: 2px 2px 10px rgb(150, 150, 150);
 }
 
-.details .title {
+.farmer-details {
   padding-top: 5px;
   padding-left: 13px;
   padding-bottom: 5px;
-  font-size: 90%;
 }
 
 .close-icon {

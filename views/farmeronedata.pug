@@ -8,7 +8,7 @@ html
     body
         .container
             .title REGISTERED FARMERONES.
-            div.display                
+            div.display            
             if farmers.length
                 table.table.table-striped
                     thead.thead-dark
@@ -17,7 +17,7 @@ html
                             th ID
                             th Ward
                             th Phone                            
-                            th RegDate
+                            th Registration
                             th Activities
                             th.display-none DOB
                             th.display-none Gender
@@ -34,15 +34,11 @@ html
                                 td #{farmer.name}
                                 td #{farmer.username}
                                 td.center-align #{farmer.ward}
-                                td #{farmer.phonenumber}                                
+                                td #{farmer.phonenumber}
                                 td #{farmer.registrationdate}
                                 td
-                                    if(farmer.horticulture=="on")
-                                        div Horticulture&nbsp;
-                                    if(farmer.diary=="on")
-                                        div Diary&nbsp;
-                                    if(farmer.poultry=="on")
-                                        div Poultry&nbsp;
+                                    each act in farmer.activities
+                                        |#{act}<br> 
                                 td.display-none #{farmer.dob}
                                 td.display-none #{farmer.gender}
                                 td.display-none #{farmer.nin}
@@ -50,9 +46,9 @@ html
                                 td.display-none #{farmer.since}
                                 td.display-none #{farmer.directions}
                                 td
-                                    a(href='#' id="details") Details
+                                    a(href='#' class="details") Details
                                 td
-                                    a(href="#" id="update") Update                  
+                                    a(href="#" class="update") Update                  
             else
                 p No registrations yet.
         script(src="/js/show_table_details.js")

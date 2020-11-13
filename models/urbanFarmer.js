@@ -27,18 +27,7 @@ const urbanFarmerSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  horticulture: {
-    type: String,
-    default: "off",
-  },
-  poultry: {
-    type: String,
-    default: "off",
-  },
-  diary: {
-    type: String,
-    default: "off",
-  },
+  activities: [{ type: String }],
   username: {
     type: String,
     required: true,
