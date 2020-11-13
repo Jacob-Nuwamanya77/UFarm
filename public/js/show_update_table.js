@@ -1,44 +1,5 @@
-// Function takes an object and creates a DOM node.
-const createNode = (obj) => {
-  // Type is a MUST otherwise can't create an element.
-  if (!obj.type) throw new Error();
-  // Create node, assign values and return.
-  let node = document.createElement(obj.type);
-  for (let prop in obj) {
-    if (prop != "content") {
-      node[prop] = obj[prop];
-    } else {
-      node.appendChild(document.createTextNode(obj.content));
-    }
-  }
-  return node;
-};
-
-// Construct table row.
-const rowData = (obj) => {
-  if (!obj.children) {
-    return createNode(obj);
-  } else {
-    let parent = createNode(obj);
-    obj.children.forEach((child) => {
-      let childElement = createNode(child);
-      parent.appendChild(childElement);
-    });
-    return parent;
-  }
-};
-
-// Function closes the vendor display area.
-const close = (event) => {
-  event.stopPropagation();
-  let display = document.getElementsByClassName("display")[0];
-  display.classList.add("display-none");
-  // Remove element from the DOM.
-  display.removeChild(display.children[0]);
-};
-
 // Function handles click on the phone icon.
-const showDetails = (event) => {
+const showUpdate = (event) => {
   // Not to trigger clicks on any element in ancenstry.
   event.stopPropagation();
   // Prevent default anchor behaviour.
@@ -203,14 +164,12 @@ const showDetails = (event) => {
   let collection = elements.map((obj) => {
     return rowData(obj);
   });
-
   // Create parent for all rows.
   let divParent = document.createElement("div");
   // Append all into the single element.
   collection.map((element) => {
     divParent.appendChild(element);
   });
-
   // Add styling to the divParent.
   divParent.classList.add("farmer-details");
 
@@ -225,14 +184,13 @@ const showDetails = (event) => {
   display.classList.remove("display-none");
 };
 
-// Set click handler on the tbody tag to handle all detail clicks.
-let tbody = document.getElementsByTagName("tbody")[0];
+// Set click handler on the tbody tag to handle all update clicks.
 tbody.addEventListener("click", function (event) {
   event.stopPropagation();
   let eventSrc = event.target,
-    // Test classes on src for class details. Handle only clicks from details.
-    regex = /details/;
+    // Test classes on src for class update. Handle only clicks from update.
+    regex = /update/;
   if (regex.test(eventSrc.classList.value)) {
-    showDetails(event);
+    showUpdate(event);
   }
 });
