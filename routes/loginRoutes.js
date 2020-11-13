@@ -25,7 +25,7 @@ router.post("/signup", async (req, res) => {
       if (err) {
         res.status(400).send("Something went wrong with registration.");
       } else {
-        res.redirect("/");
+        res.redirect("/login");
       }
     });
   } catch (err) {

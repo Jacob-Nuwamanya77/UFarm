@@ -7,10 +7,12 @@ router.get("/", (req, res) => {
   res.render("agric_dash");
 });
 
+// Request registration page.
 router.get("/register", (req, res) => {
   res.render("register_fo");
 });
 
+// Receive registration details.
 router.post("/register", async (req, res) => {
   try {
     let user = FarmerOne(req.body);
@@ -25,6 +27,17 @@ router.post("/register", async (req, res) => {
   } catch (err) {
     console.log({ message: err });
     res.status(400).send("Something went wrong with registration.");
+  }
+});
+
+// Request data on Farmer ones in database.
+router.get("/farmerones", async (req, res) => {
+  try {
+    let data = await FarmerOne.find();
+    res.render("farmeronedata", { farmers: data });
+  } catch (err) {
+    console.log({ message: err });
+    res.status(400).send("Something went wrong with request.");
   }
 });
 

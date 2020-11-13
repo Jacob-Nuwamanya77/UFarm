@@ -37,13 +37,13 @@ passport.use(PublicUser.createStrategy());
 passport.serializeUser(PublicUser.serializeUser());
 passport.deserializeUser(PublicUser.deserializeUser());
 
-passport.use(farmerOne.createStrategy());
-passport.serializeUser(farmerOne.serializeUser());
-passport.deserializeUser(farmerOne.deserializeUser());
+// passport.use(farmerOne.createStrategy());
+// passport.serializeUser(farmerOne.serializeUser());
+// passport.deserializeUser(farmerOne.deserializeUser());
 
-passport.use(urbanFarmer.createStrategy());
-passport.serializeUser(urbanFarmer.serializeUser());
-passport.deserializeUser(urbanFarmer.deserializeUser());
+// passport.use(urbanFarmer.createStrategy());
+// passport.serializeUser(urbanFarmer.serializeUser());
+// passport.deserializeUser(urbanFarmer.deserializeUser());
 
 //Database connections.
 mongoose.connect(process.env.DATABASE, {
@@ -59,7 +59,7 @@ db.on("open", () => console.log("Connected to Mongo"));
 db.on("error", (err) => console.log(err));
 
 // ROUTES.
-app.use("/", loginRoutes);
+app.use("/login", loginRoutes);
 app.use("/ao", aoRoutes);
 app.use("/fo", foRoutes);
 

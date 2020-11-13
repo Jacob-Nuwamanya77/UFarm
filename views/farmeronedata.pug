@@ -1,0 +1,58 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width,initial-scale=1.0")
+        link(rel="stylesheet", href="/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/css/fodatatable.css")
+    body
+        .container
+            .title REGISTERED FARMERONES.
+            div.display                
+            if farmers.length
+                table.table.table-striped
+                    thead.thead-dark
+                        tr
+                            th Name
+                            th ID
+                            th Ward
+                            th Phone                            
+                            th RegDate
+                            th Activities
+                            th.display-none DOB
+                            th.display-none Gender
+                            th.display-none NIN
+                            th.display-none Residence
+                            th.display-none Since
+                            th.display-none Direction
+                            th
+                            th
+                    tbody
+                        each farmer in farmers
+                            tr
+
+                                td #{farmer.name}
+                                td #{farmer.username}
+                                td.center-align #{farmer.ward}
+                                td #{farmer.phonenumber}                                
+                                td #{farmer.registrationdate}
+                                td
+                                    if(farmer.horticulture=="on")
+                                        div Horticulture&nbsp;
+                                    if(farmer.diary=="on")
+                                        div Diary&nbsp;
+                                    if(farmer.poultry=="on")
+                                        div Poultry&nbsp;
+                                td.display-none #{farmer.dob}
+                                td.display-none #{farmer.gender}
+                                td.display-none #{farmer.nin}
+                                td.display-none #{farmer.residence}
+                                td.display-none #{farmer.since}
+                                td.display-none #{farmer.directions}
+                                td
+                                    a(href='#' id="details") Details
+                                td
+                                    a(href="#" id="update") Update                  
+            else
+                p No registrations yet.
+        script(src="/js/show_table_details.js")
