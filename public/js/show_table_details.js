@@ -1,13 +1,3 @@
-//Function inserts element into the DOM after specified target.
-const insertAfter = (newElement, targetElement) => {
-  let parent = targetElement.parentNode;
-  if (parent.lastElementChild == targetElement) {
-    parent.appendChild(newElement);
-  } else {
-    parent.insertBefore(newElement, targetElement.nextElementSibling);
-  }
-};
-
 // Function takes an object and creates a DOM node.
 const createNode = (obj) => {
   // Passed object structure {type,class,content}.
@@ -41,9 +31,10 @@ const rowData = (obj) => {
 // Function closes the vendor display area.
 const close = (event) => {
   event.stopPropagation();
-  let display = document.getElementsByClassName("phone-details")[0];
+  let display = document.getElementsByClassName("display")[0];
+  display.classList.add("display-none");
   // Remove element from the DOM.
-  display.remove();
+  display.removeChild(display.children[0]);
 };
 
 // Function handles click on the phone icon.
@@ -60,7 +51,6 @@ const show = (event) => {
   const elements = [
     {
       type: "div",
-      class: "heading",
       children: [
         {
           type: "div",
@@ -72,79 +62,134 @@ const show = (event) => {
     },
     {
       type: "div",
+      class: "row",
       children: [
-        { type: "span", content: "User ID" },
-        { type: "span", content: `${tablerow[1].textContent}` },
+        { type: "span", content: "User ID", class: "colhead" },
+        {
+          type: "span",
+          content: `${tablerow[1].textContent}`,
+          class: "coldata",
+        },
       ],
     },
     {
       type: "div",
+      class: "row",
       children: [
-        { type: "span", content: "Ward" },
-        { type: "span", content: `${tablerow[2].textContent}` },
+        { type: "span", content: "Ward", class: "colhead" },
+        {
+          type: "span",
+          content: `${tablerow[2].textContent}`,
+          class: "coldata",
+        },
       ],
     },
     {
       type: "div",
+      class: "row",
       children: [
-        { type: "span", content: "Phone" },
-        { type: "span", content: `${tablerow[3].textContent}` },
+        { type: "span", content: "Phone", class: "colhead" },
+        {
+          type: "span",
+          content: `${tablerow[3].textContent}`,
+          class: "coldata",
+        },
       ],
     },
     {
       type: "div",
+      class: "row",
       children: [
-        { type: "span", content: "Registration" },
-        { type: "span", content: `${tablerow[4].textContent}` },
+        { type: "span", content: "Registration", class: "colhead" },
+        {
+          type: "span",
+          content: `${tablerow[4].textContent}`,
+          class: "coldata",
+        },
       ],
     },
     {
       type: "div",
+      class: "row",
       children: [
-        { type: "span", content: "Activities" },
-        { type: "span", content: `${tablerow[5].textContent}` },
+        { type: "span", content: "Activities", class: "colhead" },
+        {
+          type: "span",
+          content: `${tablerow[5].textContent}`,
+          class: "coldata",
+        },
       ],
     },
     {
       type: "div",
+      class: "row",
       children: [
-        { type: "span", content: "Date of birth" },
-        { type: "span", content: `${tablerow[6].textContent}` },
+        { type: "span", content: "Date of birth", class: "colhead" },
+        {
+          type: "span",
+          content: `${tablerow[6].textContent}`,
+          class: "coldata",
+        },
       ],
     },
     {
       type: "div",
+      class: "row",
       children: [
-        { type: "span", content: "Gender" },
-        { type: "span", content: `${tablerow[7].textContent}` },
+        { type: "span", content: "Gender", class: "colhead" },
+        {
+          type: "span",
+          content: `${tablerow[7].textContent}`,
+          class: "coldata",
+        },
       ],
     },
     {
       type: "div",
+      class: "row",
       children: [
-        { type: "span", content: "NIN" },
-        { type: "span", content: `${tablerow[8].textContent}` },
+        { type: "span", content: "NIN", class: "colhead" },
+        {
+          type: "span",
+          content: `${tablerow[8].textContent}`,
+          class: "coldata",
+        },
       ],
     },
     {
       type: "div",
+      class: "row",
       children: [
-        { type: "span", content: "Residence Type" },
-        { type: "span", content: `${tablerow[9].textContent}` },
+        { type: "span", content: "Residence Type", class: "colhead" },
+        {
+          type: "span",
+          content: `${tablerow[9].textContent}`,
+          class: "coldata",
+        },
       ],
     },
     {
       type: "div",
+      class: "row",
       children: [
-        { type: "span", content: "Resident since" },
-        { type: "span", content: `${tablerow[10].textContent}` },
+        { type: "span", content: "Resident since", class: "colhead" },
+        {
+          type: "span",
+          content: `${tablerow[10].textContent}`,
+          class: "coldata",
+        },
       ],
     },
     {
       type: "div",
+      class: "row",
       children: [
-        { type: "span", content: "Directions" },
-        { type: "span", content: `${tablerow[11].textContent}` },
+        { type: "span", content: "Directions", class: "colhead" },
+        {
+          type: "span",
+          content: `${tablerow[11].textContent}`,
+          class: "coldata",
+        },
       ],
     },
   ];
@@ -163,11 +208,15 @@ const show = (event) => {
   // Add styling to the divParent.
   divParent.classList.add("farmer-details");
 
+  // Set click on close icon.
+  let closeIcon = divParent.getElementsByClassName("close-icon")[0];
+  closeIcon.addEventListener("click", close);
+
   // Access DOM element to attach new information onto.
   let display = document.getElementsByClassName("display")[0];
   display.appendChild(divParent);
 
-  // Remove the display none class.
+  // Remove the display none class to show new information.
   display.classList.remove("display-none");
 };
 

@@ -22,11 +22,6 @@
     width: 100%;
   }
 }
-.title {
-  margin-bottom: 20px;
-  font-size: 130%;
-  color: rgb(150, 150, 150);
-}
 .center-align {
   text-align: center;
 }
@@ -34,6 +29,7 @@
   display: none;
 }
 
+/*Styles for the popup that displays individual information in full.  */
 .display {
   z-index: 1;
   position: absolute;
@@ -41,24 +37,28 @@
   top: 40px;
   background-color: white;
   height: 500px;
-  width: 60%;
+  width: 50%;
   box-shadow: 2px 2px 10px rgb(150, 150, 150);
 }
 
 .farmer-details {
   padding-top: 5px;
-  padding-left: 13px;
+  padding-left: 50px;
   padding-bottom: 5px;
+  width: 100%;
+}
+.title {
+  margin-bottom: 20px;
+  font-size: 130%;
+  color: rgb(150, 150, 150);
 }
 
 .close-icon {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 5px;
+  right: 5px;
   width: 25px;
   height: 25px;
-  padding-top: 3px;
-  font-size: 90%;
   text-align: center;
 }
 
@@ -68,4 +68,19 @@
   color: white;
   transform: scale(1.1);
   cursor: pointer;
+}
+.colhead {
+  margin-right: 10px;
+  background-color: rgb(100, 100, 100);
+  width: 30%;
+  padding-left: 10px;
+  color: white;
+}
+.coldata {
+  word-wrap: break-word;
+  max-width: 60%;
+}
+.row {
+  margin-top: 10px;
+  height: 25px;
 }
