@@ -9,7 +9,7 @@ html
     .form-container
       .text-muted.align-center.form-title
         | Farmer One Registration Form
-      form(name='register_FO' onsubmit='return validate()' method='POST' action="/ao/register")
+      form(name='register_FO' method='POST' action="/ao/register")
         section.form-section
           .section-title
             span.label-number 1
@@ -88,5 +88,6 @@ html
           .input-group
             textarea(placeholder='Type here directions to home.' name='directions')
           .input-group.submit-container
-            input#submit(type='submit' value='Register FO')
-    script(type='text/javascript' src='/js/validate_fo.js')
+            input.submit(type='button' value='Register FO')
+    script(type='text/javascript' src='/js/validate_helpers.js')
+    script(type='text/javascript' src='/js/validate.js')

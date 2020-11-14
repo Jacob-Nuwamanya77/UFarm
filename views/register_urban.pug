@@ -10,7 +10,6 @@ html
             .text-muted.align-center.form-title
                 | Urban Farmer Registration Form
             form(name='register_UF'
-                onsubmit='return validate()'
                 method="POST"
                 action="/fo/register")
                 section.form-section
@@ -73,5 +72,6 @@ html
                     .input-group.reg-date
                         input#regDate(type='date' placeholder='Registration Date' name='registrationdate')
                     .input-group.submit-container
-                        input#submit(type='submit' value='Register Farmers')
-        script(type='text/javascript' src='/js/validate_urban.js')
+                        input.submit(type='button' value='Register Farmers')
+        script(type='text/javascript' src='/js/validate_helpers.js')
+        script(type='text/javascript' src='/js/validate.js')
