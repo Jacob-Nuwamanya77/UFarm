@@ -32,32 +32,85 @@ const alertError = (element) => {
 };
 
 //Function creates a unique farmer ID.
-const createID = () => {
-  const form = document.register_UF;
+const createID = (form) => {
+  // Unique ID is stored in db as the username.
   const inputId = form.username;
   //Check phone number input.
   let phoneInput = form.phonenumber;
+  console.log(form);
   let phoneRegex = /^0[3,4,7][0-9]{8}$/;
-  if (!phoneRegex.test(phoneInput[0].value)) {
-    insertAfter(
-      errorMessage("Phone required for unique ID. Scroll up to fill."),
-      inputId
-    );
-    alertError(inputId);
-    inputId.focus();
-    insertAfter(
-      errorMessage("Acceptable Ugandan codes; 07, 03, 04. Length MUST be 10."),
-      phoneInput[0]
-    );
-    alertError(phoneInput[0]);
-    return false;
+  if (!phoneInput.length) {
+    if (!phoneRegex.test(phoneInput.value)) {
+      insertAfter(
+        errorMessage("Phone required for unique ID. Scroll up to fill."),
+        inputId
+      );
+      alertError(inputId);
+      inputId.focus();
+      insertAfter(
+        errorMessage(
+          "Acceptable Ugandan codes; 07, 03, 04. Length MUST be 10."
+        ),
+        phoneInput
+      );
+      alertError(phoneInput);
+      return false;
+    } else {
+      // Read the name on the form. And appropriately allocated the unique ID.
+      let ufRegex = /UF/,
+        foRegex = /FO/;
+      let formName = form.getAttribute("name");
+      let newID;
+      if (ufRegex.test(formName)) {
+        newId = `UF-${phoneInput.value}`;
+        inputId.value = newId;
+      } else if (foRegex.test(formName)) {
+        newId = `FO-${phoneInput.value}`;
+        inputId.value = newId;
+      }
+    }
   } else {
-    let newId = `UF-${phoneInput[0].value}`;
-    inputId.value = newId;
+    if (!phoneRegex.test(phoneInput[0].value)) {
+      insertAfter(
+        errorMessage("Phone required for unique ID. Scroll up to fill."),
+        inputId
+      );
+      alertError(inputId);
+      inputId.focus();
+      insertAfter(
+        errorMessage(
+          "Acceptable Ugandan codes; 07, 03, 04. Length MUST be 10."
+        ),
+        phoneInput[0]
+      );
+      alertError(phoneInput[0]);
+      return false;
+    } else {
+      // Read the name on the form. And appropriately allocated the unique ID.
+      let ufRegex = /UF/,
+        foRegex = /FO/;
+      let formName = form.getAttribute("name");
+      let newID;
+      if (ufRegex.test(formName)) {
+        newId = `UF-${phoneInput[0].value}`;
+        inputId.value = newId;
+      } else if (foRegex.test(formName)) {
+        newId = `FO-${phoneInput[0].value}`;
+        inputId.value = newId;
+      }
+    }
   }
 };
-//Set handler on the create button to generate unique ID.
-document.getElementById("createID").addEventListener("click", createID);
+//Conditionally set handler because it is a shared file, elements might not be present.
+if (document.getElementById("createID")) {
+  document
+    .getElementById("createID")
+    .addEventListener("click", function (event) {
+      let form = event.target.parentNode.parentNode.parentNode.parentNode;
+      // Call the createID function.
+      createID(form);
+    });
+}
 
 //Function adds new phone field into the DOM.
 const addPhoneSlot = (event) => {
@@ -68,19 +121,18 @@ const addPhoneSlot = (event) => {
   event.target.classList.add("display-none");
 };
 
-//Set handler on the add button.
-let addBtn = document.getElementsByClassName("addPhone")[0];
-addBtn.addEventListener("click", addPhoneSlot);
-
-//Function removes phone field from the DOM.
-const removePhoneSlot = (event) => {
-  event.stopPropagation();
-  let phone2 = document.getElementsByClassName("phone2")[0];
-  phone2.classList.add("display-none");
-  //Return the add option when someone removes the second phone field.
-  addBtn.classList.remove("display-none");
-};
-
-// Set handler on the remove button
-let removeBtn = document.getElementsByClassName("removePhone")[0];
-removeBtn.addEventListener("click", removePhoneSlot);
+//Conditionally set handler because it is a shared file, elements might not be present.
+if (document.getElementsByClassName("addPhone")[0]) {
+  let addBtn = document.getElementsByClassName("addPhone")[0];
+  addBtn.addEventListener("click", addPhoneSlot);
+  //Function removes phone field from the DOM.
+  const removePhoneSlot = (event) => {
+    event.stopPropagation();
+    let phone2 = document.getElementsByClassName("phone2")[0];
+    phone2.classList.add("display-none");
+    //Return the add option when someone removes the second phone field.
+    addBtn.classList.remove("display-none");
+  };
+  let removeBtn = document.getElementsByClassName("removePhone")[0];
+  removeBtn.addEventListener("click", removePhoneSlot);
+}

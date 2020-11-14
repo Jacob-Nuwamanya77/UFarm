@@ -204,7 +204,7 @@ fieldset {
   text-align: center;
 }
 
-input[type="submit"] {
+.submit {
   height: 35px;
   width: 50%;
   font-size: 18px;
@@ -216,17 +216,17 @@ input[type="submit"] {
   margin-top: 10px;
 }
 
-input[type="submit"]:hover {
+.submit:hover {
   transform: scale(0.9);
   box-shadow: 2px 2px 4px rgb(100, 100, 100);
 }
-input[type="submit"]:focus {
+.submit:focus {
   transform: scale(1.1);
   outline: 1px solid rgb(100, 100, 100);
 }
 
 @media (max-width: 500px) {
-  input[type="submit"] {
+  .submit {
     height: 30px;
   }
 }

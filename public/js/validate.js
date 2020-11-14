@@ -111,16 +111,20 @@ const validate = (form) => {
     const phoneInput = form.phonenumber;
     const phoneRegex = /^0[3,4,7][0-9]{8}$/;
     // First phone field is a MUST. The second is optional.
-    if (!phoneRegex.test(phoneInput[0].value)) {
-      insertAfter(
-        errorMessage("Acceptable Ugandan codes; 07,03,04. Length MUST be 10."),
-        phoneInput[0]
-      );
-      alertError(phoneInput[0]);
-      phoneInput[0].focus();
-      return false;
+    if (!phoneInput.length) {
+      if (!phoneRegex.test(phoneInput.value)) {
+        insertAfter(
+          errorMessage(
+            "Acceptable Ugandan codes; 07,03,04. Length MUST be 10."
+          ),
+          phoneInput
+        );
+        alertError(phoneInput);
+        phoneInput.focus();
+        return false;
+      }
     } else {
-      if (!phoneRegex.test(phoneInput[1].value) && phoneInput[1].value != "") {
+      if (!phoneRegex.test(phoneInput[0].value)) {
         insertAfter(
           errorMessage(
             "Acceptable Ugandan codes; 07,03,04. Length MUST be 10."
@@ -128,8 +132,23 @@ const validate = (form) => {
           phoneInput[0]
         );
         alertError(phoneInput[0]);
-        phoneInput[1].focus();
+        phoneInput[0].focus();
         return false;
+      } else {
+        if (
+          !phoneRegex.test(phoneInput[1].value) &&
+          phoneInput[1].value != ""
+        ) {
+          insertAfter(
+            errorMessage(
+              "Acceptable Ugandan codes; 07,03,04. Length MUST be 10."
+            ),
+            phoneInput[1]
+          );
+          alertError(phoneInput[1]);
+          phoneInput[1].focus();
+          return false;
+        }
       }
     }
   }
@@ -150,12 +169,29 @@ const validate = (form) => {
   if (form.ward) {
     const wardInput = form.ward;
     // A space is acceptable. To eliminate possible empty string, include in next set.
-    const wardRegex = /^[0-9a-zA-Z]+[0-9a-zA-Z ]+$/;
-    if (!wardRegex.test(wardInput.value)) {
-      insertAfter(errorMessage("Please provide ward value."), wardInput);
-      alertError(wardInput);
-      wardInput.focus();
-      return false;
+    // Ward in some forms is a checklist & in others a single field. Test and apply.
+    if (!wardInput.length) {
+      var wardRegex = /^[0-9a-zA-Z]+[0-9a-zA-Z ]+$/;
+      if (!wardRegex.test(wardInput.value)) {
+        insertAfter(errorMessage("Please provide ward value."), wardInput);
+        alertError(wardInput);
+        wardInput.focus();
+        return false;
+      }
+    } else {
+      for (let i = 0; i < wardInput.length; i++) {
+        if (wardInput[i].checked) {
+          break;
+        } else if (i + 1 == wardInput.length) {
+          insertAfter(
+            errorMessage("Please select a ward to represent."),
+            form.divisions
+          );
+          alertError(form.divisions);
+          wardInput[0].focus();
+          return false;
+        }
+      }
     }
   }
 
@@ -182,8 +218,21 @@ const validate = (form) => {
 
   //Check unique id input.
   if (form.username) {
+    // Read the name on the form. And appropriately allocated the unique ID.
+    let ufRegex = /UF/,
+      foRegex = /FO/,
+      signupRegex = /signup/,
+      signinRegex = /signin/;
+    let formName = form.getAttribute("name");
+    let usernameRegex;
+    if (ufRegex.test(formName)) {
+      usernameRegex = /^UF-[0-9]{10}$/;
+    } else if (foRegex.test(formName)) {
+      usernameRegex = /^FO-[0-9]{10}$/;
+    } else if (signinRegex.test(formName) || signupRegex.test(formName)) {
+      usernameRegex = /^\w+$/;
+    }
     const usernameInput = form.username;
-    const usernameRegex = /^UF-[0-9]{10}$/;
     if (!usernameRegex.test(usernameInput.value)) {
       insertAfter(
         errorMessage("Click create button to create a unique ID"),
@@ -256,7 +305,7 @@ const validate = (form) => {
     }
   }
   // If all is clear trigger submit event on the form.
-  form.submit();
+  form.requestSubmit();
 };
 
 // Bind on all buttons with class submit.

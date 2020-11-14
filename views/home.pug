@@ -43,7 +43,7 @@ html
 							i(class="zmdi zmdi-key icons")
 							input(type="password" name="password" placeholder="Password")
 						div(class="submit-container")
-							input(type="submit" value="Sign in")
+							input.submit(type="button" value="Sign in")
 						div(class="prompt-signup text-muted") Don't have an account?
 							span
 								a(href="#" id="showSignup") SIGN UP
@@ -56,7 +56,7 @@ html
 						div(class="description")
 							div(class="margin10p") FRESH PRODUCE ANYTIME
 					div(class="text-muted center-align promo") Sign up for a FREE account today.
-					form(action="/signup" method="POST" name="signup"	onsubmit="return validate_signup()")
+					form(action="/signup" method="POST" name="signup")
 						section
 							div(class="signup-input input-inline")
 								input(type="text" name="firstname" placeholder="First Name")
@@ -93,10 +93,10 @@ html
 									placeholder="Password")
 						section
 							div(class="submit-container")
-								input(type="submit"	id="submit"	value="Register")
+								input.submit(type="button"	id="submit"	value="Register")
 							div(class="prompt-signup text-muted") Already have an account?
 								span
 									a(href="#" id="showSignin") SIGN IN
-		script(type="text/javascript" src="js/toggle_log.js")
-		script(type="text/javascript" src="js/validate_signup.js")
-		script(type="text/javascript" src="js/validate_signin.js")
+		script(type="text/javascript" src="/js/toggle_log.js")
+		script(type="text/javascript" src="/js/validate_helpers.js")
+		script(type="text/javascript" src="/js/validate.js")

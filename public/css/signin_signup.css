@@ -167,7 +167,7 @@ textarea:focus {
   outline: 0.5px solid rgb(35, 199, 188);
 }
 
-input[type="submit"] {
+.submit {
   height: 35px;
   width: 100%;
   font-size: 18px;
@@ -176,12 +176,12 @@ input[type="submit"] {
   background-color: #1abc9c;
 }
 
-input[type="submit"]:hover {
+.submit:hover {
   transform: scale(0.9);
   box-shadow: 2px 2px 4px rgb(100, 100, 100);
   cursor: pointer;
 }
-input[type="submit"]:focus {
+.submit:focus {
   outline: 1px solid rgb(100, 100, 100);
 }
 .submit-container {
