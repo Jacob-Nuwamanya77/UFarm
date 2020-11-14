@@ -1,9 +1,9 @@
 // Function takes an object and creates a DOM node.
 const createNode = (obj) => {
-  // Type is a MUST otherwise can't create an element.
-  if (!obj.type) throw new Error();
+  // Tag is a MUST otherwise can't create an element.
+  if (!obj.tag) throw new Error();
   // Create node, assign values and return.
-  let node = document.createElement(obj.type);
+  let node = document.createElement(obj.tag);
   for (let prop in obj) {
     if (prop != "content") {
       node[prop] = obj[prop];
@@ -56,143 +56,143 @@ const showDetails = (event) => {
   // Store the objects representing the elements to create in an array and iterate.
   const elements = [
     {
-      type: "div",
+      tag: "div",
       children: [
         {
-          type: "div",
+          tag: "div",
           className: "title",
           content: `${tablerow[0].textContent} Details`,
         },
-        { type: "span", className: "close-icon", content: "X" },
+        { tag: "span", className: "close-icon", content: "X" },
       ],
     },
     {
-      type: "div",
+      tag: "div",
       className: "row",
       children: [
-        { type: "span", content: "User ID", className: "colhead" },
+        { tag: "span", content: "User ID", className: "colhead" },
         {
-          type: "span",
+          tag: "span",
           content: `${tablerow[1].textContent}`,
           className: "coldata",
         },
       ],
     },
     {
-      type: "div",
+      tag: "div",
       className: "row",
       children: [
-        { type: "span", content: "Ward", className: "colhead" },
+        { tag: "span", content: "Ward", className: "colhead" },
         {
-          type: "span",
+          tag: "span",
           content: `${tablerow[2].textContent}`,
           className: "coldata",
         },
       ],
     },
     {
-      type: "div",
+      tag: "div",
       className: "row",
       children: [
-        { type: "span", content: "Phone", className: "colhead" },
+        { tag: "span", content: "Phone", className: "colhead" },
         {
-          type: "span",
+          tag: "span",
           content: `${tablerow[3].textContent}`,
           className: "coldata",
         },
       ],
     },
     {
-      type: "div",
+      tag: "div",
       className: "row",
       children: [
-        { type: "span", content: "Registration", className: "colhead" },
+        { tag: "span", content: "Registration", className: "colhead" },
         {
-          type: "span",
+          tag: "span",
           content: `${tablerow[4].textContent}`,
           className: "coldata",
         },
       ],
     },
     {
-      type: "div",
+      tag: "div",
       className: "row",
       children: [
-        { type: "span", content: "Activities", className: "colhead" },
+        { tag: "span", content: "Activities", className: "colhead" },
         {
-          type: "span",
+          tag: "span",
           content: `${tablerow[5].textContent}`,
           className: "coldata",
         },
       ],
     },
     {
-      type: "div",
+      tag: "div",
       className: "row",
       children: [
-        { type: "span", content: "Date of birth", className: "colhead" },
+        { tag: "span", content: "Date of birth", className: "colhead" },
         {
-          type: "span",
+          tag: "span",
           content: `${tablerow[6].textContent}`,
           className: "coldata",
         },
       ],
     },
     {
-      type: "div",
+      tag: "div",
       className: "row",
       children: [
-        { type: "span", content: "Gender", className: "colhead" },
+        { tag: "span", content: "Gender", className: "colhead" },
         {
-          type: "span",
+          tag: "span",
           content: `${tablerow[7].textContent}`,
           className: "coldata",
         },
       ],
     },
     {
-      type: "div",
+      tag: "div",
       className: "row",
       children: [
-        { type: "span", content: "NIN", className: "colhead" },
+        { tag: "span", content: "NIN", className: "colhead" },
         {
-          type: "span",
+          tag: "span",
           content: `${tablerow[8].textContent}`,
           className: "coldata",
         },
       ],
     },
     {
-      type: "div",
+      tag: "div",
       className: "row",
       children: [
-        { type: "span", content: "Residence Type", className: "colhead" },
+        { tag: "span", content: "Residence tag", className: "colhead" },
         {
-          type: "span",
+          tag: "span",
           content: `${tablerow[9].textContent}`,
           className: "coldata",
         },
       ],
     },
     {
-      type: "div",
+      tag: "div",
       className: "row",
       children: [
-        { type: "span", content: "Resident since", className: "colhead" },
+        { tag: "span", content: "Resident since", className: "colhead" },
         {
-          type: "span",
+          tag: "span",
           content: `${tablerow[10].textContent}`,
           className: "coldata",
         },
       ],
     },
     {
-      type: "div",
+      tag: "div",
       className: "row",
       children: [
-        { type: "span", content: "Directions", className: "colhead" },
+        { tag: "span", content: "Directions", className: "colhead" },
         {
-          type: "span",
+          tag: "span",
           content: `${tablerow[11].textContent}`,
           className: "coldata",
         },
