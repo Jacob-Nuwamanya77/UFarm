@@ -37,7 +37,7 @@ const close = (event) => {
   display.removeChild(display.children[0]);
 };
 
-// Function handles click on the phone icon.
+// Function handles click on details.
 const showDetails = (event) => {
   // Not to trigger clicks on any element in ancenstry.
   event.stopPropagation();
