@@ -5,7 +5,6 @@ html
         meta(name="viewport" content="width=device-width,initial-scale=1.0")
         link(rel="stylesheet", href="/css/bootstrap.min.css")
         link(rel="stylesheet", href="/css/zmdi/css/material-design-iconic-font.min.css")
-        link(rel="stylesheet", href="/css/registration_form_styles.css")
         link(rel="stylesheet", href="/css/fodatatable.css")
     body
         .container
@@ -52,5 +51,38 @@ html
                                     a(href="#" class="update") Update                  
             else
                 p No registrations yet.
+            .farmer-details.display
+                div
+                    .title Jacob Nuwamanya
+                    span.close-icon X
+                div.warning-container
+                    span.zmdi.zmdi-alert-triangle &nbsp;
+                    span.warning-text Warning:&nbsp; About to change details on this profile.
+                form(method="POST")
+                    .input-group.phoneContacts Change phone numbers
+                        .flex-row
+                            .input-group.row-left
+                                input(type="text" name="phonenumber" id="ph1")
+                            .input-group.row-right
+                                input.phonebtn.addPhone(type="button" value="Add")
+                        .flex-row.phone2.display-none
+                            .input-group.row-left
+                                input(type='text' name='phonenumber')
+                            .input-group.row-right
+                                input.phonebtn.removePhone(type='button' value='Remove')
+                    .input-group Select or unselect to update activities involved in.
+                        fieldset(name='categories')
+                            #categories
+                                div
+                                    input(type='checkbox' name="activities" value='horticulture')
+                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Horticulture
+                                div
+                                    input(type='checkbox' name="activities" value='poultry')
+                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Poultry
+                                div
+                                    input(type='checkbox' name="activities" value='diary')
+                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Diary                    
+                    .input-group.submit-container
+                        input.submit(type='button' value='Update Records')
         script(src="/js/show_table_details.js")
         script(src="/js/show_update_table.js")
