@@ -1,175 +1,176 @@
 * {
-	font-family: "Roboto";
-	box-sizing: border-box;
+  font-family: "Roboto";
+  box-sizing: border-box;
 }
 
 @font-face {
-	src: url("Roboto-Regular.ttf");
-	font-family: "Roboto";
+  src: url("Roboto-Regular.ttf");
+  font-family: "Roboto";
 }
 .container {
-	width: 960px;
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 20px;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  position: relative;
 }
 @media (max-width: 960px) {
-	.container {
-		width: 100%;
-	}
+  .container {
+    width: 100%;
+  }
 }
 .top-container {
-	height: 400px;
-	width: 100%;
-	display: flex;
-	flex-direction: row;
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 .left-container {
-	width: 65%;
-	margin-right: 5%;
-	box-shadow: 2px 2px 10px rgb(150, 150, 150);
+  width: 65%;
+  margin-right: 5%;
+  box-shadow: 2px 2px 10px rgb(150, 150, 150);
 }
 .right-container {
-	width: 32%;
+  width: 32%;
 }
 .bottom-container {
-	width: 100%;
-	margin-top: 50px;
+  width: 100%;
+  margin-top: 50px;
 }
 .title {
-	margin-bottom: 20px;
-	font-size: 130%;
-	color: rgb(150, 150, 150);
+  margin-bottom: 20px;
+  font-size: 130%;
+  color: rgb(150, 150, 150);
 }
 /*Style the nav bar and the icons therein*/
 .nav {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	margin-left: auto;
-	margin-right: auto;
-	width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
 }
 .nav a {
-	text-decoration: none;
-	display: block;
-	width: 100px;
-	color: #04bcf5;
+  text-decoration: none;
+  display: block;
+  width: 100px;
+  color: #04bcf5;
 }
 .nav a:hover {
-	color: rgb(11, 188, 73);
-	transform: scale(1.1);
+  color: rgb(11, 188, 73);
+  transform: scale(1.1);
 }
 .nav-icon span {
-	font-size: 200%;
+  font-size: 200%;
 }
 .icon-text {
-	text-align: center;
-	margin-top: 5px;
+  text-align: center;
+  margin-top: 5px;
 }
 /*End of nav bar styles*/
 
 /*Default Classes*/
 .margin10L {
-	margin-left: 38px;
+  margin-left: 38px;
 }
 .margin30L {
-	margin-left: 35px;
+  margin-left: 35px;
 }
 .display-none {
-	display: none;
+  display: none;
 }
 /*End of Default classes*/
 
 /*Styles for the analytics*/
 .summary-stats {
-	width: 100%;
-	height: 300px;
-	padding-left: 20px;
-	padding-top: 3px;
-	color: rgb(150, 150, 150);
-	box-shadow: 2px 2px 10px rgb(150, 150, 150);
+  width: 100%;
+  height: 300px;
+  padding-left: 20px;
+  padding-top: 3px;
+  color: rgb(150, 150, 150);
+  box-shadow: 2px 2px 10px rgb(150, 150, 150);
 }
 .stats {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 .stat-icon {
-	width: 50px;
-	height: 50px;
-	border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
 }
 .stat-icon span {
-	font-size: 200%;
-	color: white;
+  font-size: 200%;
+  color: white;
 }
 .stat-num {
-	width: 150px;
-	margin-left: 10px;
-	text-align: center;
+  width: 150px;
+  margin-left: 10px;
+  text-align: center;
 }
 
 .stat-num span {
-	font-size: 110%;
-	margin-top: 5px;
-	display: block;
-	text-align: center;
+  font-size: 110%;
+  margin-top: 5px;
+  display: block;
+  text-align: center;
 }
 .arrow {
-	margin-left: 10px;
-	margin-top: 10px;
-	border-left: 20px solid white;
-	border-right: 20px solid white;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-left: 20px solid white;
+  border-right: 20px solid white;
 }
 .up-arrow {
-	border-bottom: 20px solid rgb(11, 188, 73);
+  border-bottom: 20px solid rgb(11, 188, 73);
 }
 .down-arrow {
-	border-top: 20px solid red;
+  border-top: 20px solid red;
 }
 
 /*Upload stats*/
 #upload-icon {
-	background-color: #04bcf5;
+  background-color: #04bcf5;
 }
 #upload-icon span {
-	margin-left: 9px;
-	margin-top: 7px;
+  margin-left: 9px;
+  margin-top: 7px;
 }
 #stats-uploads {
-	margin-top: 40px;
+  margin-top: 40px;
 }
 #total-uploads {
-	color: #04bcf5;
+  color: #04bcf5;
 }
 
 /*New user stats*/
 #newuser-icon {
-	background-color: #f7cf07;
+  background-color: #f7cf07;
 }
 #newuser-icon span {
-	margin-left: 7px;
-	margin-top: 9px;
+  margin-left: 7px;
+  margin-top: 9px;
 }
 
 #stats-newusers {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 #total-newusers {
-	color: #f7cf07;
+  color: #f7cf07;
 }
 
 /*Order stats*/
 #stats-orders {
-	margin-top: 50px;
+  margin-top: 50px;
 }
 #orders-icon {
-	background-color: #483d8b;
+  background-color: #483d8b;
 }
 #orders-icon span {
-	margin-left: 12px;
-	margin-top: 7px;
+  margin-left: 12px;
+  margin-top: 7px;
 }
 #total-orders {
-	color: #483d8b;
+  color: #483d8b;
 }
