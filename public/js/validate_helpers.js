@@ -117,6 +117,7 @@ const addPhoneSlot = (event) => {
   event.stopPropagation();
   let phone2 = document.getElementsByClassName("phone2")[0];
   phone2.classList.remove("display-none");
+  phone2.querySelector("input[type='text']").focus();
   //Remove the add button. Limit functionality to one extra phone number.
   event.target.classList.add("display-none");
 };

@@ -15,10 +15,7 @@ const farmerOneSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  phonenumber: {
-    type: String,
-    required: true,
-  },
+  phonenumber: [{ type: String }],
   nin: {
     type: String,
     required: true,

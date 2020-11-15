@@ -9,7 +9,7 @@ html
     body
         .container
             .title REGISTERED FARMER ONES.
-            div.display.display-none            
+            div.display.display-none
             if farmers.length
                 table.table.table-striped
                     thead.thead-dark
@@ -34,7 +34,9 @@ html
                                 td #{farmer.name}
                                 td #{farmer.username}
                                 td.center-align #{farmer.ward}
-                                td #{farmer.phonenumber}
+                                td
+                                    each phone in farmer.phonenumber
+                                        |#{phone}<br>
                                 td #{farmer.registrationdate}
                                 td
                                     each act in farmer.activities
@@ -51,18 +53,19 @@ html
                                     a(href="#" class="update") Update                  
             else
                 p No registrations yet.
-            .farmer-details.display
+            .farmer-details.display.formdisplay.display-none
                 div
-                    .title Jacob Nuwamanya
+                    .title.farmername
                     span.close-icon X
                 div.warning-container
                     span.zmdi.zmdi-alert-triangle &nbsp;
-                    span.warning-text Warning:&nbsp; About to change details on this profile.
-                form(method="POST")
+                    span.warning-text Warning:&nbsp; 
+                    | About to change details on this profile.
+                form(method="POST" name="update")
                     .input-group.phoneContacts Change phone numbers
                         .flex-row
                             .input-group.row-left
-                                input(type="text" name="phonenumber" id="ph1")
+                                input(type="text" name="phonenumber")
                             .input-group.row-right
                                 input.phonebtn.addPhone(type="button" value="Add")
                         .flex-row.phone2.display-none
@@ -81,8 +84,12 @@ html
                                     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Poultry
                                 div
                                     input(type='checkbox' name="activities" value='diary')
-                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Diary                    
-                    .input-group.submit-container
-                        input.submit(type='button' value='Update Records')
-        script(src="/js/show_table_details.js")
-        script(src="/js/show_update_table.js")
+                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Diary
+                    section                    
+                        .input-group.submit-container
+                            input.submit(type='button' value='Update Records')
+        script(type='text/javascript' src="/js/show_table_details.js")
+        script(type='text/javascript' src="/js/show_update_table.js")
+        script(type='text/javascript' src='/js/validate_helpers.js')
+        script(type='text/javascript' src='/js/validate.js')
+        

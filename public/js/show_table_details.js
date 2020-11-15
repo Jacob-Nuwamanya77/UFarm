@@ -166,7 +166,7 @@ const showDetails = (event) => {
       tag: "div",
       className: "row",
       children: [
-        { tag: "span", content: "Residence tag", className: "colhead" },
+        { tag: "span", content: "Residence type", className: "colhead" },
         {
           tag: "span",
           content: `${tablerow[9].textContent}`,
@@ -220,6 +220,11 @@ const showDetails = (event) => {
 
   // Append information on the display element.
   display.appendChild(divParent);
+  // If form display is active, clear it.
+  let formDisplay = document.querySelector("div.formdisplay");
+  if (!/display-none/.test(formDisplay.classList.value)) {
+    formDisplay.classList.add("display-none");
+  }
 
   // Remove the display none class to show new information.
   display.classList.remove("display-none");
