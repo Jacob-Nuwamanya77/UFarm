@@ -62,7 +62,8 @@ html
                     span.warning-text Warning:&nbsp; 
                     | About to change details on this profile.
                 form(method="POST" name="update")
-                    .input-group.phoneContacts Change phone numbers
+                    div  Change phone numbers
+                    .input-group.phoneContacts
                         .flex-row
                             .input-group.row-left
                                 input(type="text" name="phonenumber")
@@ -77,13 +78,13 @@ html
                         fieldset(name='categories')
                             #categories
                                 div
-                                    input(type='checkbox' name="activities" value='horticulture')
+                                    input(type='checkbox' name="activities" value='Horticulture')
                                     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Horticulture
                                 div
-                                    input(type='checkbox' name="activities" value='poultry')
+                                    input(type='checkbox' name="activities" value='Poultry')
                                     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Poultry
                                 div
-                                    input(type='checkbox' name="activities" value='diary')
+                                    input(type='checkbox' name="activities" value='Diary')
                                     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Diary
                     section                    
                         .input-group.submit-container

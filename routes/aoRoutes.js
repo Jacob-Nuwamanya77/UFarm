@@ -41,4 +41,14 @@ router.get("/farmerones", async (req, res) => {
   }
 });
 
+// Update data on Farmer one in database.
+router.post("/farmerones/update", async (req, res) => {
+  try {
+    await FarmerOne.findOneAndUpdate({ _id: req.query.id }, req.body);
+    res.redirect("/ao/farmerones");
+  } catch (err) {
+    console.log({ message: err });
+    res.status(400).send("Something went wrong with request.");
+  }
+});
 module.exports = router;

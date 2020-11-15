@@ -96,6 +96,7 @@
 .row-left {
   min-width: 90%;
 }
+
 .row-right {
   margin-left: 5%;
 }
@@ -146,7 +147,9 @@
   transform: scale(1.1);
   outline: 1px solid rgb(100, 100, 100);
 }
-
+form {
+  margin-top: 20px;
+}
 input[type="text"] {
   width: 100%;
   font-size: 16px;
@@ -166,9 +169,7 @@ input[type="text"]:focus {
 input[type="checkbox"]:focus {
   outline: 0.5px solid rgb(35, 199, 188);
 }
-form {
-  padding-top: 10px;
-}
+
 .warning-container {
   color: #ffc107;
 }

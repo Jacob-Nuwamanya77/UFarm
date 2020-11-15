@@ -17,6 +17,9 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const loginRoutes = require("./routes/loginRoutes");
 const aoRoutes = require("./routes/aoRoutes");
 const foRoutes = require("./routes/foRoutes");
+const ufRoutes = require("./routes/ufRoutes");
+
+// Import models.
 const farmerOne = require("./models/farmerOne");
 const urbanFarmer = require("./models/urbanFarmer");
 const PublicUser = require("./models/publicUsers");
@@ -62,6 +65,7 @@ db.on("error", (err) => console.log(err));
 app.use("/", loginRoutes);
 app.use("/ao", aoRoutes);
 app.use("/fo", foRoutes);
+app.use("/uf", ufRoutes);
 
 // Undefined routes.
 app.get("*", (req, res) => {

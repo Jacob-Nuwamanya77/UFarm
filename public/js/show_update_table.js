@@ -48,7 +48,7 @@
     // Access the form fields and set the values.
     let form = document.update;
     // Set the action on the form
-    form.setAttribute("action", `ao/farmerones/update/${user_id}`);
+    form.setAttribute("action", `/ao/farmerones/update?id=${user_id}`);
     // Add current phone details to form.
     if (ph1 && ph2) {
       form.phonenumber[0].value = ph1;
