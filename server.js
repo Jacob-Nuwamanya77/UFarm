@@ -20,9 +20,7 @@ const foRoutes = require("./routes/foRoutes");
 const ufRoutes = require("./routes/ufRoutes");
 
 // Import models.
-const farmerOne = require("./models/farmerOne");
-const urbanFarmer = require("./models/urbanFarmer");
-const PublicUser = require("./models/publicUsers");
+const User = require("./models/Users");
 
 // Express configs.
 app.set("view engine", "pug");
@@ -36,17 +34,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Passport local authentication.
-passport.use(PublicUser.createStrategy());
-passport.serializeUser(PublicUser.serializeUser());
-passport.deserializeUser(PublicUser.deserializeUser());
-
-// passport.use(farmerOne.createStrategy());
-// passport.serializeUser(farmerOne.serializeUser());
-// passport.deserializeUser(farmerOne.deserializeUser());
-
-// passport.use(urbanFarmer.createStrategy());
-// passport.serializeUser(urbanFarmer.serializeUser());
-// passport.deserializeUser(urbanFarmer.deserializeUser());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 //Database connections.
 mongoose.connect(process.env.DATABASE, {

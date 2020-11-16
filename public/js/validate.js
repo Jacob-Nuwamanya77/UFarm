@@ -217,44 +217,44 @@ const validate = (form) => {
   }
 
   //Check unique id input.
-  if (form.username) {
-    // Read the name on the form. And appropriately allocated the unique ID.
-    const usernameInput = form.username;
-    let formName = form.getAttribute("name");
-    let signupRegex = /signup/,
-      signinRegex = /signin/;
-    let usernameRegex;
+  // if (form.username) {
+  //   // Read the name on the form. And appropriately allocated the unique ID.
+  //   const usernameInput = form.username;
+  //   let formName = form.getAttribute("name");
+  //   let signupRegex = /signup/,
+  //     signinRegex = /signin/;
+  //   let usernameRegex;
 
-    // Apply different checks based on the form.
-    if (signinRegex.test(formName) || signupRegex.test(formName)) {
-      usernameRegex = /^\w+$/;
-      if (!usernameRegex.test(usernameInput.value)) {
-        insertAfter(
-          errorMessage("Only alphabets and numbers are accepted. No spaces."),
-          usernameInput
-        );
-        alertError(usernameInput);
-        usernameInput.focus();
-        return false;
-      }
-    } else {
-      let ufRegex = /UF/,
-        foRegex = /FO/;
-      if (ufRegex.test(formName)) {
-        usernameRegex = /^UF-[0-9]{10}$/;
-      } else if (foRegex.test(formName)) {
-        usernameRegex = /^FO-[0-9]{10}$/;
-      }
-      if (!usernameRegex.test(usernameInput.value)) {
-        insertAfter(
-          errorMessage("Click create button to create a unique ID"),
-          usernameInput
-        );
-        alertError(usernameInput);
-        return false;
-      }
-    }
-  }
+  //   // Apply different checks based on the form.
+  //   if (signinRegex.test(formName) || signupRegex.test(formName)) {
+  //     usernameRegex = /^\w+$/;
+  //     if (!usernameRegex.test(usernameInput.value)) {
+  //       insertAfter(
+  //         errorMessage("Only alphabets and numbers are accepted. No spaces."),
+  //         usernameInput
+  //       );
+  //       alertError(usernameInput);
+  //       usernameInput.focus();
+  //       return false;
+  //     }
+  //   } else {
+  //     let ufRegex = /UF/,
+  //       foRegex = /FO/;
+  //     if (ufRegex.test(formName)) {
+  //       usernameRegex = /^UF-[0-9]{10}$/;
+  //     } else if (foRegex.test(formName)) {
+  //       usernameRegex = /^FO-[0-9]{10}$/;
+  //     }
+  //     if (!usernameRegex.test(usernameInput.value)) {
+  //       insertAfter(
+  //         errorMessage("Click create button to create a unique ID"),
+  //         usernameInput
+  //       );
+  //       alertError(usernameInput);
+  //       return false;
+  //     }
+  //   }
+  // }
 
   // Check password to input.
   if (form.password) {

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const FarmerOne = require("../models/farmerOne");
+const User = require("../models/Users");
 
 // Routes.
 router.get("/", (req, res) => {
@@ -15,8 +16,12 @@ router.get("/register", (req, res) => {
 // Receive registration details.
 router.post("/register", async (req, res) => {
   try {
-    let user = FarmerOne(req.body);
-    await FarmerOne.register(user, req.body.password, (err) => {
+    // Add a role to the body before its processed.
+    req.body.role = "farmerone";
+    let farmeroneData = FarmerOne(req.body);
+    let loginData = User(req.body);
+    farmeroneData.save();
+    await User.register(loginData, req.body.password, (err) => {
       if (err) {
         console.log({ message: err });
         res.status(400).send("Something went wrong with registration.");

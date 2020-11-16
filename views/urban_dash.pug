@@ -56,4 +56,68 @@ html
                             .nav-icon
                                 span.zmdi.zmdi-storage.margin30L
                                 .icon-text Records
-            .farmer-details.display.formdisplay              
+            .display.formdisplay
+                div
+                    .title Please fill this form to add product.
+                    span.close-icon X
+                form(method="POST" name="upload")
+                    .input-group.display-none
+                        input(type="text" name="name" placeholder="Name")
+                    .input-group.display-none
+                        input(type="text" name="ward" placeholder="Ward")
+                    .input-inline
+                        .input-group
+                            select(name='category')
+                                option(value='default' selected='' disabled='')
+                                    | Category
+                                option(value='Horticulture') Horticulture
+                                option(value='Poultry') Poultry
+                                option(value="Diary") Diary
+                        .input-group
+                            input.qty(type="text", name="quantity" placeholder="Quantity")                        
+                    .input-inline
+                        .input-group
+                            .price
+                                span.currency UGX
+                                input(type="text" name="price" placeholder="Price per")
+                        .input-group
+                            input.uom(type="text" name="uom" placeholder="UOM")                                        
+                    .input-group
+                        fieldset
+                            legend.text-muted Choose produce type.
+                            .grid
+                                div
+                                    input(type="radio", value="organic" name="type")
+                                    | Organic
+                                div
+                                    input(type="radio" name="type" value="none")
+                                    | None Organic
+                    .input-group
+                        fieldset
+                            legend.text-muted Mode of Payment
+                            .grid
+                                div
+                                    input(type="checkbox" name="payment" value="mobile")
+                                    | Mobile Money
+                                div
+                                    input(type="checkbox" name="payment" value="cash")
+                                    | Cash
+                    .input-group
+                        fieldset
+                            legend.text-muted Mode of Delivery
+                            .grid
+                                div
+                                    input(type="checkbox" name="payment" value="pickup")
+                                    | Pickup
+                                div
+                                    input(type="checkbox" name="payment" value="delivery")
+                                    | Delivery
+                    .input-group
+                        input(type="text" name="location" placeholder="Location")
+                    .input-group
+                        fieldset
+                            legend.text-muted Upload image
+                            input(type="file" name="image")
+                    .section
+                        div(class="submit-container")
+                            input.submit(type="button" value="Add Product")                 

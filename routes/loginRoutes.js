@@ -4,7 +4,7 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 
 // Import the model.
-const PublicUser = require("../models/publicUsers");
+const User = require("../models/Users");
 
 // ROUTES
 router.get("/", (req, res) => {
@@ -14,14 +14,19 @@ router.get("/", (req, res) => {
 // Authenticate login.
 router.post("/", passport.authenticate("local"), (req, res) => {
   req.session.user = req.user;
-  res.redirect("/orderform");
+  let cred = req.user.role;
+  if (cred == "farmerone") {
+    res.redirect("/fo");
+  } else if (cred == "urbanfarmer") {
+    res.redirect("/uf");
+  }
 });
 
 // Creating new user.
 router.post("/signup", async (req, res) => {
   try {
-    let users = PublicUser(req.body);
-    await PublicUser.register(users, req.body.password, (err) => {
+    let users = User(req.body);
+    await User.register(users, req.body.password, (err) => {
       if (err) {
         res.status(400).send("Something went wrong with registration.");
       } else {
