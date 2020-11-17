@@ -12,8 +12,9 @@
   padding-right: 25px;
 }
 
-.title {
-  padding-top: 10px;
+.form-title {
+  padding-top: 15px;
+  margin-bottom: 5px;
   color: rgb(150, 150, 150);
   text-align: center;
 }
@@ -160,6 +161,14 @@ select {
 }
 .text-muted {
   color: rgb(100, 100, 100);
+}
+.error {
+  color: red;
+  font-size: 70%;
+}
+.success {
+  color: green;
+  font-size: 70%;
 }
 .display-none {
   display: none;

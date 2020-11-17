@@ -25,11 +25,11 @@ const upload = multer({ storage, fileFilter });
 
 // Routes.
 router.get("/", (req, res) => {
-  if (req.session.user) {
-    res.render("urban_dash");
-  } else {
-    res.redirect("/login");
-  }
+  // if (req.session.user) {
+  res.render("urban_dash");
+  // } else {
+  // res.redirect("/login");
+  // }
 });
 
 router.post("/upload", upload.single("image"), (req, res) => {

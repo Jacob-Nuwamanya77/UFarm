@@ -46,19 +46,19 @@ html
                     nav.nav
                         a.link(href='#')
                             .nav-icon
-                                span.zmdi.zmdi-home.margin30L
+                                span.zmdi.zmdi-home
                                 .icon-text Home
-                        a(href='#')
+                        a(href='#' class="addProduct")
                             .nav-icon
-                                span.zmdi.zmdi-plus.margin10L
+                                span.zmdi.zmdi-plus
                                 .icon-text Add Product
                         a(href='#')
                             .nav-icon
-                                span.zmdi.zmdi-storage.margin30L
+                                span.zmdi.zmdi-storage
                                 .icon-text Records
-            .display.formdisplay
+            .display.formdisplay.display-none
                 div
-                    .title Please fill this form to add product.
+                    .form-title Please fill this form to add product.
                     span.close-icon X
                 form(method="POST"
                     name="upload"
@@ -88,7 +88,7 @@ html
                     .input-group
                         fieldset
                             legend.text-muted Choose produce type.
-                            .grid
+                            .grid.type
                                 div
                                     input(type="radio", value="organic" name="type")
                                     | Organic
@@ -98,7 +98,7 @@ html
                     .input-group
                         fieldset
                             legend.text-muted Mode of Payment
-                            .grid
+                            .grid.payment
                                 div
                                     input(type="checkbox" name="payment" value="mobile")
                                     | Mobile Money
@@ -108,7 +108,7 @@ html
                     .input-group
                         fieldset
                             legend.text-muted Mode of Delivery
-                            .grid
+                            .grid.delivery
                                 div
                                     input(type="checkbox" name="payment" value="pickup")
                                     | Pickup
@@ -123,4 +123,6 @@ html
                             input(type="file" name="image")
                     .section
                         div(class="submit-container")
-                            input.submit(type="submit" value="Add Product")                 
+                            input.submit(type="button" value="Add Product")
+        script(type='text/javascript' src='/js/validate_helpers.js')
+        script(type='text/javascript' src='/js/validate_product.js')

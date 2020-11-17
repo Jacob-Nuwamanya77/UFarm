@@ -37,7 +37,6 @@ const createID = (form) => {
   const inputId = form.username;
   //Check phone number input.
   let phoneInput = form.phonenumber;
-  console.log(form);
   let phoneRegex = /^0[3,4,7][0-9]{8}$/;
   if (!phoneInput.length) {
     if (!phoneRegex.test(phoneInput.value)) {

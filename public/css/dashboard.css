@@ -61,8 +61,12 @@
   color: rgb(11, 188, 73);
   transform: scale(1.1);
 }
+
 .nav-icon span {
   font-size: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .icon-text {
   text-align: center;
