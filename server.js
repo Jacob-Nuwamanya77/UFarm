@@ -11,7 +11,7 @@ const expressSession = require("express-session")({
   saveUninitialized: false,
 });
 const passport = require("passport");
-const passportLocalMongoose = require("passport-local-mongoose");
+// const passportLocalMongoose = require("passport-local-mongoose");
 
 // Import routes.
 const loginRoutes = require("./routes/loginRoutes");

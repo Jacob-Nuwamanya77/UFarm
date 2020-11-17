@@ -60,7 +60,10 @@ html
                 div
                     .title Please fill this form to add product.
                     span.close-icon X
-                form(method="POST" name="upload")
+                form(method="POST"
+                    name="upload"
+                    enctype="multipart/form-data"
+                    action="/uf/upload")
                     .input-group.display-none
                         input(type="text" name="name" placeholder="Name")
                     .input-group.display-none
@@ -120,4 +123,4 @@ html
                             input(type="file" name="image")
                     .section
                         div(class="submit-container")
-                            input.submit(type="button" value="Add Product")                 
+                            input.submit(type="submit" value="Add Product")                 
