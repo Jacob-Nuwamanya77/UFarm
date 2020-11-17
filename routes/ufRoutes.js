@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
     callback(null, "uploads");
   },
   filename: (req, file, callback) => {
-    callback(null, file.originalname);
+    callback(null, `${Date.now()}${file.originalname}`);
   },
 });
 
@@ -25,15 +25,23 @@ const upload = multer({ storage, fileFilter });
 
 // Routes.
 router.get("/", (req, res) => {
-  res.render("urban_dash");
+  if (req.session.user) {
+    res.render("urban_dash");
+  } else {
+    res.redirect("/login");
+  }
 });
 
 router.post("/upload", upload.single("image"), (req, res) => {
-  try {
-    res.redirect("/uf");
-  } catch (err) {
-    console.log({ message: err });
-    res.status(400).send("Something went wrong with image upload");
+  if (req.session.user) {
+    try {
+      res.redirect("/uf");
+    } catch (err) {
+      console.log({ message: err });
+      res.status(400).send("Something went wrong with image upload");
+    }
+  } else {
+    res.redirect("/login");
   }
 });
 

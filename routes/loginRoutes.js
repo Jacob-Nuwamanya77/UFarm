@@ -8,7 +8,7 @@ const User = require("../models/Users");
 
 // ROUTES
 router.get("/", (req, res) => {
-  res.render("home");
+  res.render("login");
 });
 
 // Authenticate login.
@@ -23,19 +23,19 @@ router.post("/", passport.authenticate("local"), (req, res) => {
 });
 
 // Creating new user.
-router.post("/signup", async (req, res) => {
-  try {
-    let users = User(req.body);
-    await User.register(users, req.body.password, (err) => {
-      if (err) {
-        res.status(400).send("Something went wrong with registration.");
-      } else {
-        res.redirect("/");
-      }
-    });
-  } catch (err) {
-    console.log({ message: err });
-  }
-});
+// router.post("/signup", async (req, res) => {
+//   try {
+//     let users = User(req.body);
+//     await User.register(users, req.body.password, (err) => {
+//       if (err) {
+//         res.status(400).send("Something went wrong with registration.");
+//       } else {
+//         res.redirect("/");
+//       }
+//     });
+//   } catch (err) {
+//     console.log({ message: err });
+//   }
+// });
 
 module.exports = router;

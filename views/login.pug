@@ -1,0 +1,49 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width,initial-scale=1.0")
+		title UFarm Home
+		link(rel="stylesheet"
+			type="text/css"
+			href="css/signin_signup.css")
+		link(rel="stylesheet"
+			type="text/css" 
+			href="css/zmdi/css/material-design-iconic-font.min.css")
+	body
+		div(class="home-container")
+			div(class="left-container")
+				div(class="theme-container")
+					img(src="images/theme.jpg")
+				div(class="theme-text")
+					div
+						span(class="logo-img")
+							img(src="images/stall.jpg")
+						span(class="title") UFarm
+					div(class="theme-para")
+						p Your Heart's Desires FulFilled
+						p Anytime, Anywhere
+			div(class="right-container")
+				div(class="signin-container sub-container")
+					div(class="title-container margin10p")
+						div(class="logo-container")
+							span(class="logo-img")
+								img(src="images/stall.jpg")
+							span(class="title") UFarm
+						div(class="description")
+							div(class="margin10p") FRESH PRODUCE ANYTIME
+					form(action="/login"
+						method="POST" 
+						name="signin")
+						div(class="input-group margin35p signin-input")
+							i(class="zmdi zmdi-account icons")
+							input(type="text" name="username" placeholder="UserName")
+						div(class="input-group margin35p signin-input")
+							i(class="zmdi zmdi-key icons")
+							input(type="password" name="password" placeholder="Password")
+						.section
+							div(class="submit-container")
+								input.submit(type="button" value="Sign in")
+		script(type="text/javascript" src="/js/toggle_log.js")
+		script(type="text/javascript" src="/js/validate_helpers.js")
+		script(type="text/javascript" src="/js/validate.js")

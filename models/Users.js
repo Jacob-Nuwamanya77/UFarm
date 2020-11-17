@@ -8,7 +8,6 @@ const userSchema = mongoose.Schema({
     unique: true,
   },
   role: String,
-  password: String,
 });
 
 // Plugin passport.
