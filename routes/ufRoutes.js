@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require("path");
 const multer = require("multer");
 const UrbanFarmer = require("../models/urbanFarmer");
+const Product = require("../models/newProductUpload");
 
 // Multer configurations for uploading files.
 const storage = multer.diskStorage({
@@ -44,11 +45,16 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/upload", upload.single("image"), (req, res) => {
+router.post("/upload", upload.single("image"), async (req, res) => {
   if (req.session.user) {
     try {
+      // Add filename and status to the incoming data.
       req.body.filename = req.file.filename;
-      console.log(req.body);
+      req.body.status = "pending";
+
+      // Save data into database.
+      const product = await Product(req.body);
+      product.save();
       res.redirect("/uf");
     } catch (err) {
       console.log({ message: err });

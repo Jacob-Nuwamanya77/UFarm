@@ -105,6 +105,7 @@ const validateProduct = () => {
   // Disable button to stop double submission.
   let submitBtn = document.getElementsByClassName("submit")[0];
   submitBtn.disabled = true;
+  submitBtn.value = "Please wait ....";
   // Submit form.
   form.requestSubmit();
 };
