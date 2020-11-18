@@ -1,15 +1,14 @@
 const express = require("express");
 const router = express.Router();
+const path = require("path");
 const multer = require("multer");
 const UrbanFarmer = require("../models/urbanFarmer");
 
 // Multer configurations for uploading files.
 const storage = multer.diskStorage({
-  destination: (req, file, callback) => {
-    callback(null, "uploads");
-  },
+  destination: "./public/uploads",
   filename: (req, file, callback) => {
-    callback(null, `${Date.now()}${file.originalname}`);
+    callback(null, `${Date.now()}${path.extname(file.originalname)}`);
   },
 });
 
@@ -48,6 +47,7 @@ router.get("/", async (req, res) => {
 router.post("/upload", upload.single("image"), (req, res) => {
   if (req.session.user) {
     try {
+      req.body.filename = req.file.filename;
       console.log(req.body);
       res.redirect("/uf");
     } catch (err) {

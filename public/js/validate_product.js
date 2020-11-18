@@ -102,6 +102,10 @@ const validateProduct = () => {
     fileField.focus();
     return false;
   }
+  // Disable button to stop double submission.
+  let submitBtn = document.getElementsByClassName("submit")[0];
+  submitBtn.disabled = true;
+  // Submit form.
   form.requestSubmit();
 };
 
