@@ -48,6 +48,7 @@ router.get("/", async (req, res) => {
 router.post("/upload", upload.single("image"), (req, res) => {
   if (req.session.user) {
     try {
+      console.log(req.body);
       res.redirect("/uf");
     } catch (err) {
       console.log({ message: err });

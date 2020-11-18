@@ -102,6 +102,7 @@ const validateProduct = () => {
     fileField.focus();
     return false;
   }
+  form.requestSubmit();
 };
 
 let submitBtn = document.getElementsByClassName("submit")[0];
