@@ -1,0 +1,26 @@
+doctype
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title UFarm - Market
+        link(rel="stylesheet", href="/css/product.css")
+        link(rel="stylesheet", href="/css/zmdi/css/material-design-iconic-font.min.css.css")
+    body
+        .container
+            .header-container
+                .header-title.c-light UFarm Market
+                .search-container.c-grey
+                    select
+                        option(value="Poultry") Poultry
+                        option(value="Diary") Diary
+                        option(value="Horticulture") Horticulture
+                    .search
+                        span.zmdi.zmdi-search
+                        input(type="text", name="search" placeholder="Search vendors near you")
+                    .scroll-page
+                        .prev
+                            input.scroll-btn(type="button", value="prev" name="prev")
+                        .next
+                            input.scroll-btn(type="button", value="next" name="next")
+            .groups-container
