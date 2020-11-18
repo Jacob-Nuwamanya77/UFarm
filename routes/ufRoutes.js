@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
+const UrbanFarmer = require("../models/urbanFarmer");
 
 // Multer configurations for uploading files.
 const storage = multer.diskStorage({
@@ -24,12 +25,24 @@ const fileFilter = (req, file, callback) => {
 const upload = multer({ storage, fileFilter });
 
 // Routes.
-router.get("/", (req, res) => {
-  // if (req.session.user) {
-  res.render("urban_dash");
-  // } else {
-  // res.redirect("/login");
-  // }
+router.get("/", async (req, res) => {
+  if (req.session.user) {
+    try {
+      // Use the unique username property to access the name and ward from db.
+      const user = await UrbanFarmer.findOne({
+        username: req.session.user.username,
+      });
+      // Store name and ward in variables and pass the data to rendered file.
+      let name = user.name,
+        ward = user.ward;
+      res.render("urban_dash", { name, ward });
+    } catch (err) {
+      console.log({ message: err });
+      res.status(400).send("Something went wrong with your request.");
+    }
+  } else {
+    res.redirect("/login");
+  }
 });
 
 router.post("/upload", upload.single("image"), (req, res) => {

@@ -65,9 +65,9 @@ html
                     enctype="multipart/form-data"
                     action="/uf/upload")
                     .input-group.display-none
-                        input(type="text" name="name" placeholder="Name")
+                        input(type="text" name="name" placeholder="Name" value=`${name}`)
                     .input-group.display-none
-                        input(type="text" name="ward" placeholder="Ward")
+                        input(type="text" name="ward" placeholder="Ward" value=`${ward}`)
                     .input-inline
                         .input-group
                             select(name='category')
