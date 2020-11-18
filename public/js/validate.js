@@ -316,6 +316,11 @@ const validate = (form) => {
       return false;
     }
   }
+  // Disable button when all is clear to avoid double submission.
+  let submitBtn = form.getElementsByClassName("submit")[0];
+  submitBtn.disabled = true;
+  submitBtn.value = "Please wait .....";
+
   // If all is clear trigger submit event on the form.
   form.requestSubmit();
 };
