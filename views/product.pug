@@ -4,8 +4,8 @@ html(lang="en")
         meta(charset="utf-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title UFarm - Market
-        link(rel="stylesheet", href="/css/product.css")
-        link(rel="stylesheet", href="/css/zmdi/css/material-design-iconic-font.min.css.css")
+        link(rel="stylesheet" href="/css/product.css")
+        link(rel="stylesheet" href="/css/zmdi/css/material-design-iconic-font.min.css")
     body
         .container
             .header-container
@@ -16,11 +16,34 @@ html(lang="en")
                         option(value="Diary") Diary
                         option(value="Horticulture") Horticulture
                     .search
-                        span.zmdi.zmdi-search
+                        span(class="zmdi zmdi-search")
                         input(type="text", name="search" placeholder="Search vendors near you")
                     .scroll-page
                         .prev
-                            input.scroll-btn(type="button", value="prev" name="prev")
+                            input.scroll-btn(type="button" value="prev" name="prev")
                         .next
-                            input.scroll-btn(type="button", value="next" name="next")
+                            input.scroll-btn(type="button" value="next" name="next")
             .groups-container
+                if listings.length
+                each produce in lisitngs
+                    .product(data-id=`${produce._id}`)
+                        .image-container
+                            img.images(src=`/uploads/${produce.filename}` alt="product")
+                        .product-info
+                            .c-grey #{produce.category}
+                            .c-green.enlarge-text
+                                span UGX #{produce.price}
+                                span per #{produce.uom}
+                            .recent.c-green.info-size
+                                span Location:
+                                span #{produce.location}
+                            .c-grey.info-size.padding
+                                span.members-key Stock:
+                                span.members-value #{produce.quantity} #{produce.uom}
+                            .c-grey.info-size
+                                span Seller:
+                                span #{produce.name}
+                            .order-container
+                                .book
+                                    input(type="button", value="Book Now" name="book")
+                                .phone(data-phone=`${produce.phone}`)
