@@ -25,7 +25,7 @@ html(lang="en")
                             input.scroll-btn(type="button" value="next" name="next")
             .groups-container
                 if listings.length
-                    each produce in lisitngs
+                    each produce in listings
                         .product(data-id=`${produce._id}`)
                             .image-container
                                 img.images(src=`/uploads/${produce.filename}` alt="product")
@@ -33,19 +33,29 @@ html(lang="en")
                                 .c-grey #{produce.category}
                                 .c-green.enlarge-text
                                     span UGX #{produce.price}
-                                    span per #{produce.uom}
+                                    span &nbsp;per #{produce.uom}
                                 .recent.c-green.info-size
                                     span Location:
-                                    span #{produce.location}
-                                .c-grey.info-size.padding
+                                    span &nbsp;#{produce.location}
+                                .c-grey.info-size.margintop
                                     span.members-key Stock:
-                                    span.members-value #{produce.quantity} #{produce.uom}
-                                .c-grey.info-size
+                                    span.members-value &nbsp;#{produce.quantity} #{produce.uom}
+                                .c-grey.info-size.margintop
+                                    span Type:
+                                    span &nbsp;#{produce.type}
+                                .c-grey.info-size.margintop
                                     span Seller:
-                                    span #{produce.name}
+                                    span &nbsp;#{produce.name}
+                                .c-grey.info-size.margintop
+                                    span Payment:
+                                    span &nbsp;#{produce.payment}
+                                .c-grey.info-size.margintop
+                                    span Delivery:
+                                    span &nbsp;#{produce.delivery}
                                 .order-container
                                     .book
                                         input(type="button", value="Book Now" name="book")
                                     .phone(data-phone=`${produce.phone.substr(0,10)}`
                                         data-vendor=`${produce.name}`)
                                         span.zmdi.zmdi-phone
+        script(type="text/javascript" src="/js/show_vendor_contact.js")
