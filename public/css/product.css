@@ -33,7 +33,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .image-container {
@@ -66,9 +66,9 @@
   width: 200px;
   height: 325px;
   background-color: white;
-  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 70px;
 }
 .product-info {
   height: 140px;
