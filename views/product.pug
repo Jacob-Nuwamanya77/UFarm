@@ -16,7 +16,7 @@ html(lang="en")
                         option(value="Diary") Diary
                         option(value="Horticulture") Horticulture
                     .search
-                        span(class="zmdi zmdi-search")
+                        span.zmdi.zmdi-search
                         input(type="text", name="search" placeholder="Search vendors near you")
                     .scroll-page
                         .prev
@@ -25,25 +25,27 @@ html(lang="en")
                             input.scroll-btn(type="button" value="next" name="next")
             .groups-container
                 if listings.length
-                each produce in lisitngs
-                    .product(data-id=`${produce._id}`)
-                        .image-container
-                            img.images(src=`/uploads/${produce.filename}` alt="product")
-                        .product-info
-                            .c-grey #{produce.category}
-                            .c-green.enlarge-text
-                                span UGX #{produce.price}
-                                span per #{produce.uom}
-                            .recent.c-green.info-size
-                                span Location:
-                                span #{produce.location}
-                            .c-grey.info-size.padding
-                                span.members-key Stock:
-                                span.members-value #{produce.quantity} #{produce.uom}
-                            .c-grey.info-size
-                                span Seller:
-                                span #{produce.name}
-                            .order-container
-                                .book
-                                    input(type="button", value="Book Now" name="book")
-                                .phone(data-phone=`${produce.phone}`)
+                    each produce in lisitngs
+                        .product(data-id=`${produce._id}`)
+                            .image-container
+                                img.images(src=`/uploads/${produce.filename}` alt="product")
+                            .product-info
+                                .c-grey #{produce.category}
+                                .c-green.enlarge-text
+                                    span UGX #{produce.price}
+                                    span per #{produce.uom}
+                                .recent.c-green.info-size
+                                    span Location:
+                                    span #{produce.location}
+                                .c-grey.info-size.padding
+                                    span.members-key Stock:
+                                    span.members-value #{produce.quantity} #{produce.uom}
+                                .c-grey.info-size
+                                    span Seller:
+                                    span #{produce.name}
+                                .order-container
+                                    .book
+                                        input(type="button", value="Book Now" name="book")
+                                    .phone(data-phone=`${produce.phone.substr(0,10)}`
+                                        data-vendor=`${produce.name}`)
+                                        span.zmdi.zmdi-phone

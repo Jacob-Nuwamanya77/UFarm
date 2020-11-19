@@ -35,8 +35,8 @@ router.get("/", async (req, res) => {
       // Store name and ward in variables and pass the data to rendered file.
       let name = user.name,
         ward = user.ward,
-        phone = user.phone;
-      res.render("urban_dash", { name, ward });
+        phone = user.phonenumber;
+      res.render("urban_dash", { name, ward, phone });
     } catch (err) {
       console.log({ message: err });
       res.status(400).send("Something went wrong with your request.");
