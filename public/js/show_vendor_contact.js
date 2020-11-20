@@ -47,10 +47,19 @@
     // Not to trigger clicks on any element in ancenstry.
     event.stopPropagation();
 
+    // Remove any contacts being displayed before displaying new contact.
+    let currentDisplay = document.getElementsByClassName("phone-details")[0];
+    if (currentDisplay) {
+      currentDisplay.remove();
+    }
+
     // Access the parent node to extract data
-    let parent = document.getElementsByClassName("phone")[0],
+    let parent = event.target.parentNode,
       phone = parent.getAttribute("data-phone"),
       vendor = parent.getAttribute("data-vendor");
+
+    // Access the order container to append to later.
+    let orderContainer = event.target.parentNode.parentNode;
     // Store the objects representing the elements to create in an array and iterate.
     const elements = [
       { type: "div", class: "phone-details" },
@@ -92,8 +101,7 @@
     });
 
     // Append this divParent into the DOM.
-    let container = document.getElementsByClassName("order-container")[0];
-    container.appendChild(divParent);
+    orderContainer.appendChild(divParent);
   };
 
   // Access all elements of the phone icon.
