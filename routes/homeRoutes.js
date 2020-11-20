@@ -13,4 +13,9 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/order", async (req, res) => {
+  console.log(req.query.id);
+  res.end();
+});
+
 module.exports = router;
