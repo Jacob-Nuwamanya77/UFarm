@@ -14,8 +14,16 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/order", async (req, res) => {
-  console.log(req.query.id);
-  res.end();
+  try {
+    const productListing = await Product.findOne({ _id: req.query.id });
+    // Extract payment and delivery options.
+    const payment = productListing.payment;
+    const delivery = productListing.delivery;
+    res.render("orderform", { payment, delivery });
+  } catch (err) {
+    console.log({ message: err });
+    res.redirect("/");
+  }
 });
 
 module.exports = router;
