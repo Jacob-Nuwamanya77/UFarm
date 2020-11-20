@@ -46,6 +46,7 @@
   const showVendor = (event) => {
     // Not to trigger clicks on any element in ancenstry.
     event.stopPropagation();
+    event.preventDefault();
 
     // Remove any contacts being displayed before displaying new contact.
     let currentDisplay = document.getElementsByClassName("phone-details")[0];
