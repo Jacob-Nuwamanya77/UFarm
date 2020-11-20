@@ -18,11 +18,13 @@ html(lang="en")
                     .search
                         span.zmdi.zmdi-search
                         input(type="text", name="search" placeholder="Search vendors near you")
-                    .scroll-page
-                        .prev
-                            input.scroll-btn(type="button" value="prev" name="prev")
-                        .next
-                            input.scroll-btn(type="button" value="next" name="next")
+                    div
+                        .scroll-page
+                            .prev
+                                input.scroll-btn(type="button" value="prev" name="prev")
+                            .next
+                                input.scroll-btn(type="button" value="next" name="next")
+                        small Showing page 1 of 3
             .groups-container
                 if listings.length
                     each produce in listings

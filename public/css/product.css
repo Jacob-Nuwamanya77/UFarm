@@ -33,7 +33,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .image-container {
@@ -176,6 +176,7 @@ select:focus {
   margin-left: 50px;
   background-color: rgb(240, 240, 240);
   position: relative;
+  max-height: 35px;
 }
 .search span {
   font-size: 150%;
