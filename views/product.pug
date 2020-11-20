@@ -28,7 +28,7 @@ html(lang="en")
             .groups-container
                 if listings.length
                     each produce in listings
-                        .product(data-id=`${produce._id}`)
+                        .product
                             .image-container
                                 img.images(src=`/uploads/${produce.filename}` alt="product")
                             .product-info
@@ -56,8 +56,8 @@ html(lang="en")
                                     span &nbsp;#{produce.delivery}
                                 .order-container
                                     .book
-                                        input(type="button", value="Book Now" name="book")
+                                        a(href=`/order/?id=${produce._id}`) Order
                                     .phone(data-phone=`${produce.phone.substr(0,10)}`
                                         data-vendor=`${produce.name}`)
-                                        a.zmdi.zmdi-phone(href="#")
+                                        a.zmdi.zmdi-phone(href='#')
         script(type="text/javascript" src="/js/show_vendor_contact.js")
