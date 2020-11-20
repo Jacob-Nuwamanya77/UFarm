@@ -44,7 +44,6 @@
 
   // Function handles click on the phone icon.
   const showVendor = (event) => {
-    // Not to trigger clicks on any element in ancenstry.
     event.stopPropagation();
     event.preventDefault();
 
