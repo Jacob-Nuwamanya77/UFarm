@@ -13,39 +13,62 @@ html(lang="en")
 				.title-container.margin10p
 					.description
 						.marginTop FRESH PRODUCE ORDER FORM
-				form(name="orderform" onsubmit="return validate_order()")
+				form(name="orderform")
 					.input-container
 						input(type="text", name="name" placeholder="Customer Name")
 					.input-container
 						input(type="text" name="phonenumber" placeholder="Phone Number")
 					.input-inline
-						.quantity-container
+						.quantity-container(data-quantity=`${productListing.quantity}`)
 							input(type="text" placeholder="Quantity" name="quantity")
-						.total-container
+							small 
+								| Available - #{productListing.quantity}&nbsp; 
+								| UoM - #{productListing.uom}
+						.total-container(data-price=`${productListing.price}`)
 							input(type="text" placeholder="Total" name="total" readonly)
-					if payment.length
-					.input-container
-						fieldset
-							legend.text-muted Choose payment option
-							.grid
-								each option in payment
-									div
-										input(type="radio", name="payment" value=`${option}`)
-										| #{option}
-					if delivery.length
-					.input-container
-						fieldset
-							legend.text-muted Choose delivery option
-							.grid
-								each option in delivery
-									div
-										input(type="radio", name="delivery" value=`${option}`)
-										| #{option}
+							small Price - #{productListing.price}
+					if(productListing.payment.length==1)
+						.input-container
+							fieldset
+								legend.text-muted Choose payment option
+								.grid
+									each option in productListing.payment
+										div
+											input(type="radio", name="payment" value=`${option}` checked)
+											| #{option}
+					else
+						.input-container
+							fieldset
+								legend.text-muted Choose payment option
+								.grid
+									each option in productListing.payment
+										div
+											input(type="radio", name="payment" value=`${option}`)
+											| #{option}
+					if(productListing.delivery.length==1)
+						.input-container
+							fieldset
+								legend.text-muted Choose delivery option
+								.grid
+									each option in productListing.delivery
+										div
+											input(type="radio", name="delivery" value=`${option}` checked)
+											| #{option}
+					else
+						.input-container
+							fieldset
+								legend.text-muted Choose delivery option
+								.grid
+									each option in productListing.delivery
+										div
+											input(type="radio", name="delivery" value=`${option}`)
+											| #{option}
 					.input-container
 						input(type="text"
                         placeholder="Delivery Date"
-                        name="deliveryDate"
+                        name="date"
                         onfocus="(this.type='date')")
 					.submit-container.input-container
-						input.submit(type="button" value="Place Order")
-		script(type="text/javascript" src="js/validate_order.js")
+							input.submit(type="button" value="Place Order")
+		script(type="text/javascript" src="/js/validate_helpers.js")
+		script(type="text/javascript" src="/js/validate_order.js")

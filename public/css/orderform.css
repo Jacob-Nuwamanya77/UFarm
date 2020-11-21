@@ -11,7 +11,7 @@
   height: 550px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   border: 1px solid rgb(200, 200, 200);
@@ -43,14 +43,14 @@
 
 /*Default classes*/
 .marginTop {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 /*End of default classes*/
 .input-container {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 22px;
+  margin-top: 20px;
 }
 input[type="text"],
 input[type="date"] {
@@ -83,7 +83,7 @@ fieldset {
   color: rgb(50, 50, 50);
 }
 .submit-container {
-  margin-top: 35px;
+  margin-top: 25px;
   text-align: center;
 }
 
@@ -139,4 +139,7 @@ fieldset {
 .grid {
   display: grid;
   grid-template-columns: 40% 50%;
+}
+small {
+  color: #ffc107;
 }

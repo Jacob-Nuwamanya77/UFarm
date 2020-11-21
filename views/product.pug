@@ -56,7 +56,7 @@ html(lang="en")
                                     span &nbsp;#{produce.delivery}
                                 .order-container
                                     .book
-                                        a(href=`/order/?id=${produce._id}`) Order
+                                        a(href=`/order/?product=${produce._id}`) Order
                                     .phone(data-phone=`${produce.phone.substr(0,10)}`
                                         data-vendor=`${produce.name}`)
                                         a.zmdi.zmdi-phone(href='#')
