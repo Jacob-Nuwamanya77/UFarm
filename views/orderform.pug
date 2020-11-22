@@ -13,7 +13,7 @@ html(lang="en")
 				.title-container.margin10p
 					.description
 						.marginTop FRESH PRODUCE ORDER FORM
-				form(name="orderform")
+				form(name="orderform" action=`/order/?product=${productListing._id}` method="POST")
 					.input-container
 						input(type="text", name="name" placeholder="Customer Name")
 					.input-container

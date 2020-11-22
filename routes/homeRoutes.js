@@ -23,4 +23,8 @@ router.get("/order", async (req, res) => {
   }
 });
 
+router.post("/order", async (req, res) => {
+  res.redirect("/");
+});
+
 module.exports = router;
