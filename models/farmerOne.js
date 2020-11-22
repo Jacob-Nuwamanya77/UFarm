@@ -7,7 +7,7 @@ const farmerOneSchema = mongoose.Schema({
   gender: String,
   phonenumber: [{ type: String }],
   nin: String,
-  ward: String,
+  LC: String,
   activities: [{ type: String }],
   username: {
     type: String,
@@ -17,6 +17,8 @@ const farmerOneSchema = mongoose.Schema({
   residence: String,
   since: String,
   directions: String,
+  status: String,
+  areaAO: String,
 });
 
 // Export a model to create documents.

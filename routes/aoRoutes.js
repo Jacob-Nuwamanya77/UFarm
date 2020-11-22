@@ -25,8 +25,12 @@ router.get("/register", (req, res) => {
 router.post("/register", async (req, res) => {
   if (req.session.user) {
     try {
-      // Add a role to the body before its processed.
+      // Add data to the body before its processed.
       req.body.role = "farmerone";
+      req.body.status = "active";
+      req.body.areaAO = req.session.user.username;
+
+      // Create document and save.
       let farmeroneData = FarmerOne(req.body);
       let loginData = User(req.body);
       farmeroneData.save();

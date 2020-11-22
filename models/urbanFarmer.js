@@ -14,6 +14,9 @@ const urbanFarmerSchema = mongoose.Schema({
     unique: true,
   },
   registrationdate: String,
+  LC: String,
+  areaAO: String,
+  areaFO: String,
 });
 
 // Export a model to create documents.

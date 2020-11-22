@@ -19,6 +19,8 @@ router.post("/", passport.authenticate("local"), (req, res) => {
     res.redirect("/fo");
   } else if (cred == "urbanfarmer") {
     res.redirect("/uf");
+  } else if (cred == "agricofficer") {
+    res.redirect("/ao");
   }
 });
 
