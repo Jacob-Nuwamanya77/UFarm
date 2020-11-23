@@ -8,7 +8,7 @@ const productSchema = mongoose.Schema({
   price: String,
   uom: String,
   type: String,
-  phone: String,
+  phone: [{ type: String }],
   payment: [{ type: String }],
   delivery: [{ type: String }],
   location: String,
