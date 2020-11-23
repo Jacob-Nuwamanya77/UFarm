@@ -31,6 +31,17 @@ router.get("/approval", async (req, res) => {
   }
 });
 
+router.get("/approval/complete", async (req, res) => {
+  try {
+    const approved = { status: "active" };
+    await Products.findOneAndUpdate({ _id: req.query.product }, approved);
+    res.redirect("/fo/approval");
+  } catch (err) {
+    console.log({ message: err });
+    res.redirect("/fo");
+  }
+});
+
 // Create new user account.
 router.post("/register", async (req, res) => {
   if (req.session.user) {

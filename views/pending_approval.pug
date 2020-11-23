@@ -29,9 +29,7 @@ html
                         each product in products
                             tr
                                 td #{product.name}
-                                td
-                                    each phone in product.phone
-                                        |#{phone}<br>  
+                                td #{`${product.phone.substr(0,10)}`}
                                 td #{product.ward}
                                 td #{product.category} 
                                 td.align-center #{product.quantity}
@@ -44,7 +42,7 @@ html
                                 td
                                     a(href=`/fo/approval/complete/?product=${product._id}` class="update") Approve                  
             else
-                p No registrations yet.
+                p No pending product approvals.
             .farmer-details.display.formdisplay.display-none            
         script(type='text/javascript' src="/js/show_table_approvals.js")
         

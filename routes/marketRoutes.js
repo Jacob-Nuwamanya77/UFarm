@@ -7,7 +7,7 @@ const Order = require("../models/order");
 // Routes.
 router.get("/", async (req, res) => {
   try {
-    const data = await Product.find();
+    const data = await Product.find({ status: "active" });
     res.render("product", { listings: data });
   } catch (err) {
     console.log({ message: err });
