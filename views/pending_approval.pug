@@ -10,87 +10,41 @@ html
         .container
             .title PRODUCTS WAITING APPROVAL.
             div.display.display-none
-            if farmers.length
+            if products.length
                 table.table.table-striped
                     thead.thead-dark
                         tr
                             th Name
-                            th ID
+                            th Phone
                             th Ward
-                            th Phone                            
-                            th Registration
-                            th Activities
-                            th.display-none DOB
-                            th.display-none Gender
-                            th.display-none NIN
-                            th.display-none Residence
-                            th.display-none Since
-                            th.display-none Direction
+                            th Category                            
+                            th.align-center Quantity
+                            th.display-none Type
+                            th.display-none UoM
+                            th.display-none Price
+                            th.display-none Location
                             th
                             th
                     tbody
-                        each farmer in farmers
-                            tr(data-id=`${farmer._id}`)
-                                td #{farmer.name}
-                                td #{farmer.username}
-                                td.center-align #{farmer.LC}
+                        each product in products
+                            tr
+                                td #{product.name}
                                 td
-                                    each phone in farmer.phonenumber
-                                        |#{phone}<br>
-                                td #{farmer.registrationdate}
-                                td
-                                    each act in farmer.activities
-                                        |#{act}<br> 
-                                td.display-none #{farmer.dob}
-                                td.display-none #{farmer.gender}
-                                td.display-none #{farmer.nin}
-                                td.display-none #{farmer.residence}
-                                td.display-none #{farmer.since}
-                                td.display-none #{farmer.directions}
+                                    each phone in product.phone
+                                        |#{phone}<br>  
+                                td #{product.ward}
+                                td #{product.category} 
+                                td.align-center #{product.quantity}
+                                td.display-none #{product.type}
+                                td.display-none #{product.uom}
+                                td.display-none #{product.price}
+                                td.display-none #{product.location}
                                 td
                                     a(href='#' class="details") Details
                                 td
-                                    a(href="#" class="update") Update                  
+                                    a(href=`/fo/approval/complete/?product=${product._id}` class="update") Approve                  
             else
                 p No registrations yet.
-            .farmer-details.display.formdisplay.display-none
-                div
-                    .title.farmername
-                    span.close-icon X
-                div.warning-container
-                    span.zmdi.zmdi-alert-triangle &nbsp;
-                    span.warning-text Warning:&nbsp; 
-                    | About to change details on this profile.
-                form(method="POST" name="update")
-                    div  Change phone numbers
-                    .input-group.phoneContacts
-                        .flex-row
-                            .input-group.row-left
-                                input(type="text" name="phonenumber")
-                            .input-group.row-right
-                                input.phonebtn.addPhone(type="button" value="Add")
-                        .flex-row.phone2.display-none
-                            .input-group.row-left
-                                input(type='text' name='phonenumber')
-                            .input-group.row-right
-                                input.phonebtn.removePhone(type='button' value='Remove')
-                    .input-group Select or unselect to update activities involved in.
-                        fieldset(name='categories')
-                            #categories
-                                div
-                                    input(type='checkbox' name="activities" value='Horticulture')
-                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Horticulture
-                                div
-                                    input(type='checkbox' name="activities" value='Poultry')
-                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Poultry
-                                div
-                                    input(type='checkbox' name="activities" value='Diary')
-                                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Diary
-                    section                    
-                        .input-group.submit-container
-                            input.submit(type='button' value='Update Records')
-        script(type='text/javascript' src="/js/show_table_details.js")
-        script(type='text/javascript' src="/js/show_update_table.js")
-        script(type='text/javascript' src='/js/validate_helpers.js')
-        script(type='text/javascript' src='/js/validate.js')
+            .farmer-details.display.formdisplay.display-none            
+        script(type='text/javascript' src="/js/show_table_approvals.js")
         

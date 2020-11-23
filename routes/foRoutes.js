@@ -3,6 +3,7 @@ const router = express.Router();
 const UrbanFarmer = require("../models/urbanFarmer");
 const User = require("../models/Users");
 const FarmerOne = require("../models/farmerOne");
+const Products = require("../models/newProductUpload");
 
 // Routes.
 router.get("/", (req, res) => {
@@ -16,6 +17,15 @@ router.get("/", (req, res) => {
 router.get("/register", (req, res) => {
   if (req.session.user) {
     res.render("register_urban");
+  } else {
+    res.redirect("/login");
+  }
+});
+
+router.get("/approval", async (req, res) => {
+  if (req.session.user) {
+    const products = await Products.find({ status: "pending" });
+    res.render("pending_approval", { products });
   } else {
     res.redirect("/login");
   }
