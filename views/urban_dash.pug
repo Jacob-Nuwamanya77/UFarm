@@ -65,11 +65,17 @@ html
                     enctype="multipart/form-data"
                     action="/uf/upload")
                     .input-group.display-none
-                        input(type="text" name="name" placeholder="Name" value=`${name}`)
+                        input(type="text" name="name" placeholder="Name" value=`${user.name}`)
                     .input-group.display-none
-                        input(type="text" name="ward" placeholder="Ward" value=`${ward}`)
+                        input(type="text" name="ward" placeholder="Ward" value=`${user.ward}`)
                     .input-group.display-none
-                        input(type="text" name="phone" placeholder="Phone" value=`${phone}`)
+                        input(type="text" name="phone" placeholder="Phone" value=`${user.phone}`)
+                    .input-group.display-none
+                        input(type="text" name="LC" placeholder="LC" value=`${user.LC}`)
+                    .input-group.display-none
+                        input(type="text" name="areaAO" placeholder="areaAO" value=`${user.areaAO}`)
+                    .input-group.display-none
+                        input(type="text" name="areaFO" placeholder="areaFO" value=`${user.areaFO}`)
                     .input-inline
                         .input-group
                             select(name='category')

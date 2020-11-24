@@ -32,11 +32,7 @@ router.get("/", async (req, res) => {
       const user = await UrbanFarmer.findOne({
         username: req.session.user.username,
       });
-      // Store name and ward in variables and pass the data to rendered file.
-      let name = user.name,
-        ward = user.ward,
-        phone = user.phonenumber;
-      res.render("urban_dash", { name, ward, phone });
+      res.render("urban_dash", { user });
     } catch (err) {
       console.log({ message: err });
       res.status(400).send("Something went wrong with your request.");
@@ -49,7 +45,7 @@ router.get("/", async (req, res) => {
 router.post("/upload", upload.single("image"), async (req, res) => {
   if (req.session.user) {
     try {
-      // Add filename and status to the incoming data.
+      // Add information to the req.body before processing.
       req.body.filename = req.file.filename;
       req.body.status = "pending";
 

@@ -14,6 +14,9 @@ const productSchema = mongoose.Schema({
   location: String,
   filename: String,
   status: String,
+  LC: String,
+  areaAO: String,
+  areaFO: String,
 });
 
 // Export the model to interact with the database.
