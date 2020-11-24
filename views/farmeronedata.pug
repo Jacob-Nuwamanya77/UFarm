@@ -8,7 +8,10 @@ html
         link(rel="stylesheet", href="/css/fodatatable.css")
     body
         .container
-            .title REGISTERED FARMER ONES.
+            div.nav-back
+                a(href='/ao')
+                     span Back
+            .title REGISTERED FARMER ONES.                  
             div.display.display-none
             if farmers.length
                 table.table.table-striped

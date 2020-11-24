@@ -8,7 +8,11 @@ html
         link(rel="stylesheet", href="/css/fodatatable.css")
     body
         .container
-            .title PRODUCTS WAITING APPROVAL.
+            div.nav-back
+               a.link(href='/fo')
+                    .nav-icon
+                        span Back
+            .title PRODUCTS WAITING APPROVAL.            
             div.display.display-none
             if products.length
                 table.table.table-striped

@@ -7,6 +7,9 @@ html
     link(rel='stylesheet' type='text/css' href='/css/registration_form_styles.css')
   body
     .form-container
+      div.nav-back
+        a(href='/ao')
+          span Back
       .text-muted.align-center.form-title
         | Farmer One Registration Form
       form(name='register_FO' method='POST' action="/ao/register")
