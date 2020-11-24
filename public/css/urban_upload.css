@@ -115,7 +115,8 @@ input[type="radio"],
 input[type="checkbox"] {
   margin-right: 10px;
 }
-input[type="checkbox"]:focus {
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
   outline: 0.5px solid rgb(35, 199, 188);
 }
 fieldset {

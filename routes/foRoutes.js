@@ -24,7 +24,10 @@ router.get("/register", (req, res) => {
 
 router.get("/approval", async (req, res) => {
   if (req.session.user) {
-    const products = await Products.find({ status: "pending" });
+    const products = await Products.find({
+      status: "pending",
+      areaFO: req.session.user.username,
+    });
     res.render("pending_approval", { products });
   } else {
     res.redirect("/login");
