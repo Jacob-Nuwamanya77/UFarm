@@ -1,0 +1,89 @@
+.content-border {
+  border: 1px solid rgb(200, 200, 200);
+}
+.cards-margin {
+  margin-left: 20px;
+}
+
+table,
+th,
+tr,
+td {
+  border: 1px solid rgb(200, 200, 200);
+  border-collapse: collapse;
+}
+
+.stat-card {
+  width: 300px;
+  height: 500px;
+}
+
+.graph {
+  margin-top: 60px;
+}
+.labels,
+.graph {
+  padding-left: 55px;
+}
+.graph div {
+  display: inline-block;
+  width: 30px;
+  margin-left: 10px;
+}
+.data-title {
+  height: 25px;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 120%;
+}
+.regional-reps {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+.table {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+.labels span {
+  margin-left: 15px;
+}
+.table-farmers th {
+  font-weight: lighter;
+}
+.svg-container {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+.LC1 {
+  background-color: #d91d44;
+}
+.LC2 {
+  background-color: #3597d9;
+}
+.LC3 {
+  background-color: #ff4500;
+}
+.LC4 {
+  background-color: #667192;
+}
+
+.text-muted {
+  color: rgb(100, 100, 100);
+}
+.text-small {
+  font-size: 85%;
+}
+.text-centered {
+  text-align: center;
+}
+.bg-light {
+  background-color: rgb(120, 120, 120);
+  color: rgb(220, 220, 220);
+}
+text {
+  fill: rgb(100, 100, 100);
+}

@@ -11,7 +11,7 @@
   width: 960px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 20px;
+  padding-top: 10px;
   position: relative;
 }
 @media (max-width: 960px) {
@@ -20,26 +20,17 @@
   }
 }
 .top-container {
-  height: 400px;
   width: 100%;
   display: flex;
   flex-direction: row;
 }
-.left-container {
-  width: 65%;
-  margin-right: 5%;
-  box-shadow: 2px 2px 10px rgb(150, 150, 150);
-}
-.right-container {
-  width: 32%;
-}
+
 .bottom-container {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 5px;
 }
 .title {
-  margin-bottom: 20px;
-  font-size: 130%;
+  margin-bottom: 5px;
   color: rgb(150, 150, 150);
 }
 /*Style the nav bar and the icons therein*/
@@ -49,7 +40,7 @@
   justify-content: space-around;
   margin-left: auto;
   margin-right: auto;
-  width: 500px;
+  width: 300px;
 }
 .nav a {
   text-decoration: none;
@@ -62,15 +53,10 @@
   transform: scale(1.1);
 }
 
-.nav-icon span {
-  font-size: 200%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .icon-text {
   text-align: center;
   margin-top: 5px;
+  font-size: 105%;
 }
 /*End of nav bar styles*/
 
