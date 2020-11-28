@@ -1,12 +1,35 @@
 (function () {
-  // Store data in arrays.
-  let farmers = [5, 9, 8, 13];
+  // Access the data from the db.
+  let dbData = document.getElementsByClassName("graph"),
+    graphDataFarmers = dbData[0].getElementsByTagName("div"),
+    graphDataOrders = dbData[1].getElementsByTagName("div"),
+    graphDataUploads = dbData[2].getElementsByTagName("div");
+
+  // Sort Farmer data and store in arrays.
+  let farmers = [].map.call(graphDataFarmers, (div) => {
+    return div.getAttribute("data-number");
+  });
+
+  // Sort Orders and store in arrays.
+  let unsortedOrders = [].map.call(graphDataOrders, (div) => {
+    return div.getAttribute("data-number");
+  });
   let orders = [
-    { name: "LC1", order: 3, color: "#d91d44" },
-    { name: "LC2", order: 10, color: "#3597d9" },
-    { name: "LC3", order: 17, color: "#ff4500" },
-    { name: "LC4", order: 35, color: "#667192" },
+    { name: "LC1", color: "#d91d44" },
+    { name: "LC2", color: "#3597d9" },
+    { name: "LC3", color: "#ff4500" },
+    { name: "LC4", color: "#667192" },
   ];
+
+  // Add order data to the array for display.
+  orders.forEach((obj, i) => {
+    obj.order = unsortedOrders[i];
+  });
+
+  // Sort Uploads and store in arrays.
+  let uploads = [].map.call(graphDataUploads, (div) => {
+    return div.getAttribute("data-number");
+  });
 
   // Define the functions to manipulate the data.
   function barChartFarmers(dataset, tableID, graph) {
@@ -47,7 +70,7 @@
     // Compute the total number of orders.
     var totalOrder = 0;
     data.forEach((location) => {
-      totalOrder += location.order;
+      totalOrder += parseInt(location.order);
     });
 
     // Compute the percentages and assign to the respective data object.
@@ -101,6 +124,6 @@
 
   // Call the function at appropriate time.
   barChartFarmers(farmers, "table-farmers", ".graph-farmers");
-  barChartFarmers(farmers, "table-uploads", ".graph-uploads");
   doughnutChartOrders(orders);
+  barChartFarmers(uploads, "table-uploads", ".graph-uploads");
 })();
