@@ -80,3 +80,15 @@ td {
   background-color: rgb(120, 120, 120);
   color: rgb(220, 220, 220);
 }
+.graph-farmers {
+  text-align: center;
+  color: rgb(100, 100, 100);
+  padding-left: inherit;
+  margin-top: 120px;
+}
+.lg-txt {
+  font-size: 1050%;
+}
+.sm-txt {
+  font-size: 700%;
+}

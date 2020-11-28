@@ -12,30 +12,8 @@ html
             .top-container
                 .stat-card.cards-border
                     .data-title
-                        span.text-muted Registered Farmers
-                    table.table#table-farmers
-                        thead
-                            tr
-                                th.text-muted.bg-light LC1
-                                th.text-muted.bg-light LC2
-                                th.text-muted.bg-light LC3
-                                th.text-muted.bg-light LC4
-                        tbody
-                            tr
-                                td.text-muted.text-centered
-                                td.text-muted.text-centered
-                                td.text-muted.text-centered
-                                td.text-muted.text-centered
-                    .graph.graph-farmers
-                        .LC1
-                        .LC2
-                        .LC3
-                        .LC4
-                    .labels.text-muted.text-small
-                        span LC1
-                        span LC2
-                        span LC3
-                        span LC4
+                        span.text-muted Registered Farmers                    
+                    .graph.graph-farmers.lg-txt(data-number=`${data.ufTotals}`)
                 .stat-card.cards-margin.cards-border#middle-card
                     .data-title
                         span.text-muted Total Orders Placed
@@ -54,6 +32,11 @@ html
                                 td.text-muted.text-centered
                     .svg-container
                         svg(width="200" height="200" id="orders")
+                    .graph.graph-orders.display-none
+                        .LC1(data-number=`${data.orderTotals.OLC1}`)
+                        .LC2(data-number=`${data.orderTotals.OLC2}`)
+                        .LC3(data-number=`${data.orderTotals.OLC3}`)
+                        .LC4(data-number=`${data.orderTotals.OLC4}`)
                 .stat-card.cards-border.cards-margin
                     .data-title
                         span.text-muted Produce Uploaded
@@ -71,10 +54,10 @@ html
                                 td.text-muted.text-centered
                                 td.text-muted.text-centered
                     .graph.graph-uploads
-                        .LC1
-                        .LC2
-                        .LC3
-                        .LC4
+                        .LC1(data-number=`${data.uploadTotals.UPLC1}`)
+                        .LC2(data-number=`${data.uploadTotals.UPLC2}`)
+                        .LC3(data-number=`${data.uploadTotals.UPLC3}`)
+                        .LC4(data-number=`${data.uploadTotals.UPLC4}`)
                     .labels.text-muted.text-small
                         span LC1
                         span LC2
@@ -92,4 +75,4 @@ html
                                 span.zmdi.zmdi-storage
                                 .icon-text Approvals
         script(type="text/javascript" src="/js/d3.js")            
-        script(type="text/javascript" src="/js/graphs.js")
+        script(type="text/javascript" src="/js/farmerone_graphs.js")
