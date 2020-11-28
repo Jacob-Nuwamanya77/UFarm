@@ -6,12 +6,11 @@ html
         title UFarm- AO DASHBOARD
         link(rel='stylesheet' type='text/css' href='/css/dashboard.css')
         link(rel='stylesheet' type='text/css' href='/css/graph.css')
-        link(rel='stylesheet' type='text/css' href='/css/zmdi/css/material-design-iconic-font.min.css')
     body
         .container
             .title AO DASHBOARD
             .top-container
-                .stat-card.content-border
+                .stat-card.cards-border
                     .data-title
                         span.text-muted Registered Farmers
                     table.table#table-farmers
@@ -37,25 +36,25 @@ html
                         span LC2
                         span LC3
                         span LC4
-                .stat-card.cards-margin.content-border#middle-card
+                .stat-card.cards-margin.cards-border#middle-card
                     .data-title
                         span.text-muted Total Orders Placed
-                        table.table#table-orders
-                            thead
-                                tr
-                                    th.text-muted.bg-light LC1
-                                    th.text-muted.bg-light LC2
-                                    th.text-muted.bg-light LC3
-                                    th.text-muted.bg-light LC4
-                            tbody
-                                tr
-                                    td.text-muted.text-centered
-                                    td.text-muted.text-centered
-                                    td.text-muted.text-centered
-                                    td.text-muted.text-centered
-                        .svg-container
-                            svg(width="200" height="200" id="orders")
-                .stat-card.content-border.cards-margin
+                    table.table#table-orders
+                        thead
+                            tr
+                                th.text-muted.bg-light LC1
+                                th.text-muted.bg-light LC2
+                                th.text-muted.bg-light LC3
+                                th.text-muted.bg-light LC4
+                        tbody
+                            tr
+                                td.text-muted.text-centered
+                                td.text-muted.text-centered
+                                td.text-muted.text-centered
+                                td.text-muted.text-centered
+                    .svg-container
+                        svg(width="200" height="200" id="orders")
+                .stat-card.cards-border.cards-margin
                     .data-title
                         span.text-muted Produce Uploaded
                     table.table#table-uploads

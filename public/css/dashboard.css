@@ -27,7 +27,7 @@
 
 .bottom-container {
   width: 100%;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 .title {
   margin-bottom: 5px;
@@ -51,116 +51,4 @@
 .nav a:hover {
   color: rgb(11, 188, 73);
   transform: scale(1.1);
-}
-
-.icon-text {
-  text-align: center;
-  margin-top: 5px;
-  font-size: 105%;
-}
-/*End of nav bar styles*/
-
-/*Default Classes*/
-.margin10L {
-  margin-left: 38px;
-}
-.margin30L {
-  margin-left: 35px;
-}
-.display-none {
-  display: none;
-}
-/*End of Default classes*/
-
-/*Styles for the analytics*/
-.summary-stats {
-  width: 100%;
-  height: 300px;
-  padding-left: 20px;
-  padding-top: 3px;
-  color: rgb(150, 150, 150);
-  box-shadow: 2px 2px 10px rgb(150, 150, 150);
-}
-.stats {
-  display: flex;
-  flex-direction: row;
-}
-.stat-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-}
-.stat-icon span {
-  font-size: 200%;
-  color: white;
-}
-.stat-num {
-  width: 150px;
-  margin-left: 10px;
-  text-align: center;
-}
-
-.stat-num span {
-  font-size: 110%;
-  margin-top: 5px;
-  display: block;
-  text-align: center;
-}
-.arrow {
-  margin-left: 10px;
-  margin-top: 10px;
-  border-left: 20px solid white;
-  border-right: 20px solid white;
-}
-.up-arrow {
-  border-bottom: 20px solid rgb(11, 188, 73);
-}
-.down-arrow {
-  border-top: 20px solid red;
-}
-
-/*Upload stats*/
-#upload-icon {
-  background-color: #04bcf5;
-}
-#upload-icon span {
-  margin-left: 9px;
-  margin-top: 7px;
-}
-#stats-uploads {
-  margin-top: 40px;
-}
-#total-uploads {
-  color: #04bcf5;
-}
-
-/*New user stats*/
-#newuser-icon {
-  background-color: #f7cf07;
-}
-#newuser-icon span {
-  margin-left: 7px;
-  margin-top: 9px;
-}
-
-#stats-newusers {
-  margin-top: 20px;
-}
-#total-newusers {
-  color: #f7cf07;
-}
-
-/*Order stats*/
-#stats-orders {
-  margin-top: 50px;
-}
-#orders-icon {
-  background-color: #483d8b;
-}
-#orders-icon span {
-  margin-left: 12px;
-  margin-top: 7px;
-}
-#total-orders {
-  color: #483d8b;
 }

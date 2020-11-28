@@ -82,6 +82,7 @@
     g.append("text")
       .attr("text-anchor", "middle")
       .attr("font-size", "3em")
+      .attr("fill", "rgb(100,100,100)")
       .attr("y", 15)
       .text(totalOrder);
 
