@@ -4,49 +4,85 @@ html
         meta(charset='utf-8')
         meta(name='viewport' content='width=device-width,initial-scale=1.0')
         title UFarm- FO DASHBOARD
-        link(rel='stylesheet' type='text/css' href='css/dashboard.css')
-        link(rel='stylesheet' type='text/css' href='css/zmdi/css/material-design-iconic-font.min.css')
+        link(rel='stylesheet' type='text/css' href='/css/dashboard.css')
+        link(rel='stylesheet' type='text/css' href='/css/graph.css')
     body
         .container
-            .title FO OVERVIEW
+            .title FO DASHBOARD
             .top-container
-                .left-container
-                .right-container
-                    .summary-stats
-                        #stats-newusers.stats
-                            #newuser-icon.stat-icon
-                                span.zmdi.zmdi-accounts-add
-                            .stat-num
-                                div New Farmers
-                                span#total-newusers 1000
-                            .stat-performance
-                                .arrow.up-arrow
-                                .arrow.down-arrow.display-none
-                        #stats-uploads.stats
-                            #upload-icon.stat-icon
-                                span.zmdi.zmdi-cloud-upload
-                            .stat-num
-                                div Monthly uploads
-                                span#total-uploads 1000
-                            .stat-performance
-                                .arrow.up-arrow.display-none
-                                .arrow.down-arrow
-                        #stats-orders.stats
-                            #orders-icon.stat-icon
-                                span.zmdi.zmdi-collection-add
-                            .stat-num
-                                div Monthly Orders
-                                span#total-orders 1000
-                            .stat-performance
-                                .arrow.up-arrow
-                                .arrow.down-arrow.display-none
+                .stat-card.cards-border
+                    .data-title
+                        span.text-muted Registered Farmers
+                    table.table#table-farmers
+                        thead
+                            tr
+                                th.text-muted.bg-light LC1
+                                th.text-muted.bg-light LC2
+                                th.text-muted.bg-light LC3
+                                th.text-muted.bg-light LC4
+                        tbody
+                            tr
+                                td.text-muted.text-centered
+                                td.text-muted.text-centered
+                                td.text-muted.text-centered
+                                td.text-muted.text-centered
+                    .graph.graph-farmers
+                        .LC1
+                        .LC2
+                        .LC3
+                        .LC4
+                    .labels.text-muted.text-small
+                        span LC1
+                        span LC2
+                        span LC3
+                        span LC4
+                .stat-card.cards-margin.cards-border#middle-card
+                    .data-title
+                        span.text-muted Total Orders Placed
+                    table.table#table-orders
+                        thead
+                            tr
+                                th.text-muted.bg-light LC1
+                                th.text-muted.bg-light LC2
+                                th.text-muted.bg-light LC3
+                                th.text-muted.bg-light LC4
+                        tbody
+                            tr
+                                td.text-muted.text-centered
+                                td.text-muted.text-centered
+                                td.text-muted.text-centered
+                                td.text-muted.text-centered
+                    .svg-container
+                        svg(width="200" height="200" id="orders")
+                .stat-card.cards-border.cards-margin
+                    .data-title
+                        span.text-muted Produce Uploaded
+                    table.table#table-uploads
+                        thead
+                            tr
+                                th.text-muted.bg-light LC1
+                                th.text-muted.bg-light LC2
+                                th.text-muted.bg-light LC3
+                                th.text-muted.bg-light LC4
+                        tbody
+                            tr
+                                td.text-muted.text-centered
+                                td.text-muted.text-centered
+                                td.text-muted.text-centered
+                                td.text-muted.text-centered
+                    .graph.graph-uploads
+                        .LC1
+                        .LC2
+                        .LC3
+                        .LC4
+                    .labels.text-muted.text-small
+                        span LC1
+                        span LC2
+                        span LC3
+                        span LC4
             .bottom-container
                 .nav-container
                     nav.nav
-                        a.link(href='/fo')
-                            .nav-icon
-                                span.zmdi.zmdi-home
-                                .icon-text Home
                         a(href='fo/register')
                             .nav-icon
                                 span.zmdi.zmdi-plus
@@ -55,3 +91,5 @@ html
                             .nav-icon
                                 span.zmdi.zmdi-storage
                                 .icon-text Approvals
+        script(type="text/javascript" src="/js/d3.js")            
+        script(type="text/javascript" src="/js/graphs.js")
