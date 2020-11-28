@@ -27,10 +27,10 @@ html
                                 td.text-muted.text-centered
                                 td.text-muted.text-centered
                     .graph.graph-farmers
-                        .LC1
-                        .LC2
-                        .LC3
-                        .LC4
+                        .LC1(data-number=`${data.ufTotals.UFLC1}`)
+                        .LC2(data-number=`${data.ufTotals.UFLC2}`)
+                        .LC3(data-number=`${data.ufTotals.UFLC3}`)
+                        .LC4(data-number=`${data.ufTotals.UFLC4}`)
                     .labels.text-muted.text-small
                         span LC1
                         span LC2
@@ -54,6 +54,11 @@ html
                                 td.text-muted.text-centered
                     .svg-container
                         svg(width="200" height="200" id="orders")
+                    .graph.display-none
+                        .LC1(data-number=`${data.orderTotals.OLC1}`)
+                        .LC2(data-number=`${data.orderTotals.OLC2}`)
+                        .LC3(data-number=`${data.orderTotals.OLC3}`)
+                        .LC4(data-number=`${data.orderTotals.OLC4}`)
                 .stat-card.cards-border.cards-margin
                     .data-title
                         span.text-muted Produce Uploaded
@@ -71,10 +76,10 @@ html
                                 td.text-muted.text-centered
                                 td.text-muted.text-centered
                     .graph.graph-uploads
-                        .LC1
-                        .LC2
-                        .LC3
-                        .LC4
+                        .LC1(data-number=`${data.uploadTotals.UPLC1}`)
+                        .LC2(data-number=`${data.uploadTotals.UPLC2}`)
+                        .LC3(data-number=`${data.uploadTotals.UPLC3}`)
+                        .LC4(data-number=`${data.uploadTotals.UPLC4}`)
                     .labels.text-muted.text-small
                         span LC1
                         span LC2
