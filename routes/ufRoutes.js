@@ -36,7 +36,6 @@ router.get("/", async (req, res) => {
       const listings = await Product.find({
         phone: req.session.user.username.substr(3, 10),
       });
-      console.log(listings);
       res.render("urban_dash", { user, listings });
     } catch (err) {
       console.log({ message: err });
@@ -53,6 +52,7 @@ router.post("/upload", upload.single("image"), async (req, res) => {
       // Add information to the req.body before processing.
       req.body.filename = req.file.filename;
       req.body.status = "pending";
+      req.body.username = req.session.user.username.substr(0, 13);
 
       // Save data into database.
       const product = await Product(req.body);
