@@ -208,12 +208,14 @@ const showDetails = (event) => {
 
 // Set click handler on the tbody tag to handle all detail clicks.
 let tbody = document.getElementsByTagName("tbody")[0];
-tbody.addEventListener("click", function (event) {
-  event.stopPropagation();
-  let eventSrc = event.target,
-    // Test classes on src for class details. Handle only clicks from details.
-    regex = /details/;
-  if (regex.test(eventSrc.classList.value)) {
-    showDetails(event);
-  }
-});
+if (tbody) {
+  tbody.addEventListener("click", function (event) {
+    event.stopPropagation();
+    let eventSrc = event.target,
+      // Test classes on src for class details. Handle only clicks from details.
+      regex = /details/;
+    if (regex.test(eventSrc.classList.value)) {
+      showDetails(event);
+    }
+  });
+}
