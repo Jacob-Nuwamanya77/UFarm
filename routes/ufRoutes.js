@@ -32,7 +32,12 @@ router.get("/", async (req, res) => {
       const user = await UrbanFarmer.findOne({
         username: req.session.user.username,
       });
-      res.render("urban_dash", { user });
+      // Use the unique username to access all products listed in the db.
+      const listings = await Product.find({
+        phone: req.session.user.username.substr(3, 10),
+      });
+      console.log(listings);
+      res.render("urban_dash", { user, listings });
     } catch (err) {
       console.log({ message: err });
       res.status(400).send("Something went wrong with your request.");
