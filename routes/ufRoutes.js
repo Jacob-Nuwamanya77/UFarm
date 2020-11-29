@@ -34,7 +34,7 @@ router.get("/", async (req, res) => {
       });
       // Use the unique username to access all products listed in the db.
       const listings = await Product.find({
-        phone: req.session.user.username.substr(3, 10),
+        username: req.session.user.username,
       });
       res.render("urban_dash", { user, listings });
     } catch (err) {
