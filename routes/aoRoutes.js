@@ -35,6 +35,13 @@ router.get("/", async (req, res) => {
         UFLC3: UFLC3.length,
         UFLC4: UFLC4.length,
       };
+    } else {
+      ufTotals = {
+        UFLC1: 0,
+        UFLC2: 0,
+        UFLC3: 0,
+        UFLC4: 0,
+      };
     }
     // Sort orders placed.
     let OLC1 = [],
@@ -50,6 +57,13 @@ router.get("/", async (req, res) => {
         OLC3: OLC3.length,
         OLC4: OLC4.length,
       };
+    } else {
+      orderTotals = {
+        OLC1: 0,
+        OLC2: 0,
+        OLC3: 0,
+        OLC4: 0,
+      };
     }
     // Sort uploads.
     let UPLC1 = [],
@@ -64,6 +78,13 @@ router.get("/", async (req, res) => {
         UPLC2: UPLC2.length,
         UPLC3: UPLC3.length,
         UPLC4: UPLC4.length,
+      };
+    } else {
+      uploadTotals = {
+        UPLC1: 0,
+        UPLC2: 0,
+        UPLC3: 0,
+        UPLC4: 0,
       };
     }
     let data = { ufTotals, orderTotals, uploadTotals };
