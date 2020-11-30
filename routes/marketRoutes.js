@@ -28,9 +28,16 @@ router.get("/order", async (req, res) => {
 router.post("/order", async (req, res) => {
   try {
     let product = await Product.findOne({ _id: req.query.product });
-    let newQty = {
-      quantity: parseInt(product.quantity) - parseInt(req.body.quantity),
-    };
+    // Create object to pass into update function.
+    let newQty = {};
+    // Calculate the difference.
+    let difference = parseInt(product.quantity) - parseInt(req.body.quantity);
+    if (difference == 0) {
+      newQty.quantity = "N/A";
+    } else {
+      newQty.quantity = difference;
+    }
+
     // Update the data base content of the quantity field only.
     await Product.findOneAndUpdate({ _id: req.query.product }, newQty);
 
@@ -42,6 +49,8 @@ router.post("/order", async (req, res) => {
     req.body.LC = UF.LC;
     req.body.areaAO = UF.areaAO;
     req.body.areaFO = UF.areaFO;
+    req.body.UF = userName;
+    req.body.status = "pending";
 
     // Process data and save to db.
     await Order(req.body).save();
