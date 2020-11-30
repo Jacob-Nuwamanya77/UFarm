@@ -1,12 +1,11 @@
 (function () {
   // Function closes the display area.
   const close = (event) => {
-    event.stopPropagation();
+    event.preventDefault();
     let display = document.querySelector(".display-product");
     display.classList.add("display-none");
     // Remove element from the DOM.
     display.removeChild(display.children[0]);
-    console.log("The end");
   };
 
   // Function displays the product uploaded.
@@ -16,6 +15,10 @@
     const dataLocation = srcRow.querySelector(".show-product");
     const product = dataLocation.querySelector(".product");
     const clone = product.cloneNode(true);
+
+    // Set click handler on the close btn.
+    let closeBtn = clone.querySelector(".close-icon");
+    closeBtn.addEventListener("click", close);
 
     // Access the area to append the document fragment.
     const displayArea = document.querySelector(".display-product");
@@ -27,9 +30,6 @@
     displayArea.appendChild(clone);
     displayArea.classList.remove("display-none");
   };
-  // Set click handler on close icon.
-  let closeBtn = document.querySelector(".close-icon");
-  closeBtn.addEventListener("click", close);
 
   // Set click handler on the tbody tag to handle all detail clicks.
   let tbody = document.getElementsByTagName("tbody")[0];

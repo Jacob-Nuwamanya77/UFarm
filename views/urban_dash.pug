@@ -13,7 +13,7 @@ html
             .title #{user.name} DASHBOARD
             .uf-top-container
                 .products-container
-                    div.display-product.display-none
+                    div.display-product.display-none                        
                     if listings.length
                         table.table.table-striped
                             thead.thead-dark
@@ -37,7 +37,7 @@ html
                                         td.display-none.show-product
                                             .product
                                                 div.close-icon-container
-                                                    span.close-icon X
+                                                    span.close-icon X                                                
                                                 .image-container
                                                     img.images(src=`/uploads/${product.filename}` alt="product")
                                                 .product-info
@@ -69,8 +69,12 @@ html
                     else
                         p No Products Added.                    
                 .products-stats-container
-                    .stats-total-orders
                     .stats-new-orders
+                        .stats-title.bg-new-orders New Orders
+                        .total-orders.new-orders 10
+                    .stats-total-orders
+                        .stats-title Total Orders
+                        .total-orders.total-orders-text 20             
             .bottom-container
                 .nav-container
                     nav.nav

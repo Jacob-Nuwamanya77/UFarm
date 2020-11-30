@@ -42,11 +42,12 @@
 }
 .stats-total-orders {
   height: 240px;
-  margin-bottom: 10px;
+
   border: 1px solid rgb(200, 200, 200);
 }
 .stats-new-orders {
-  height: 250px;
+  height: 240px;
+  margin-bottom: 10px;
   border: 1px solid rgb(200, 200, 200);
 }
 .bottom-container {
@@ -57,6 +58,32 @@
   margin-bottom: 5px;
   color: rgb(150, 150, 150);
 }
+.stats-title {
+  width: 100%;
+  text-align: center;
+  font-size: 110%;
+  color: rgb(150, 150, 150);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.total-orders {
+  height: 200px;
+  font-size: 450%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.new-orders {
+  color: #1abc9c;
+}
+.total-orders-text {
+  color: rgb(150, 150, 150);
+}
+.bg-new-orders {
+  background-color: #1abc9c;
+  color: white;
+}
+
 /*Style the nav bar and the icons therein*/
 .nav {
   display: flex;
