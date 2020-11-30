@@ -33,9 +33,11 @@ router.get("/", async (req, res) => {
         username: req.session.user.username,
       });
       // Use the unique username to access all products listed in the db.
-      const listings = await Product.find({
+      const products = await Product.find({
         username: req.session.user.username,
       });
+      // Reverse order so that new additions display first
+      const listings = products.reverse();
       res.render("urban_dash", { user, listings });
     } catch (err) {
       console.log({ message: err });

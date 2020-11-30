@@ -7,49 +7,65 @@ html
         link(rel='stylesheet' type='text/css' href='/css/dashboard.css')
         link(rel="stylesheet", href="/css/urban_upload.css")
         link(rel="stylesheet", href="/css/tables.css")
+        link(rel="stylesheet", href="/css/urban_product.css")
     body
         .container
             .title #{user.name} DASHBOARD
             .uf-top-container
                 .products-container
-                    div.display.display-none
+                    div.display-product.display-none
                     if listings.length
                         table.table.table-striped
                             thead.thead-dark
                                 tr                                    
-                                    th.display-none Name
                                     th Category
                                     th Status                                                                
-                                    th Type
                                     th Price
                                     th Quantity
-                                    th.display-none Phone                                    
-                                    th.display-none Location
-                                    th.display-none Payment
-                                    th.display-none Delivery
-                                    th
+                                    th UoM                                    
                                     th
                             tbody
                                 each product in listings
                                     tr(data-id=`${product._id}`)
-                                        td.display-none #{product.name}                                        
-                                        td #{product.category}                                        
+                                        td #{product.category}
                                         td #{product.status}
-                                        td #{product.type}                                         
-                                        td #{product.price}                                        
-                                        td.display-none #{product.phone}
+                                        td #{product.price}
                                         td #{product.quantity}
-                                        td.display-none #{product.location}
-                                        td.display-none
-                                            each payOpts in product.payment
-                                                |#{payOpts}<br>
-                                        td.display-none
-                                            each delOpts in product.delivery
-                                                |#{delOpts}<br>
+                                        td #{product.uom}
                                         td
                                             a(href='#' class="details") Details
-                                        td
-                                            a(href="#" class="update") Update                  
+                                        td.display-none.show-product
+                                            .product
+                                                div.close-icon-container
+                                                    span.close-icon X
+                                                .image-container
+                                                    img.images(src=`/uploads/${product.filename}` alt="product")
+                                                .product-info
+                                                    .c-grey #{product.category}
+                                                    .c-green.enlarge-text
+                                                        span UGX #{product.price}
+                                                        span &nbsp;per #{product.uom}                                                    
+                                                    .recent.c-green.info-size
+                                                        span Location:
+                                                        span &nbsp;#{product.location}
+                                                    .info-size.margintop(style="color:#ffc107")
+                                                        span.members-key Status:
+                                                        span.members-value &nbsp;#{product.status}
+                                                    .c-grey.info-size.margintop
+                                                        span.members-key Category:
+                                                        span.members-value &nbsp;#{product.category}
+                                                    .c-grey.info-size.margintop
+                                                        span.members-key Stock:
+                                                        span.members-value &nbsp;#{product.quantity}
+                                                    .c-grey.info-size.margintop
+                                                        span Type:
+                                                        span &nbsp;#{product.type}
+                                                    .c-grey.info-size.margintop
+                                                        span Payment:
+                                                        span &nbsp;#{product.payment}
+                                                    .c-grey.info-size.margintop
+                                                        span Delivery:
+                                                        span &nbsp;#{product.delivery}
                     else
                         p No Products Added.                    
                 .products-stats-container
@@ -58,15 +74,9 @@ html
             .bottom-container
                 .nav-container
                     nav.nav
-                        a.link(href='#')
-                            .nav-icon
-                                .icon-text Home
                         a(href='#' class="addProduct")
                             .nav-icon
                                 .icon-text Add Product
-                        a(href='#')
-                            .nav-icon
-                                .icon-text Records
             .display.formdisplay.display-none
                 div
                     .form-title Please fill this form to add product.
@@ -146,4 +156,3 @@ html
         script(type='text/javascript' src='/js/validate_helpers.js')
         script(type='text/javascript' src='/js/validate_product.js')
         script(type='text/javascript' src="/js/show_urban_product.js")
-        script(type='text/javascript' src="/js/show_update_product.js")
