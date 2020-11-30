@@ -7,8 +7,28 @@ const Order = require("../models/order");
 // Routes.
 router.get("/", async (req, res) => {
   try {
+    // Extract only approved products for displaying.
     const data = await Product.find({ status: "active" });
-    res.render("product", { listings: data });
+
+    // Set default page and page size values and directional values for page navigation.
+    let requested_page = req.query.page ? parseInt(req.query.page) : 1;
+    let previous_page, next_page;
+    let page_size = 8;
+    if (!req.query.page) {
+      next_page = requested_page + 1;
+      previous_page = requested_page;
+    } else {
+      if (req.query.next) {
+        next_page = requested_page + 1;
+        previous_page = requested_page - 1;
+      } else if (req.query.prev) {
+        next_page = requested_page + 1;
+        previous_page = requested_page - 1 <= 0 ? 1 : requested_page - 1;
+      }
+    }
+
+    let limits = { next_page, previous_page };
+    res.render("product", { listings: data, limits });
   } catch (err) {
     console.log({ message: err });
     res.send("Something went wrong with request.");

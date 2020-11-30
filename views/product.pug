@@ -18,12 +18,12 @@ html(lang="en")
                     .search
                         span.zmdi.zmdi-search
                         input(type="text", name="search" placeholder="Search vendors near you")
-                    div
+                    div.displayed-pages
                         .scroll-page
-                            .prev
-                                input.scroll-btn(type="button" value="prev" name="prev")
-                            .next
-                                input.scroll-btn(type="button" value="next" name="next")
+                            .prev.scroll-btn
+                                a(href=`/?page=${limits.previous_page}&prev=true`) Prev
+                            .next.scroll-btn
+                                a(href=`/?page=${limits.next_page}&next=true`) Next
                         small Showing page 1 of 3
             .groups-container
                 if listings.length
