@@ -4,44 +4,54 @@ html
         meta(charset='utf-8')
         meta(name='viewport' content='width=device-width,initial-scale=1.0')
         title UFarm- URBAN DASHBOARD
-        link(rel='stylesheet' type='text/css' href='/css/zmdi/css/material-design-iconic-font.min.css')
         link(rel='stylesheet' type='text/css' href='/css/dashboard.css')
         link(rel="stylesheet", href="/css/urban_upload.css")
+        link(rel="stylesheet", href="/css/tables.css")
     body
         .container
             .title #{user.name} DASHBOARD
-            .top-container
+            .uf-top-container
                 .products-container
+                    div.display.display-none
                     if listings.length
-                    each produce in listings
-                        .product
-                            .image-container
-                                img.images(src=`/uploads/${produce.filename}` alt="product")
-                            .product-info
-                                .c-grey #{produce.category}
-                                .c-green.enlarge-text
-                                    span UGX #{produce.price}
-                                .recent.c-green.info-size
-                                    span Location:
-                                    span &nbsp;#{produce.location}
-                                .c-grey.info-size.margintop
-                                    span.members-key Stock:
-                                    span.members-value &nbsp;#{produce.quantity}
-                                .c-grey.info-size.margintop
-                                    span Type:
-                                    span &nbsp;#{produce.type}
-                                .c-grey.info-size.margintop
-                                    span Payment:
-                                    span &nbsp;#{produce.payment}
-                                .c-grey.info-size.margintop
-                                    span Delivery:
-                                    span &nbsp;#{produce.delivery}
-                                .order-container
-                                    .book
-                                        a(href=`/order/?product=${produce._id}`) Order
-                                    .phone(data-phone=`${produce.phone.substr(0,10)}`
-                                        data-vendor=`${produce.name}`)
-                                        a.zmdi.zmdi-phone(href='#')
+                        table.table.table-striped
+                            thead.thead-dark
+                                tr                                    
+                                    th.display-none Name
+                                    th Category
+                                    th Status                                                                
+                                    th Type
+                                    th Price
+                                    th Quantity
+                                    th.display-none Phone                                    
+                                    th.display-none Location
+                                    th.display-none Payment
+                                    th.display-none Delivery
+                                    th
+                                    th
+                            tbody
+                                each product in listings
+                                    tr(data-id=`${product._id}`)
+                                        td.display-none #{product.name}                                        
+                                        td #{product.category}                                        
+                                        td #{product.status}
+                                        td #{product.type}                                         
+                                        td #{product.price}                                        
+                                        td.display-none #{product.phone}
+                                        td #{product.quantity}
+                                        td.display-none #{product.location}
+                                        td.display-none
+                                            each payOpts in product.payment
+                                                |#{payOpts}<br>
+                                        td.display-none
+                                            each delOpts in product.delivery
+                                                |#{delOpts}<br>
+                                        td
+                                            a(href='#' class="details") Details
+                                        td
+                                            a(href="#" class="update") Update                  
+                    else
+                        p No Products Added.                    
                 .products-stats-container
                     .stats-total-orders
                     .stats-new-orders
@@ -135,3 +145,5 @@ html
                             input.submit(type="button" value="Add Product")
         script(type='text/javascript' src='/js/validate_helpers.js')
         script(type='text/javascript' src='/js/validate_product.js')
+        script(type='text/javascript' src="/js/show_urban_product.js")
+        script(type='text/javascript' src="/js/show_update_product.js")
