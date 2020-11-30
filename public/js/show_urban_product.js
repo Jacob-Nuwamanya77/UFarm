@@ -31,8 +31,18 @@
     displayArea.classList.remove("display-none");
   };
 
+  // Function displays new orders placed.
+  const show_new_orders = () => {
+    let orderstable = document.querySelector(".display-new-orders");
+    orderstable.classList.remove("display-none");
+  };
+
+  // Set click handler on the new orders div to show table.
+  const newOrderSrc = document.querySelector(".stats-new-orders");
+  newOrderSrc.addEventListener("click", show_new_orders);
+
   // Set click handler on the tbody tag to handle all detail clicks.
-  let tbody = document.getElementsByTagName("tbody")[0];
+  let tbody = document.querySelector(".listings");
   tbody.addEventListener("click", function (event) {
     event.stopPropagation();
     let eventSrc = event.target,

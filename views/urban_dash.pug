@@ -13,7 +13,41 @@ html
             .title #{user.name} DASHBOARD
             .uf-top-container
                 .products-container
-                    div.display-product.display-none                        
+                    div.display-product.display-none
+                    div.display-new-orders.display-none
+                        div.nav-back
+                            a.link(href='/uf')
+                                    .nav-icon
+                                        span Back
+                        .title(style="margin-bottom:10px") NEW ORDERS.            
+                        if neworders.length
+                            table.table.table-striped
+                                thead.thead-dark
+                                    tr
+                                        th Customer
+                                        th Phone
+                                        th Quantity
+                                        th Date                            
+                                        th Type
+                                        th Payment
+                                        th Total
+                                        th.display-none Status
+                                        th
+                                tbody
+                                    each order in neworders
+                                        tr
+                                            td #{order.name}
+                                            td #{`${order.phonenumber.substr(0,10)}`}
+                                            td #{order.quantity}
+                                            td #{order.date} 
+                                            td.align-center #{order.delivery}
+                                            td #{order.payment}
+                                            td #{order.total}
+                                            td.display-none #{order.status}
+                                            td
+                                                a(href=`/uf/delivered/?order=${order._id}` class="update") Delivered                  
+                        else
+                            p No Orders                        
                     if listings.length
                         table.table.table-striped
                             thead.thead-dark
@@ -24,7 +58,7 @@ html
                                     th Quantity
                                     th UoM                                    
                                     th
-                            tbody
+                            tbody(class="listings")
                                 each product in listings
                                     tr(data-id=`${product._id}`)
                                         td #{product.category}
@@ -71,10 +105,18 @@ html
                 .products-stats-container
                     .stats-new-orders
                         .stats-title.bg-new-orders New Orders
-                        .total-orders.new-orders 10
+                        .total-orders.new-orders
+                            if(neworders.length<10)
+                                | #{`0${neworders.length}`}
+                            else
+                                | #{neworders.length}
                     .stats-total-orders
-                        .stats-title Total Orders
-                        .total-orders.total-orders-text 20             
+                        .stats-title Total Orders Delivered
+                        .total-orders.total-orders-text
+                            if(delivered.length<10)
+                                | #{`0${delivered.length}`}
+                            else
+                                | #{delivered.length}             
             .bottom-container
                 .nav-container
                     nav.nav
