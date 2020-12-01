@@ -13,6 +13,7 @@ const orderSchema = mongoose.Schema({
   areaFO: String,
   UF: String,
   status: String,
+  ufward: String,
 });
 
 module.exports = mongoose.model("orders", orderSchema);

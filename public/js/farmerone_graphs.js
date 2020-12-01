@@ -6,38 +6,55 @@
 
   // Extract the data and insert into the DOM.
   dbData[0].textContent = dbData[0].getAttribute("data-number");
+
   // Sort Orders and store in arrays.
   let unsortedOrders = [].map.call(graphDataOrders, (div) => {
     return div.getAttribute("data-number");
   });
+
+  let wardName = [].map.call(graphDataOrders, (div) => {
+    return div.getAttribute("data-ward");
+  });
   let orders = [
-    { name: "LC1", color: "#d91d44" },
-    { name: "LC2", color: "#3597d9" },
-    { name: "LC3", color: "#ff4500" },
-    { name: "LC4", color: "#667192" },
+    { color: "#d91d44" },
+    { color: "#3597d9" },
+    { color: "#ff4500" },
+    { color: "#667192" },
   ];
 
-  // Add order data to the array for display.
+  // Add order and name to the array for display.
   orders.forEach((obj, i) => {
     obj.order = unsortedOrders[i];
+    obj.name = wardName[i];
   });
 
   // Sort Uploads and store in arrays.
-  let uploads = [].map.call(graphDataUploads, (div) => {
+  let uploadsNumbers = [].map.call(graphDataUploads, (div) => {
     return div.getAttribute("data-number");
   });
+  let uploadsLoc = [].map.call(graphDataUploads, (div) => {
+    return div.getAttribute("data-ward");
+  });
+
+  let dataset = { uploadsNumbers, uploadsLoc };
 
   // Define the functions to manipulate the data.
   function barChartFarmers(dataset, tableID, graph) {
     let table = document.getElementById(tableID),
-      tdElements = table.getElementsByTagName("td");
+      tdElements = table.getElementsByTagName("td"),
+      thElements = table.querySelectorAll("th.uphead");
     // Set td values.
-    dataset.forEach((val, i) => {
+    let numbers = dataset.uploadsNumbers;
+    let wards = dataset.uploadsLoc;
+    numbers.forEach((val, i) => {
       tdElements[i].textContent = val;
     });
+    wards.forEach((val, i) => {
+      thElements[i].textContent = val.substr(0, 5);
+    });
     let above;
-    for (let i = 0; i < dataset.length; i++) {
-      if (dataset[i] > 80) {
+    for (let i = 0; i < numbers.length; i++) {
+      if (numbers[i] > 80) {
         above = true;
         break;
       }
@@ -45,12 +62,12 @@
     if (above) {
       d3.select(graph)
         .selectAll("div")
-        .data(dataset)
+        .data(numbers)
         .style("height", (d) => `${d}px`);
     } else {
       d3.select(graph)
         .selectAll("div")
-        .data(dataset)
+        .data(numbers)
         .style("height", (d) => `${d * 10}px`);
     }
   }
@@ -59,9 +76,13 @@
   function doughnutChartOrders(data) {
     let table = document.getElementById("table-orders"),
       tdElements = table.getElementsByTagName("td");
+
+    // Access the th and set data values.
+    let thElements = table.querySelectorAll("th.orders");
     // Set td values.
     data.forEach((val, i) => {
       tdElements[i].textContent = val.order;
+      thElements[i].textContent = val.name.substr(0, 5);
     });
     // Compute the total number of orders.
     var totalOrder = 0;
@@ -120,5 +141,5 @@
 
   // Call the function at appropriate time.
   doughnutChartOrders(orders);
-  barChartFarmers(uploads, "table-uploads", ".graph-uploads");
+  barChartFarmers(dataset, "table-uploads", ".graph-uploads");
 })();

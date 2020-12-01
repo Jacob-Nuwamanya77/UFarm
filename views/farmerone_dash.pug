@@ -20,10 +20,10 @@ html
                     table.table#table-orders
                         thead
                             tr
-                                th.text-muted.bg-light LC1
-                                th.text-muted.bg-light LC2
-                                th.text-muted.bg-light LC3
-                                th.text-muted.bg-light LC4
+                                th.text-muted.bg-light.orders
+                                th.text-muted.bg-light.orders
+                                th.text-muted.bg-light.orders
+                                th.text-muted.bg-light.orders
                         tbody
                             tr
                                 td.text-muted.text-centered
@@ -33,20 +33,24 @@ html
                     .svg-container
                         svg(width="200" height="200" id="orders")
                     .graph.graph-orders.display-none
-                        .LC1(data-number=`${data.orderTotals.OLC1}`)
-                        .LC2(data-number=`${data.orderTotals.OLC2}`)
-                        .LC3(data-number=`${data.orderTotals.OLC3}`)
-                        .LC4(data-number=`${data.orderTotals.OLC4}`)
+                        .LC1(data-ward=`${data.ordersSorted[0].ward}` 
+                            data-number=`${data.ordersSorted[0].count}`)
+                        .LC2(data-ward=`${data.ordersSorted[1].ward}` 
+                            data-number=`${data.ordersSorted[1].count}`)
+                        .LC3(data-ward=`${data.ordersSorted[2].ward}` 
+                            data-number=`${data.ordersSorted[2].count}`)
+                        .LC4(data-ward=`${data.ordersSorted[3].ward}` 
+                            data-number=`${data.ordersSorted[3].count}`)
                 .stat-card.cards-border.cards-margin
                     .data-title
                         span.text-muted Produce Uploaded
                     table.table#table-uploads
                         thead
                             tr
-                                th.text-muted.bg-light LC1
-                                th.text-muted.bg-light LC2
-                                th.text-muted.bg-light LC3
-                                th.text-muted.bg-light LC4
+                                th.text-muted.bg-light.uphead
+                                th.text-muted.bg-light.uphead
+                                th.text-muted.bg-light.uphead
+                                th.text-muted.bg-light.uphead
                         tbody
                             tr
                                 td.text-muted.text-centered
@@ -54,10 +58,14 @@ html
                                 td.text-muted.text-centered
                                 td.text-muted.text-centered
                     .graph.graph-uploads
-                        .LC1(data-number=`${data.uploadTotals.UPLC1}`)
-                        .LC2(data-number=`${data.uploadTotals.UPLC2}`)
-                        .LC3(data-number=`${data.uploadTotals.UPLC3}`)
-                        .LC4(data-number=`${data.uploadTotals.UPLC4}`)
+                        .LC1(data-ward=`${data.uploadsSorted[0].ward}` 
+                            data-number=`${data.uploadsSorted[0].count}`)
+                        .LC2(data-ward=`${data.uploadsSorted[1].ward}` 
+                            data-number=`${data.uploadsSorted[1].count}`)
+                        .LC3(data-ward=`${data.uploadsSorted[2].ward}` 
+                            data-number=`${data.uploadsSorted[2].count}`)
+                        .LC4(data-ward=`${data.uploadsSorted[3].ward}` 
+                            data-number=`${data.uploadsSorted[3].count}`)
                     .labels.text-muted.text-small
                         span LC1
                         span LC2

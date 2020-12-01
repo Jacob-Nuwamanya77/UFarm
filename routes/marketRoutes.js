@@ -90,6 +90,7 @@ router.post("/order", async (req, res) => {
     req.body.areaFO = UF.areaFO;
     req.body.UF = userName;
     req.body.status = "pending";
+    req.body.ufward = UF.ward;
 
     // Process data and save to db.
     await Order(req.body).save();

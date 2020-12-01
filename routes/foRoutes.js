@@ -31,50 +31,57 @@ router.get("/", async (req, res) => {
       }
 
       // Sort orders placed.
-      let OLC1 = [],
-        OLC2 = [],
-        OLC3 = [],
-        OLC4 = [];
-      let orderTotals;
+      var ordersArr = [];
+      let wards = "";
       if (ordersPlaced.length) {
-        sortData(ordersPlaced, [OLC1, OLC2, OLC3, OLC4]);
-        orderTotals = {
-          OLC1: OLC1.length,
-          OLC2: OLC2.length,
-          OLC3: OLC3.length,
-          OLC4: OLC4.length,
-        };
-      } else {
-        orderTotals = {
-          OLC1: 0,
-          OLC2: 0,
-          OLC3: 0,
-          OLC4: 0,
-        };
+        for (let i = 0; i < ordersPlaced.length; i++) {
+          let incomingWard = ordersPlaced[i].ufward;
+          if (wards.includes(incomingWard)) {
+            // Find the object in ordersArr and increase the count property.
+            for (let j = 0; j < ordersArr.length; j++) {
+              if (ordersArr[j].ward == incomingWard) {
+                ordersArr[j].count++;
+                break;
+              }
+            }
+          } else {
+            ordersArr.push({ ward: incomingWard, count: 1 });
+            wards += incomingWard;
+          }
+        }
       }
+      // Sort Array in order of big to small.
+
+      function compare(a, b) {
+        if (a.count > b.count) return -1;
+        if (a.count < b.count) return 1;
+        return 0;
+      }
+      const ordersSorted = ordersArr.sort(compare);
+
       // Sort uploads.
-      let UPLC1 = [],
-        UPLC2 = [],
-        UPLC3 = [],
-        UPLC4 = [];
-      let uploadTotals;
+      var uploadsArr = [];
+      let uploadWard = "";
       if (productUploads.length) {
-        sortData(productUploads, [UPLC1, UPLC2, UPLC3, UPLC4]);
-        uploadTotals = {
-          UPLC1: UPLC1.length,
-          UPLC2: UPLC2.length,
-          UPLC3: UPLC3.length,
-          UPLC4: UPLC4.length,
-        };
-      } else {
-        uploadTotals = {
-          UPLC1: 0,
-          UPLC2: 0,
-          UPLC3: 0,
-          UPLC4: 0,
-        };
+        for (let i = 0; i < productUploads.length; i++) {
+          let incomingWard = productUploads[i].ward;
+          if (uploadWard.includes(incomingWard)) {
+            // Find the object in uploadsArr and increase the count property.
+            for (let j = 0; j < uploadsArr.length; j++) {
+              if (uploadsArr[j].ward == incomingWard) {
+                uploadsArr[j].count++;
+                break;
+              }
+            }
+          } else {
+            uploadsArr.push({ ward: incomingWard, count: 1 });
+            uploadWard += incomingWard;
+          }
+        }
       }
-      let data = { ufTotals, orderTotals, uploadTotals };
+      // Sort array
+      let uploadsSorted = uploadsArr.sort(compare);
+      let data = { ufTotals, ordersSorted, uploadsSorted };
 
       res.render("farmerone_dash", { data });
     } catch (err) {
