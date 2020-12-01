@@ -11,10 +11,12 @@ html(lang="en")
             .header-container
                 .header-title.c-light UFarm Market
                 .search-container.c-grey
-                    select
-                        option(value="Poultry") Poultry
-                        option(value="Diary") Diary
-                        option(value="Horticulture") Horticulture
+                    .dropdown
+                        button.dropbtn Categories
+                        #product-list.dropdown-content
+                            a(href="/?type=Poultry") Poultry
+                            a(href="/?type=Diary") Diary
+                            a(href="/?type=Horticulture") Horticulture
                     //- .search
                         span.zmdi.zmdi-search
                         input(type="text", name="search" placeholder="Search vendors near you")
