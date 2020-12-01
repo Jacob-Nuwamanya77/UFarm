@@ -7,8 +7,10 @@ const Order = require("../models/order");
 // Routes.
 router.get("/", async (req, res) => {
   try {
+    //Sort data to show selections.
+    let category = req.query.type ? req.query.type : "Poultry";
     // Extract only approved products for displaying.
-    const data = await Product.find({ status: "active" });
+    const data = await Product.find({ status: "active", category });
 
     // Set default page and page size values and directional values for page navigation.
     let requested_page = req.query.page ? parseInt(req.query.page) : 1;

@@ -94,6 +94,15 @@ const validateProduct = () => {
       return false;
     }
   }
+  // Check location field, should not be empty.
+  const locationInput = form.location;
+  let locationRegex = /^[a-zA-Z]+$/;
+  if (!locationRegex.test(locationInput.value)) {
+    insertAfter(errorMessage("Alphabets"), locationInput);
+    alertError(locationInput);
+    locationInput.focus();
+    return false;
+  }
   // Check to ensure file is uploaded.
   let fileField = form.image;
   if (!fileField.value) {
