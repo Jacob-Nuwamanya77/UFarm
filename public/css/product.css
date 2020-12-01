@@ -149,6 +149,7 @@
   margin-top: 10px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 input[type="text"],
 select {
@@ -230,6 +231,7 @@ select:focus {
   justify-content: center;
   align-items: center;
 }
+
 .displayed-pages small {
   float: right;
   padding-right: 35px;

@@ -14,21 +14,38 @@ router.get("/", async (req, res) => {
     let requested_page = req.query.page ? parseInt(req.query.page) : 1;
     let previous_page, next_page;
     let page_size = 8;
+    let last_page = Math.ceil(data.length / page_size);
+
+    // Set iteration end points.
+    let start, end;
+
     if (!req.query.page) {
-      next_page = requested_page + 1;
+      next_page = requested_page == last_page ? last_page : requested_page + 1;
       previous_page = requested_page;
+      start = (requested_page - 1) * page_size;
+      end = data.length < start + page_size ? data.length : start + page_size;
     } else {
       if (req.query.next) {
-        next_page = requested_page + 1;
+        next_page =
+          requested_page == last_page ? last_page : requested_page + 1;
         previous_page = requested_page - 1;
+        start = (requested_page - 1) * page_size;
+        end = data.length < start + page_size ? data.length : start + page_size;
       } else if (req.query.prev) {
         next_page = requested_page + 1;
         previous_page = requested_page - 1 <= 0 ? 1 : requested_page - 1;
+        start = (requested_page - 1) * page_size;
+        end = data.length < start + page_size ? data.length : start + page_size;
       }
     }
 
-    let limits = { next_page, previous_page };
-    res.render("product", { listings: data, limits });
+    // Sort data to be passed into using the new end points.
+    const sortedData = [];
+    for (let i = start; i < end; i++) {
+      sortedData.push(data[i]);
+    }
+    let limits = { next_page, previous_page, last_page, requested_page };
+    res.render("product", { listings: sortedData, limits });
   } catch (err) {
     console.log({ message: err });
     res.send("Something went wrong with request.");

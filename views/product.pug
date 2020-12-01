@@ -15,7 +15,7 @@ html(lang="en")
                         option(value="Poultry") Poultry
                         option(value="Diary") Diary
                         option(value="Horticulture") Horticulture
-                    .search
+                    //- .search
                         span.zmdi.zmdi-search
                         input(type="text", name="search" placeholder="Search vendors near you")
                     div.displayed-pages
@@ -24,7 +24,7 @@ html(lang="en")
                                 a(href=`/?page=${limits.previous_page}&prev=true`) Prev
                             .next.scroll-btn
                                 a(href=`/?page=${limits.next_page}&next=true`) Next
-                        small Showing page 1 of 3
+                        small Showing page #{`${limits.requested_page}`} of #{limits.last_page}
             .groups-container
                 if listings.length
                     each produce in listings
