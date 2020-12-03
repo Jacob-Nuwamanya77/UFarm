@@ -10,17 +10,21 @@ const Order = require("../models/order");
 router.get("/", async (req, res) => {
   if (req.session.user) {
     try {
+      const fo = await FarmerOne.findOne({
+        username: req.session.user.username,
+      });
+      const farmeroneLC = fo.LC;
       // Access all orders placed to farmers from FO region.
       const ordersPlaced = await Order.find({
-        areaFO: req.session.user.username,
+        LC: farmeroneLC,
       });
       // Access all urban farmers in FO region.
       const urbanFarmers = await UrbanFarmer.find({
-        areaFO: req.session.user.username,
+        LC: farmeroneLC,
       });
       // Access all product uploads in FO region.
       const productUploads = await Products.find({
-        areaFO: req.session.user.username,
+        LC: farmeroneLC,
       });
 
       let ufTotals;
@@ -102,9 +106,13 @@ router.get("/register", (req, res) => {
 
 router.get("/approval", async (req, res) => {
   if (req.session.user) {
+    const fo = await FarmerOne.findOne({
+      username: req.session.user.username,
+    });
+    const farmeroneLC = fo.LC;
     const products = await Products.find({
       status: "pending",
-      areaFO: req.session.user.username,
+      LC: farmeroneLC,
     });
     res.render("pending_approval", { products });
   } else {
@@ -160,18 +168,3 @@ router.post("/register", async (req, res) => {
 });
 
 module.exports = router;
-
-// Helper functions - Sort the data into Arrays
-function sortData(source, options) {
-  source.forEach((element) => {
-    if (element.LC == "1") {
-      options[0].push(element);
-    } else if (element.LC == "2") {
-      options[1].push(element);
-    } else if (element.LC == "3") {
-      options[2].push(element);
-    } else if (element.LC == "4") {
-      options[3].push(element);
-    }
-  });
-}

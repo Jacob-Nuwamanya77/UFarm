@@ -112,6 +112,13 @@ router.post("/register", async (req, res) => {
       req.body.status = "active";
       req.body.areaAO = req.session.user.username;
 
+      const formerFO = await FarmerOne.findOne({ LC: req.body.LC });
+      if (formerFO) {
+        await FarmerOne.findOneAndUpdate(
+          { LC: req.body.LC },
+          { status: "inactive" }
+        );
+      }
       // Create document and save.
       let farmeroneData = FarmerOne(req.body);
       let loginData = User(req.body);
@@ -137,7 +144,7 @@ router.post("/register", async (req, res) => {
 router.get("/farmerones", async (req, res) => {
   if (req.session.user) {
     try {
-      let data = await FarmerOne.find();
+      let data = await FarmerOne.find({ status: "active" });
       res.render("farmeronedata", { farmers: data });
     } catch (err) {
       console.log({ message: err });

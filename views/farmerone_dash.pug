@@ -32,15 +32,27 @@ html
                                 td.text-muted.text-centered
                     .svg-container
                         svg(width="200" height="200" id="orders")
-                    //- .graph.graph-orders.display-none
-                        .LC1(data-ward=`${data.ordersSorted[0].ward}` 
-                            data-number=`${data.ordersSorted[0].count}`)
-                        .LC2(data-ward=`${data.ordersSorted[1].ward}` 
-                            data-number=`${data.ordersSorted[1].count}`)
-                        .LC3(data-ward=`${data.ordersSorted[2].ward}` 
-                            data-number=`${data.ordersSorted[2].count}`)
-                        .LC4(data-ward=`${data.ordersSorted[3].ward}` 
-                            data-number=`${data.ordersSorted[3].count}`)
+                    .graph.graph-orders.display-none
+                        if (data.ordersSorted[0])
+                            .LC1(data-ward=`${data.ordersSorted[0].ward}` 
+                                data-number=`${data.ordersSorted[0].count}`)
+                        else
+                            .LC1(data-ward='LC1' data-number='0')
+                        if(data.ordersSorted[1])
+                            .LC2(data-ward=`${data.ordersSorted[1].ward}` 
+                                data-number=`${data.ordersSorted[1].count}`)
+                        else
+                            .LC2(data-ward="LC2" data-number="0")
+                        if(data.ordersSorted[2])
+                            .LC3(data-ward=`${data.ordersSorted[2].ward}` 
+                                data-number=`${data.ordersSorted[2].count}`)
+                        else
+                            .LC3(data-ward="LC3" data-number="0")
+                        if(data.ordersSorted[3])
+                            .LC4(data-ward=`${data.ordersSorted[3].ward}` 
+                                data-number=`${data.ordersSorted[3].count}`)
+                        else
+                            .LC4(data-ward="LC4" data-number="0")
                 .stat-card.cards-border.cards-margin
                     .data-title
                         span.text-muted Produce Uploaded
@@ -57,15 +69,27 @@ html
                                 td.text-muted.text-centered
                                 td.text-muted.text-centered
                                 td.text-muted.text-centered
-                    //- .graph.graph-uploads
-                        .LC1(data-ward=`${data.uploadsSorted[0].ward}` 
-                            data-number=`${data.uploadsSorted[0].count}`)
-                        .LC2(data-ward=`${data.uploadsSorted[1].ward}` 
-                            data-number=`${data.uploadsSorted[1].count}`)
-                        .LC3(data-ward=`${data.uploadsSorted[2].ward}` 
-                            data-number=`${data.uploadsSorted[2].count}`)
-                        .LC4(data-ward=`${data.uploadsSorted[3].ward}` 
-                            data-number=`${data.uploadsSorted[3].count}`)
+                    .graph.graph-uploads
+                        if(data.uploadsSorted[0])
+                            .LC1(data-ward=`${data.uploadsSorted[0].ward}` 
+                                data-number=`${data.uploadsSorted[0].count}`)
+                        else
+                            .LC1(data-ward="LC1" data-number="0")
+                        if(data.uploadsSorted[1])
+                            .LC2(data-ward=`${data.uploadsSorted[1].ward}` 
+                                data-number=`${data.uploadsSorted[1].count}`)
+                        else
+                            .LC2(data-ward="LC2" data-number="0")
+                        if(data.uploadsSorted[2])
+                            .LC3(data-ward=`${data.uploadsSorted[2].ward}` 
+                                data-number=`${data.uploadsSorted[2].count}`)
+                        else
+                            .LC3(data-ward="LC3" data-number="0")
+                        if(data.uploadsSorted[3])
+                            .LC4(data-ward=`${data.uploadsSorted[3].ward}` 
+                                data-number=`${data.uploadsSorted[3].count}`)
+                        else
+                            .LC4(data-ward="LC4" data-number="0")
                     .labels.text-muted.text-small
                         span LC1
                         span LC2
