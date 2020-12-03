@@ -23,9 +23,9 @@ html(lang="en")
                     div.displayed-pages
                         .scroll-page
                             .prev.scroll-btn
-                                a(href=`/?page=${limits.previous_page}&prev=true`) Prev
+                                a(href=`/?type=${category}&page=${limits.previous_page}&prev=true`) Prev
                             .next.scroll-btn
-                                a(href=`/?page=${limits.next_page}&next=true`) Next
+                                a(href=`/?type=${category}&page=${limits.next_page}&next=true`) Next
                         small Showing page #{`${limits.requested_page}`} of #{limits.last_page}
             .groups-container
                 if listings.length

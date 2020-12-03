@@ -47,7 +47,7 @@ router.get("/", async (req, res) => {
       sortedData.push(data[i]);
     }
     let limits = { next_page, previous_page, last_page, requested_page };
-    res.render("product", { listings: sortedData, limits });
+    res.render("product", { listings: sortedData, limits, category });
   } catch (err) {
     console.log({ message: err });
     res.send("Something went wrong with request.");

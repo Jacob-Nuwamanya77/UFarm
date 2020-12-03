@@ -96,7 +96,7 @@ const validateProduct = () => {
   }
   // Check location field, should not be empty.
   const locationInput = form.location;
-  let locationRegex = /^[a-zA-Z]+$/;
+  let locationRegex = /^[a-zA-Z ]+$/;
   if (!locationRegex.test(locationInput.value)) {
     insertAfter(errorMessage("Alphabets"), locationInput);
     alertError(locationInput);
