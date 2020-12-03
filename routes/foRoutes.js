@@ -147,8 +147,8 @@ router.post("/register", async (req, res) => {
       req.body.areaFO = req.session.user.username;
 
       // Create document and save.
-      let urbanfarmerData = UrbanFarmer(req.body);
-      let loginData = User(req.body);
+      let urbanfarmerData = await UrbanFarmer(req.body);
+      let loginData = await User(req.body);
       urbanfarmerData.save();
       await User.register(loginData, req.body.password, (err) => {
         if (err) {

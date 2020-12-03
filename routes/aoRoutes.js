@@ -120,8 +120,8 @@ router.post("/register", async (req, res) => {
         );
       }
       // Create document and save.
-      let farmeroneData = FarmerOne(req.body);
-      let loginData = User(req.body);
+      let farmeroneData = await FarmerOne(req.body);
+      let loginData = await User(req.body);
       farmeroneData.save();
       await User.register(loginData, req.body.password, (err) => {
         if (err) {
