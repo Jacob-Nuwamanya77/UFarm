@@ -1,5 +1,8 @@
 # UFarm
 
-UFarm is a full stack javascript project aimed at creating an online fresh produce market place. An E-commerce platform that buyers can use to place orders 
-from vendors with capacity to filter vendors by location to ease on the associated costs of trade such as transport.
+There are four types of users to this project. The Agricultural officer (to be considered as the super admin), the farmerone, the urban famer and finally the users.
+Only the farmers need to be registered (accounts created)
 
+The farmerones are the equivalent of department heads, the agricultural officer registers the farmerones and they in turn register the urban farmers.
+
+Only registered urban farmers can upload products to be displayed in the market place.
